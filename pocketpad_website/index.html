@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pocket">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PocketPad — Download PC companion</title>
+    <meta
+      name="description"
+      content="PocketPad: universal phone controller. Download the Windows PC companion, gamepad or keyboard and mouse over Wi-Fi."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+
+    <header class="container page-header">
+      <nav class="top-nav" aria-label="Main">
+        <a class="brand" href="./index.html">
+          <img
+            class="brand-logo"
+            src="./assets/icons/gamepad_1.png"
+            width="36"
+            height="36"
+            alt=""
+            decoding="async"
+          />
+          <span class="brand-text">PocketPad</span>
+        </a>
+        <div class="nav-primary">
+          <a
+            class="nav-pill nav-pill--active"
+            href="./index.html"
+            aria-current="page"
+            >Download</a
+          >
+          <a class="nav-pill" href="./info.html">Info</a>
+        </div>
+        <div class="nav-actions">
+          <button type="button" class="theme-btn" id="themeBtn">
+            Theme
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container main-landing">
+      <section class="hero-mega" aria-label="PocketPad">
+        <img
+          class="hero-mega__icon"
+          src="./assets/icons/gamepad_1.png"
+          width="128"
+          height="128"
+          alt=""
+          decoding="async"
+        />
+        <h1 class="hero-mega__title">PocketPad</h1>
+        <p class="hero-mega__blurb">
+          A <strong>Universal controller</strong> on your phone — emulate a
+          <strong>gamepad</strong> or <strong>control your PC</strong> from your
+          handheld. Built for phones and tablets.
+        </p>
+        <ul class="chip-row" aria-label="At a glance">
+          <li class="chip">Gamepad layouts</li>
+          <li class="chip">Keyboard &amp; mouse</li>
+          <li class="chip">PC dashboard</li>
+        </ul>
+      </section>
+
+      <section class="section-tight" aria-labelledby="companion-heading">
+        <h2 id="companion-heading" class="h-section">PC companion + dashboard</h2>
+        <div class="media-split">
+          <div class="media-split__text">
+            <p class="p-tight">
+              The Windows <strong>installer</strong> sets up the companion
+              service and a desktop <strong>dashboard</strong> so you can
+              connect from the app and (for keyboard &amp; mouse) pair securely.
+            </p>
+            <p class="p-tight muted">Replace the image on the right with your dashboard screenshot.</p>
+          </div>
+          <figure class="media-split__fig">
+            <div
+              class="media-placeholder media-placeholder--wide"
+              role="img"
+              aria-label="Placeholder: PC dashboard screenshot"
+            >
+              <span>PC dashboard image</span>
+            </div>
+            <figcaption class="media-cap">PocketPad companion (Windows)</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section-tight" aria-labelledby="dl-heading">
+        <h2 id="dl-heading" class="h-section">Installers</h2>
+        <ul class="download-list">
+          <li>
+            <a class="download-row" href="#">
+              <span class="download-row__icon" aria-hidden="true">
+                <svg
+                  class="os-logo os-logo--windows"
+                  viewBox="0 0 32 32"
+                  width="32"
+                  height="32"
+                  focusable="false"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M2 4.3 14.1 2.3v12.1H2V4.3zm0 15.1h12.1V31.2L2 29.1V19.4zm15.1-17.1L30 0v12.1H17.1V2.3zm0 16.1H30V32l-12.9-2.1V18.4z"
+                  />
+                </svg>
+              </span>
+              <span class="download-row__body">
+                <span class="download-row__title">Windows (installer)</span>
+                <span class="download-row__desc"
+                  >.exe for Windows 10/11 (x64). Installs the companion and
+                  dashboard.</span
+                >
+              </span>
+              <span class="download-row__cta">Get</span>
+            </a>
+          </li>
+          <li>
+            <div class="download-row download-row--soon" role="status">
+              <span class="download-row__icon" aria-hidden="true">
+                <span class="os-logo os-logo--placeholder" title="More platforms"
+                  >+</span
+                >
+              </span>
+              <span class="download-row__body">
+                <span class="download-row__title">Linux &amp; more</span>
+                <span class="download-row__desc"
+                  >Space reserved for more installers (coming later).</span
+                >
+              </span>
+              <span class="download-row__badge">Soon</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section-tight" aria-labelledby="layout-strip-heading">
+        <h2 id="layout-strip-heading" class="h-section">Layout presets</h2>
+        <p class="p-tight muted">Swap placeholders for in-app screenshots. Auto-scrolls; pauses with reduced motion.</p>
+        <div
+          class="gallery"
+          role="region"
+          aria-label="Layout screenshots, auto-scrolling"
+        >
+          <div class="gallery-viewport">
+            <div class="gallery-track">
+              <div class="gallery-slide" data-placeholder>Layout 1</div>
+              <div class="gallery-slide" data-placeholder>Layout 2</div>
+              <div class="gallery-slide" data-placeholder>Layout 3</div>
+              <div class="gallery-slide" data-placeholder>Layout 4</div>
+              <div class="gallery-slide" data-placeholder aria-hidden="true">Layout 1</div>
+              <div class="gallery-slide" data-placeholder aria-hidden="true">Layout 2</div>
+              <div class="gallery-slide" data-placeholder aria-hidden="true">Layout 3</div>
+              <div class="gallery-slide" data-placeholder aria-hidden="true">Layout 4</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight" aria-labelledby="after-heading">
+        <h2 id="after-heading" class="h-section">After you install</h2>
+        <ol class="short-steps">
+          <li>Run the <strong>installer</strong> (not a separate script).</li>
+          <li>
+            If SmartScreen says <strong>unsigned</strong>:
+            <strong>More info</strong> → <strong>Run anyway</strong>.
+          </li>
+          <li>Firewall: allow on <strong>private</strong> networks so your phone can reach the PC.</li>
+          <li>Then open <strong>PocketPad</strong> on your phone, same Wi‑Fi, and connect.</li>
+        </ol>
+        <p class="muted tiny">
+          <a href="./info.html">Deeper feature list →</a>
+        </p>
+      </section>
+
+      <section class="section-block" aria-labelledby="features-here">
+        <h2 id="features-here" class="h-section">Features</h2>
+        <p class="p-tight muted small">Add your own screenshots in each slot (right or below on small screens).</p>
+
+        <article class="feature-split">
+          <div class="feature-split__copy">
+            <h3 class="feature-split__h">Gamepad &amp; layouts</h3>
+            <p>Virtual Xbox-style controls, many presets, custom layouts, tilt where supported, and low-latency input over the LAN.</p>
+          </div>
+          <div
+            class="media-placeholder"
+            role="img"
+            aria-label="Placeholder: gamepad or layout"
+          >App image</div>
+        </article>
+
+        <article class="feature-split feature-split--reverse">
+          <div class="feature-split__copy">
+            <h3 class="feature-split__h">Universal controller (keyboard &amp; mouse)</h3>
+            <p>WASD, touchpad for the cursor, click buttons, optional fullscreen + type, and a 6-digit code from the PC for secure keyboard/mouse sessions.</p>
+          </div>
+          <div
+            class="media-placeholder"
+            role="img"
+            aria-label="Placeholder: universal layout"
+          >App image</div>
+        </article>
+
+        <article class="feature-split">
+          <div class="feature-split__copy">
+            <h3 class="feature-split__h">Connect</h3>
+            <p>Auto-discover your PC, or set host/port in settings; pairing-friendly errors when something is off.</p>
+          </div>
+          <div
+            class="media-placeholder"
+            role="img"
+            aria-label="Placeholder: connect or discover screen"
+          >App image</div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p class="footer-line">
+        <a href="./index.html" aria-current="page">Download</a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a href="./info.html">Info</a>
+      </p>
+    </footer>
+
+    <script src="./site.js" defer></script>
+  </body>
+</html>
