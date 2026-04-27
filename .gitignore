@@ -1,3 +1,6 @@
+# This repo is the static site + workflow; keep the Flutter app local only.
+game_controller/
+
 # Flutter / Dart
 .dart_tool/
 **/build/
