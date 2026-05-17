@@ -1,6 +1,6 @@
-# Build & deploy the static site in /pocketpad_website to GitHub Pages.
+# Build & deploy the static Datron developer hub (/pocketpad_website) to GitHub Pages.
 # In the repo: Settings → Pages → Build and deployment → Source: GitHub Actions.
-name: Deploy PocketPad site to GitHub Pages
+name: Deploy Datron site to GitHub Pages
 
 on:
   push:

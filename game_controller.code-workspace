@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "name": "PocketPad (Flutter)",
+      "path": "game_controller"
+    }
+  ],
+  "settings": {
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "dart.flutterSdkPath": "C:\\SDKs\\flutter"
+  }
+}

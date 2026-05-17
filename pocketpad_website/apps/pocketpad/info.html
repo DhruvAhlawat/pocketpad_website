@@ -14,37 +14,31 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body>
     <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
 
-    <header class="container page-header">
-      <nav class="top-nav" aria-label="Main">
-        <a class="brand" href="./index.html">
-          <img
-            class="brand-logo"
-            src="./assets/icons/gamepad_1.png"
-            width="36"
-            height="36"
-            alt=""
-            decoding="async"
-          />
-          <span class="brand-text">PocketPad</span>
-        </a>
-        <div class="nav-primary">
-          <a class="nav-pill" href="./index.html">Home</a>
+    <div class="container pocket-top">
+      <div class="pocket-top__row">
+        <a class="pocket-back" href="../../index.html">← Datron</a>
+        <nav class="pocket-mini-nav" aria-label="PocketPad">
+          <span class="pocket-mini-brand">
+            <img src="../../assets/icons/gamepad_1.png" width="34" height="34" alt="" decoding="async" />
+            PocketPad
+          </span>
+          <a class="nav-pill" href="./index.html">Overview</a>
           <a class="nav-pill nav-pill--active" href="./info.html" aria-current="page">Details</a>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </div>
+    </div>
 
     <main class="container main-wide">
       <section class="info-intro">
         <img
           class="info-intro__icon"
-          src="./assets/icons/gamepad_1.png"
+          src="../../assets/icons/gamepad_1.png"
           width="80"
           height="80"
           alt=""
@@ -78,9 +72,9 @@
             Companion auto-runs LAN listeners optimized for multiplayer — multiple phones negotiating independent sessions concurrently.
           </li>
           <li>
-            <strong>Microsoft Store rollout:</strong> the marketing site reserves a badge for linking “PocketPad Companion” directly to the storefront once approved.
+            <strong>Microsoft Store rollout:</strong> the Datron hub reserves a badge for linking “PocketPad Companion” directly to the storefront once approved.
           </li>
-          <li>Until then, portable builds live under <code>downloads/</code> on this Pages site mirroring releases from GitHub.</li>
+          <li>Until then, portable builds live in this site’s <code>downloads/</code> folder (linked from PocketPad).</li>
         </ul>
       </section>
 
@@ -103,13 +97,15 @@
       </section>
 
       <p>
-        <a href="./index.html" class="btn btn-primary">Back to downloads →</a>
+        <a href="./index.html" class="btn btn-primary">Back to PocketPad downloads →</a>
       </p>
     </main>
 
     <footer class="container footer">
       <p class="footer-line">
-        <a href="./index.html">Home</a>
+        <a href="../../index.html">← Datron</a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a href="./index.html">Overview</a>
         <span class="footer-sep" aria-hidden="true">·</span>
         <a href="./info.html" aria-current="page">Details</a>
       </p>

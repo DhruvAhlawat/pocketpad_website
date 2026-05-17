@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PocketPad — Universal phone controller (Bluetooth &amp; Wi‑Fi)</title>
+    <title>Datron — Developer</title>
     <meta
       name="description"
-      content="PocketPad turns your Android phone into a gamepad, keyboard &amp; mouse, media remote, and slideshow controller — Bluetooth HID without a PC install, or Wi‑Fi with the Windows companion."
+      content="Datron builds PocketPad and more — fun apps and tools made with care."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,202 +16,73 @@
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
+  <body id="top">
     <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
 
-    <header class="container page-header">
-      <nav class="top-nav" aria-label="Main">
-        <a class="brand" href="./index.html">
-          <img
-            class="brand-logo"
-            src="./assets/icons/gamepad_1.png"
-            width="36"
-            height="36"
-            alt=""
-            decoding="async"
-          />
-          <span class="brand-text">PocketPad</span>
-        </a>
-        <div class="nav-primary">
-          <a class="nav-pill nav-pill--active" href="./index.html" aria-current="page">Home</a>
-          <a class="nav-pill" href="./info.html">Details</a>
-        </div>
-      </nav>
+    <header class="container site-header">
+      <div class="nav-row">
+        <a class="brand-datron" href="./index.html" aria-current="page">Datron</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a class="nav-link" href="#top">Home</a>
+          <details class="nav-apps">
+            <summary class="nav-apps__summary">Apps</summary>
+            <div class="nav-apps__panel" role="menu">
+              <a href="#apps" role="menuitem">All apps overview</a>
+              <a href="./apps/pocketpad/" role="menuitem">PocketPad — phone controller</a>
+              <!-- Future: another app -->
+            </div>
+          </details>
+        </nav>
+      </div>
     </header>
 
-    <main class="container main-landing">
-      <section class="hero-mega" aria-label="Introduction">
-        <img
-          class="hero-mega__icon"
-          src="./assets/icons/gamepad_1.png"
-          width="160"
-          height="160"
-          alt=""
-          decoding="async"
-        />
-        <h1 class="hero-mega__title">PocketPad</h1>
-        <p class="hero-mega__blurb">
-          Turn your phone into a <strong>low-latency controller</strong> for PC, Mac,
-          Android, or TV — <strong>Bluetooth HID</strong> with zero host install, plus an
-          optional <strong>PocketPad Companion</strong> on Windows when you want
-          auto-discovery and the tightest Wi‑Fi path for multiplayer.
-        </p>
-        <ul class="chip-row" aria-label="Highlights">
-          <li class="chip">Bluetooth HID</li>
-          <li class="chip">Wi‑Fi companion</li>
-          <li class="chip">Gamepad + keyboard/mouse</li>
-          <li class="chip">Media &amp; slideshow</li>
-          <li class="chip">Layouts &amp; profiles</li>
-        </ul>
-      </section>
-
-      <section class="section-tight">
-        <h2 class="h-section">Why PocketPad</h2>
-        <p class="lead-strong">
-          <strong>Low-latency, all-in-one control.</strong> Stay in one app whether you’re
-          playing with a layout, steering a slideshow, navigating a smart TV UI, or
-          driving WASD plus a desktop pointer — with Bluetooth for instant pairing and
-          Companion-grade networking when speed and multiple phones matter.
+    <main class="container">
+      <section class="datron-hero" aria-labelledby="datron-intro">
+        <h1 id="datron-intro" class="datron-hero__name">Datron</h1>
+        <p class="datron-hero__tagline">
+          <em>Just a developer who loves building fun apps.</em><br />
+          Here you’ll find the things I ship — playful tools that feel good to use — with room to grow as new ideas land.
         </p>
       </section>
 
-      <section class="section-block" aria-labelledby="features-heading">
-        <h2 id="features-heading" class="h-section">What you get</h2>
-        <ul class="feature-grid">
-          <li class="feature-card">
-            <h3>Instant Bluetooth connectivity</h3>
-            <p>
-              Pair the phone over Bluetooth HID—no Companion or drivers on hosts that support
-              the profile. Tap “Prepare for pairing” in the app, then bind from PC, Mac,
-              Android, or TV.
-            </p>
-          </li>
-          <li class="feature-card">
-            <h3>Very low latency</h3>
-            <p>
-              Input paths stay tight on Bluetooth HID and tuned over LAN when you bridge
-              through PocketPad Companion for Wi‑Fi.
-            </p>
-          </li>
-          <li class="feature-card">
-            <h3>Works across desktops &amp; living rooms</h3>
-            <p>
-              The same presets cover keyboard &amp; mouse for PC workloads, multimedia keys
-              and TV-focused remotes, and full Xbox-style layouts for couch gaming.
-            </p>
-          </li>
-          <li class="feature-card">
-            <h3>All modes in one app</h3>
-            <p>
-              Gamepad emulation, WASD clusters, oversized touchpads, media transport keys,
-              and presentation-friendly macros — switch presets instead of grabbing another remote.
-            </p>
-          </li>
-          <li class="feature-card">
-            <h3>Full configurability</h3>
-            <p>
-              Custom layouts with drag-and-edit controls, profile copies, joystick behavior,
-              steering curves, UDP pairings — tune everything to fit your rigs.
-            </p>
-          </li>
-          <li class="feature-card">
-            <h3>Built for multiplayer</h3>
-            <p>
-              Multiple phones can connect together for LAN party sessions — especially crisp
-              over Wi‑Fi with Companion juggling devices on your network.
-            </p>
-          </li>
-          <li class="feature-card">
-            <h3>Windows Companion + Wi‑Fi</h3>
-            <p>
-              Install PocketPad Companion for discovery, KM pairing codes, dashboards, and
-              extremely responsive multi-phone traffic. Bluetooth HID on Windows stays available
-              if you prefer pairing only.
-            </p>
-          </li>
-        </ul>
-      </section>
+      <section id="apps" class="apps-section section-block" aria-labelledby="apps-heading">
+        <h2 id="apps-heading" class="h-section">Apps</h2>
+        <p class="apps-intro">
+          Each project gets its own page with downloads, screenshots, and notes. PocketPad was the first; more will fan out below as zig-zagging rows once you ship more than one app.
+        </p>
 
-      <section class="section-tight">
-        <h2 class="h-section">Get PocketPad Companion</h2>
-        <div class="store-card">
-          <h2>Microsoft Store (coming soon)</h2>
-          <p>
-            <strong>PocketPad Companion</strong> will ship on the Microsoft Store for the smoothest installs
-            and updates. Until the listing is live, grab the downloadable build below—the same binaries
-            the Store build will bundle.
-          </p>
-          <p class="muted small">
-            When you publish the listing, drop the Store URL beside this badge on GitHub—the site copy is primed for it.
-          </p>
-          <div class="store-badge" aria-label="Pending Microsoft Store listing">
-            Microsoft Store listing — URL TBD (PocketPad Companion)
+        <article class="app-row">
+          <div class="app-row__visual">
+            <img
+              src="./assets/icons/gamepad_1.png"
+              alt="PocketPad app icon"
+              width="120"
+              height="120"
+              decoding="async"
+            />
           </div>
-        </div>
-      </section>
+          <div class="app-row__body">
+            <h2>PocketPad</h2>
+            <p>
+              Turn your Android phone into a low-latency gamepad, keyboard &amp; mouse, media remote, and slideshow pad — over
+              <strong>Bluetooth HID</strong> or <strong>Wi‑Fi</strong> with the Windows companion. Companion download and setup live on its page.
+            </p>
+            <div class="app-row__actions">
+              <a class="btn btn-primary" href="./apps/pocketpad/">Go to page</a>
+            </div>
+          </div>
+        </article>
 
-      <section class="section-tight" aria-labelledby="downloads-heading">
-        <h2 id="downloads-heading" class="h-section">Download (Windows companion)</h2>
-        <p class="p-tight">
-          Portable release zip: extract anywhere, launch <strong>pc_companion_ui.exe</strong>, allow firewall access on
-          <strong>private</strong> networks, then connect from PocketPad over Wi‑Fi.
-        </p>
-        <ul class="download-list">
-          <li>
-            <a
-              class="download-row"
-              href="./downloads/PocketPadCompanion-Windows-1.1.0-x64.zip"
-              download="PocketPadCompanion-Windows-1.1.0-x64.zip"
-            >
-              <span class="download-row__icon" aria-hidden="true">
-                <svg class="os-logo--windows" viewBox="0 0 32 32" width="32" height="32">
-                  <path
-                    fill="currentColor"
-                    d="M2 4.3 14.1 2.3v12.1H2V4.3zm0 15.1h12.1V31.2L2 29.1V19.4zm15.1-17.1L30 0v12.1H17.1V2.3zm0 16.1H30V32l-12.9-2.1V18.4z"
-                  />
-                </svg>
-              </span>
-              <span class="download-row__body">
-                <span class="download-row__title">Portable zip · v1.1.0 (x64)</span>
-                <span class="download-row__desc"
-                  >Windows 10 / 11. Includes Companion UI + PocketPad LAN services. Requires ViGEmBus for native gamepad emulation as documented in the companion README.</span
-                >
-              </span>
-              <span class="download-row__cta">Download</span>
-            </a>
-          </li>
-        </ul>
-        <p class="muted tiny">
-          Older single-file installers are retired — the portable zip mirrors our latest Flutter Companion build hosted in-repo.
-          <br />
-          <a href="./downloads/README.txt">Checksum &amp; unpacking notes →</a>
-        </p>
-      </section>
-
-      <section class="section-block" aria-labelledby="after-heading">
-        <h2 id="after-heading" class="h-section">Quick start on Windows</h2>
-        <ol class="short-steps">
-          <li>Unpack the ZIP, run <strong>pc_companion_ui.exe</strong>, and approve SmartScreen/network prompts.</li>
-          <li>Open PocketPad on your phone (same LAN), tap <strong>Connect</strong>.</li>
-          <li>For Universal keyboard/mouse, enter the 6-digit code shown inside Companion Settings.</li>
-          <li>Prefer Bluetooth? Switch transport in-app, prepare pairing once, bind from Windows Bluetooth settings.</li>
-        </ol>
-        <p class="muted small" style="margin-top: 12px;">
-          Want the deep dive?<a href="./info.html">&nbsp;Read the Details page →</a>
-        </p>
+        <!-- Example for the next shipping app (icon flips right):
+        <article class="app-row app-row--reverse"> … </article>
+        -->
       </section>
     </main>
 
     <footer class="container footer">
-      <p class="footer-line">
-        <a href="./index.html" aria-current="page">Home</a>
-        <span class="footer-sep" aria-hidden="true">·</span>
-        <a href="./info.html">Details</a>
-      </p>
-      <p class="footer-line muted tiny" style="margin-top: 8px;">
-        PocketPad Companion is open-source in this repo; Android app APK follows your Play storefront workflow separately.
-      </p>
+      <p class="footer-line">Datron · side projects shipped with curiosity</p>
+      <p class="site-footer-muted">Hosting note: GitHub Pages — point your developer domain here when ready.</p>
     </footer>
   </body>
 </html>
