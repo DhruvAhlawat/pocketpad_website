@@ -1,25 +1,22 @@
 /*
- * Datron developer site (+ PocketPad subsection)
- * Dark chrome + silver highlights
+ * Datron hub + PocketPad — PocketPad-aligned greens (#1CD760 accent, dark jungle base).
  */
 :root {
-  --bg: #08080c;
-  --bg-radial: #12121a;
-  --surface: #0e0e14;
-  --card: #12121a;
-  --text: #e9eaee;
-  --muted: #8c92a3;
-  --stroke: #2e3140;
-  --silver: #d4d9e8;
-  --silver-mid: #9aa3b8;
-  --silver-dim: #6b7588;
-  --btn-fg: #0c0c10;
-  --link: #b8c0d6;
-  --code-fg: #c9cedd;
-  --accent: var(--silver);
-  --accent-dim: var(--silver-mid);
-  --glow-a: rgba(180, 195, 220, 0.12);
-  --glow-b: rgba(120, 130, 160, 0.08);
+  --bg: #05140c;
+  --bg-radial: #0a2414;
+  --surface: #0c1a12;
+  --card: #0c1a12;
+  --text: #e8f0e9;
+  --muted: #8aa896;
+  --stroke: #153822;
+  --accent: #1cd760;
+  --accent-dim: #12a64a;
+  --accent-soft: #7be899;
+  --btn-fg: #031208;
+  --link: #7dd69a;
+  --code-fg: #9dd9b0;
+  --glow-a: rgba(28, 90, 55, 0.28);
+  --glow-b: rgba(28, 215, 96, 0.09);
 }
 
 * {
@@ -32,9 +29,9 @@ body {
   padding: 0;
   font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   background: radial-gradient(
-      ellipse 120% 80% at 15% 0%,
+      ellipse 120% 82% at 14% 0%,
       var(--bg-radial) 0%,
-      var(--bg) 55%
+      var(--bg) 54%
     )
     fixed;
   color: var(--text);
@@ -45,6 +42,16 @@ body {
   position: relative;
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+/* PocketPad subsection: same palette, classic circular hero glow as in-product. */
+body.page-pocketpad {
+  background: radial-gradient(
+      circle at 18% 8%,
+      var(--bg-radial) 0%,
+      var(--bg) 52%
+    )
+    fixed;
 }
 
 .bg-glow {
@@ -81,7 +88,7 @@ body {
   padding: 12px 0 18px;
   border-bottom: 1px solid var(--stroke);
   margin-bottom: 8px;
-  background: linear-gradient(to bottom, rgba(14, 14, 20, 0.92), transparent);
+  background: linear-gradient(to bottom, rgba(11, 25, 16, 0.94), transparent);
 }
 
 .nav-row {
@@ -97,8 +104,7 @@ body {
   font-weight: 800;
   letter-spacing: -0.02em;
   text-decoration: none;
-  color: var(--text);
-  background: linear-gradient(120deg, var(--silver) 0%, var(--text) 45%, var(--silver-mid) 100%);
+  background: linear-gradient(120deg, var(--accent) 0%, var(--text) 48%, var(--accent-soft) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -169,7 +175,7 @@ body {
 
 .nav-apps[open] .nav-apps__summary {
   color: var(--text);
-  border-color: var(--silver-dim);
+  border-color: var(--accent-dim);
 }
 
 .nav-apps__panel {
@@ -180,7 +186,7 @@ body {
   padding: 6px;
   border-radius: 12px;
   border: 1px solid var(--stroke);
-  background: rgba(15, 15, 22, 0.98);
+  background: rgba(5, 12, 8, 0.98);
   backdrop-filter: blur(8px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
   z-index: 20;
@@ -222,7 +228,7 @@ body {
   font-size: clamp(2rem, 6vw, 2.85rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  background: linear-gradient(125deg, var(--silver), var(--text) 52%, var(--silver-mid));
+  background: linear-gradient(125deg, var(--accent) 0%, var(--text) 48%, var(--accent-soft) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -237,7 +243,7 @@ body {
 }
 
 .datron-hero__tagline em {
-  color: var(--silver-mid);
+  color: var(--accent-soft);
   font-style: normal;
   font-weight: 600;
 }
@@ -264,12 +270,19 @@ body {
   grid-template-columns: minmax(0, 120px) 1fr;
   gap: 28px;
   align-items: center;
-  padding: 32px 0;
-  border-bottom: 1px solid var(--stroke);
 }
 
-.app-row:last-of-type {
-  border-bottom: none;
+.apps-section > .app-row {
+  padding: 26px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(165deg, var(--surface) 0%, #07150e 100%);
+  box-shadow: 0 0 0 1px rgba(28, 215, 96, 0.05);
+}
+
+.apps-section > .app-row:last-of-type {
+  margin-bottom: 0;
 }
 
 .app-row--reverse {
@@ -327,7 +340,10 @@ body {
   .app-row--reverse {
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 28px 0;
+  }
+
+  .apps-section > .app-row {
+    padding: 22px;
   }
 
   .app-row--reverse .app-row__visual {
@@ -367,7 +383,7 @@ body {
   border-radius: 10px;
   font-size: 0.87rem;
   font-weight: 600;
-  color: var(--silver-mid);
+  color: var(--muted);
   text-decoration: none;
   border: 1px solid var(--stroke);
   background: var(--surface);
@@ -375,7 +391,7 @@ body {
 
 .pocket-back:hover {
   color: var(--text);
-  border-color: var(--silver-dim);
+  border-color: var(--accent-dim);
 }
 
 .pocket-mini-brand {
@@ -461,9 +477,11 @@ body {
 .nav-pill--active,
 .nav-pill[aria-current="page"] {
   color: var(--btn-fg);
-  background: linear-gradient(130deg, var(--silver) 0%, var(--silver-mid) 100%);
+  background: linear-gradient(130deg, var(--accent) 0%, var(--accent-dim) 100%);
   border-color: transparent;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(28, 215, 96, 0.12);
 }
 
 .hero-mega {
@@ -504,7 +522,7 @@ body {
 }
 
 .hero-mega__blurb strong {
-  color: var(--silver-mid);
+  color: var(--accent-soft);
   font-weight: 600;
 }
 
@@ -544,7 +562,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--silver-dim);
+  color: var(--accent-dim);
   margin: 0 0 12px;
 }
 
@@ -597,7 +615,7 @@ a:hover {
   border: 1px solid var(--stroke);
   border-radius: 14px;
   padding: 16px 18px;
-  background: linear-gradient(160deg, var(--card) 0%, #0b0b10 100%);
+  background: linear-gradient(160deg, var(--card) 0%, #08140e 100%);
 }
 
 .feature-card h3 {
@@ -622,42 +640,8 @@ a:hover {
 }
 
 .lead-strong strong {
-  color: var(--silver);
+  color: var(--accent);
   font-weight: 700;
-}
-
-.store-card {
-  border: 1px solid var(--stroke);
-  border-radius: 14px;
-  padding: 18px 20px;
-  background: linear-gradient(150deg, var(--surface) 0%, #09090f 100%);
-}
-
-.store-card h2 {
-  margin: 0 0 10px;
-  font-size: 1.03rem;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.store-card p {
-  margin: 0 0 8px;
-  font-size: 0.87rem;
-  line-height: 1.55;
-  color: var(--muted);
-}
-
-.store-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
-  padding: 8px 14px;
-  border-radius: 10px;
-  border: 1px dashed var(--stroke);
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 600;
 }
 
 .download-list {
@@ -676,13 +660,13 @@ a:hover {
   padding: 16px 18px;
   border-radius: 14px;
   border: 1px solid var(--stroke);
-  background: linear-gradient(160deg, var(--surface) 0%, #09090f 98%);
+  background: linear-gradient(160deg, var(--surface) 0%, #07150e 98%);
   text-decoration: none;
   color: inherit;
 }
 
 a.download-row:hover {
-  border-color: var(--silver-dim);
+  border-color: var(--accent-dim);
 }
 
 .download-row__icon {
@@ -724,8 +708,10 @@ a.download-row:hover {
   padding: 8px 14px;
   border-radius: 10px;
   color: var(--btn-fg);
-  background: linear-gradient(135deg, var(--silver), var(--silver-mid));
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+  box-shadow:
+    0 2px 14px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(28, 215, 96, 0.15);
 }
 
 .short-steps {
@@ -757,8 +743,10 @@ a.download-row:hover {
 
 .btn-primary {
   color: var(--btn-fg);
-  background: linear-gradient(130deg, var(--silver) 0%, var(--silver-mid) 100%);
-  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.32);
+  background: linear-gradient(130deg, var(--accent) 0%, var(--accent-dim) 100%);
+  box-shadow:
+    0 4px 22px rgba(0, 0, 0, 0.32),
+    0 0 0 1px rgba(28, 215, 96, 0.12);
 }
 
 .btn-primary:hover {
@@ -851,3 +839,67 @@ code {
   font-size: 0.8rem;
   color: var(--muted);
 }
+
+.footer-split {
+  display: grid;
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--stroke);
+}
+
+@media (min-width: 680px) {
+  .footer-split {
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+}
+
+.footer-contact__title {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-dim);
+  margin: 0 0 10px;
+}
+
+.footer-contact__email {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.footer-contact__email a {
+  color: var(--link);
+}
+
+.footer-contact__email a:hover {
+  color: var(--accent-soft);
+}
+
+.footer-contact__hint {
+  margin: 14px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+.footer-contact__hint strong {
+  color: var(--text);
+}
+
+.footer-quick-mail {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  font-size: 0.8rem;
+}
+
+.footer-quick-mail a {
+  font-weight: 600;
+}
+

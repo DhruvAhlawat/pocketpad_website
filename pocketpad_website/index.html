@@ -3,11 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Datron — Developer</title>
-    <meta
-      name="description"
-      content="Datron builds PocketPad and more — fun apps and tools made with care."
-    />
+    <title>Datron</title>
+    <meta name="description" content="Apps and projects by Datron — including PocketPad, a phone-as-controller toolkit." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,8 +26,7 @@
             <summary class="nav-apps__summary">Apps</summary>
             <div class="nav-apps__panel" role="menu">
               <a href="#apps" role="menuitem">All apps overview</a>
-              <a href="./apps/pocketpad/" role="menuitem">PocketPad — phone controller</a>
-              <!-- Future: another app -->
+              <a href="./apps/pocketpad/index.html" role="menuitem">PocketPad</a>
             </div>
           </details>
         </nav>
@@ -42,14 +38,14 @@
         <h1 id="datron-intro" class="datron-hero__name">Datron</h1>
         <p class="datron-hero__tagline">
           <em>Just a developer who loves building fun apps.</em><br />
-          Here you’ll find the things I ship — playful tools that feel good to use — with room to grow as new ideas land.
+          Below you’ll find apps with downloads, docs, and support details.
         </p>
       </section>
 
       <section id="apps" class="apps-section section-block" aria-labelledby="apps-heading">
         <h2 id="apps-heading" class="h-section">Apps</h2>
         <p class="apps-intro">
-          Each project gets its own page with downloads, screenshots, and notes. PocketPad was the first; more will fan out below as zig-zagging rows once you ship more than one app.
+          Installers and setup notes live on each app’s page.
         </p>
 
         <article class="app-row">
@@ -65,24 +61,44 @@
           <div class="app-row__body">
             <h2>PocketPad</h2>
             <p>
-              Turn your Android phone into a low-latency gamepad, keyboard &amp; mouse, media remote, and slideshow pad — over
-              <strong>Bluetooth HID</strong> or <strong>Wi‑Fi</strong> with the Windows companion. Companion download and setup live on its page.
+              Turn your Android phone into a low-latency gamepad, keyboard &amp; mouse, media remote, or slideshow pad — over
+              <strong>Bluetooth HID</strong> or <strong>Wi‑Fi</strong> with the Windows companion (downloadable on its page).
             </p>
             <div class="app-row__actions">
-              <a class="btn btn-primary" href="./apps/pocketpad/">Go to page</a>
+              <a class="btn btn-primary" href="./apps/pocketpad/index.html">Go to page</a>
             </div>
           </div>
         </article>
-
-        <!-- Example for the next shipping app (icon flips right):
-        <article class="app-row app-row--reverse"> … </article>
-        -->
       </section>
     </main>
 
     <footer class="container footer">
-      <p class="footer-line">Datron · side projects shipped with curiosity</p>
-      <p class="site-footer-muted">Hosting note: GitHub Pages — point your developer domain here when ready.</p>
+      <p class="footer-line">
+        <a href="#top">Datron</a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a href="#apps">Apps</a>
+      </p>
+      <div class="footer-split">
+        <div>
+          <p class="footer-line" style="margin: 0">Independent developer · projects shipped here</p>
+        </div>
+        <div class="footer-contact">
+          <p id="contact" class="footer-contact__title">Contact</p>
+          <p class="footer-contact__email">
+            <a href="mailto:dasoft573@gmail.com">dasoft573@gmail.com</a>
+          </p>
+          <p class="footer-contact__hint">
+            For bugs or problems, begin the subject with <strong>Bug detected</strong> (for example:
+            <strong>Bug detected:</strong> short summary). For new ideas or improvements, begin with
+            <strong>Feature request</strong> (<strong>Feature request:</strong> short summary). For other topics,
+            use a clear subject line so replies stay organized.
+          </p>
+          <div class="footer-quick-mail">
+            <a href="mailto:dasoft573@gmail.com?subject=Bug%20detected%3A%20">Bug detected</a>
+            <a href="mailto:dasoft573@gmail.com?subject=Feature%20request%3A%20">Feature request</a>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
