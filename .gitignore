@@ -1,9 +1,11 @@
-# This repo is the static site + workflow; keep the Flutter app local only.
+# This repo publishes the PocketPad GitHub Pages site; the Flutter handheld app lives under its own repository (game_controller).
 game_controller/
 
 # Flutter / Dart
 .dart_tool/
 **/build/
+**/.gradle/
+**/local.properties
 **/.flutter-plugins
 **/.flutter-plugins-dependencies
 

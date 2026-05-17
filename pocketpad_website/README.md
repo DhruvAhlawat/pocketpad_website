@@ -1,13 +1,22 @@
-# PocketPad Website
+# PocketPad Website (GitHub Pages)
 
-This folder contains a standalone landing page for the PocketPad PC companion download flow.
+Static landing + documentation bundled with downloadable Windows companion binaries.
 
-## Files
+## Contents
 
-- `index.html` - main website content
-- `styles.css` - visual style and responsive layout
+| Path | Purpose |
+|------|---------|
+| `index.html` | Homepage: Bluetooth + Wi‑Fi positioning, Companion Store placeholder, ZIP download |
+| `info.html` | Feature / setup narrative for power users |
+| `styles.css` | Pocket-themed styling (aligned with Android app branding) |
+| `assets/icons/` | Shared icon PNG |
+| `downloads/` | `PocketPadCompanion-Windows-1.1.0-x64.zip` + README with checksum |
+| `.nojekyll` | Tells GitHub Pages not to treat the tree as Jekyll |
 
-## Preview locally
+No client-side JavaScript — previous theme switching was removed.
 
-Open `index.html` directly in a browser, or serve with any static server.
+## Deploy
 
+Workflow **Deploy PocketPad site to GitHub Pages** uploads this folder automatically on pushes to `main` or `manual dispatch`.
+
+Repository setting: **Settings → Pages → Build and deployment → GitHub Actions**.

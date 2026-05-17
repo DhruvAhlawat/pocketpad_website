@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="pocket">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PocketPad — What it does</title>
+    <title>PocketPad — Features &amp; setup</title>
     <meta
       name="description"
-      content="PocketPad: gamepad, keyboard, and mouse from your phone. Layouts, auto-discovery, and PC companion."
+      content="Technical overview of PocketPad: Bluetooth HID, Wi‑Fi companion, multimedia presets, configurability."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,18 +34,8 @@
           <span class="brand-text">PocketPad</span>
         </a>
         <div class="nav-primary">
-          <a class="nav-pill" href="./index.html">Download</a>
-          <a
-            class="nav-pill nav-pill--active"
-            href="./info.html"
-            aria-current="page"
-            >Info</a
-          >
-        </div>
-        <div class="nav-actions">
-          <button type="button" class="theme-btn" id="themeBtn">
-            Theme
-          </button>
+          <a class="nav-pill" href="./index.html">Home</a>
+          <a class="nav-pill nav-pill--active" href="./info.html" aria-current="page">Details</a>
         </div>
       </nav>
     </header>
@@ -59,127 +49,70 @@
           height="80"
           alt=""
         />
-        <h1 class="page-title">What is PocketPad?</h1>
+        <h1 class="page-title">How PocketPad works</h1>
         <p class="lead">
-          A phone app + <strong>Windows PC companion</strong> for Wi‑Fi
-          input. <strong>Gamepad</strong> presets, or
-          <strong>Universal</strong> for keyboard, mouse, and typing on the
-          desktop.
+          PocketPad splits naturally into two paths: <strong>Bluetooth HID</strong> sessions that emulate USB-class
+          devices after pairing (no Companion software on the host) and optional <strong>Wi‑Fi / UDP Companion</strong>
+          on Windows for dashboards, KM pairing tokens, multicast discovery, and extremely low jitter when lots of phones
+          connect at once.
         </p>
       </section>
 
-      <div class="media-split section-block">
-        <div class="media-split__text">
-          <h2 class="h-section">In one sentence</h2>
-          <p class="p-tight">Your handheld becomes a second screen of controls: fast, configurable, and built for how you play or work on PC.</p>
-        </div>
-        <figure class="media-split__fig">
-          <div class="media-placeholder" role="img" aria-label="Placeholder: your screenshot"><span>App image</span></div>
-        </figure>
-      </div>
-
-      <section class="section-block" aria-labelledby="feat-gamepad">
-        <h2 id="feat-gamepad" class="h-section">Gamepad &amp; connection</h2>
+      <section class="section-block">
+        <h2 class="h-section">Bluetooth HID</h2>
         <ul class="feature-bullets">
+          <li><strong>No install on hosts</strong> that accept standard HID pairings.</li>
           <li>
-            <strong>Virtual Xbox-style controls</strong> — twin sticks, triggers, bumpers,
-            D‑pad, face buttons, and more (per layout).
+            Separate registration paths for generic gamepad emulation vs composite keyboard/mouse — switch modes requires
+            re-pairing on most OSes following the in-app “Prepare” flow.
           </li>
-          <li>
-            <strong>Many built-in layout presets</strong> — from full gamepad
-            to racing, arrow keys, and compact setups; pick what fits the game.
-          </li>
-          <li>
-            <strong>Custom layouts &amp; profiles</strong> — build your own
-            gamepad, duplicate presets, and save favorites.
-          </li>
-          <li>
-            <strong>Tilt to steer</strong> (where supported) — map phone motion
-            to stick steering for supported layouts.
-          </li>
-          <li>
-            <strong>Auto-discover the PC</strong> on the same network, or
-            <strong>manual host/port</strong> as a fallback.
-          </li>
-          <li>
-            <strong>Low-latency input path</strong> to the PC companion over
-            your LAN.
-          </li>
-        </ul>
-        <div class="media-placeholder media-placeholder--tall section-block" role="img" aria-label="Placeholder: feature image"><span>Optional wide image</span></div>
-      </section>
-
-      <section class="section-block" aria-labelledby="feat-km">
-        <h2 id="feat-km" class="h-section">Universal controller (keyboard &amp; mouse)</h2>
-        <p class="muted text-block">
-          <strong>Remote keyboard and pointer</strong> for desktop, browser, or
-          games that need keys + cursor.
-        </p>
-        <ul class="feature-bullets">
-          <li>
-            <strong>Keyboard + mouse layout</strong> — WASD cluster, on-screen
-            keys, <strong>touchpad</strong> to move the pointer, mouse
-            buttons, speed tuning.
-          </li>
-          <li>
-            <strong>Universal fullscreen + type</strong> — large touchpad,
-            <strong>send typed text to the PC</strong> (Unicode) when
-            the target window is focused.
-          </li>
-          <li>
-            <strong>6-digit pairing on the PC</strong> — the companion shows a
-            code; enter it on the phone for a secure key/mouse session.
-          </li>
+          <li><strong>Media &amp; TV remotes</strong> send multimedia scan codes usable with smart TVs, Fire sticks, Kodi, VLC, Netflix UIs.</li>
         </ul>
       </section>
 
-      <section class="section-block" aria-labelledby="feat-misc">
-        <h2 id="feat-misc" class="h-section">On the phone</h2>
+      <section class="section-block">
+        <h2 class="h-section">Wi‑Fi companion (Windows)</h2>
         <ul class="feature-bullets">
-          <li>Sticks: <strong>auto-center</strong>, <strong>fixed vs floating</strong>, <strong>double-tap = L3/R3</strong>.</li>
-          <li><strong>Connection</strong> and optional advanced <strong>UDP</strong> target.</li>
-          <li>App <strong>theme</strong> and saved <strong>layouts / profiles</strong>.</li>
+          <li><strong>PocketPad Companion</strong> bundles discovery, encryption handshakes for Universal layouts, dashboards, verbose logging.</li>
+          <li>
+            Companion auto-runs LAN listeners optimized for multiplayer — multiple phones negotiating independent sessions concurrently.
+          </li>
+          <li>
+            <strong>Microsoft Store rollout:</strong> the marketing site reserves a badge for linking “PocketPad Companion” directly to the storefront once approved.
+          </li>
+          <li>Until then, portable builds live under <code>downloads/</code> on this Pages site mirroring releases from GitHub.</li>
         </ul>
       </section>
 
-      <section class="section-block" aria-labelledby="gallery-heading">
-        <h2 id="gallery-heading" class="h-section">Layout gallery</h2>
-        <p class="muted text-block small">
-          Replace with your images. Duplicated strip = seamless loop.
-        </p>
-        <div
-          class="gallery"
-          role="region"
-          aria-label="Layout screenshots, auto-scrolling"
-        >
-          <div class="gallery-viewport">
-            <div class="gallery-track">
-              <div class="gallery-slide" data-placeholder>Layout 1</div>
-              <div class="gallery-slide" data-placeholder>Layout 2</div>
-              <div class="gallery-slide" data-placeholder>Layout 3</div>
-              <div class="gallery-slide" data-placeholder>Layout 4</div>
-              <div class="gallery-slide" data-placeholder aria-hidden="true">Layout 1</div>
-              <div class="gallery-slide" data-placeholder aria-hidden="true">Layout 2</div>
-              <div class="gallery-slide" data-placeholder aria-hidden="true">Layout 3</div>
-              <div class="gallery-slide" data-placeholder aria-hidden="true">Layout 4</div>
-            </div>
-          </div>
-        </div>
+      <section class="section-block">
+        <h2 class="h-section">Controller surfaces</h2>
+        <ul class="feature-bullets">
+          <li><strong>Layouts &amp; full configurability</strong> via drag edits, clones, joystick logic, tilt-to-steer, steering curves.</li>
+          <li><strong>Universal fullscreen</strong>: huge touchpads, clipboard-friendly typing overlays, WASD slabs, programmable macros.</li>
+          <li><strong>Presentation &amp; media modes</strong> map to shortcuts for PowerPoint, Google Slides, YouTube-focused keys, VLC, etc.</li>
+        </ul>
       </section>
 
-      <p class="muted">
-        <a href="./index.html" class="btn btn-primary">Get the PC companion →</a>
+      <section class="section-block">
+        <h2 class="h-section">Operational tips</h2>
+        <ul class="feature-bullets">
+          <li>Wake sleeping hosts — Bluetooth radios pause HID until active.</li>
+          <li>Some TVs mute local speakers while treating the phone like a headset; disable Bluetooth media audio when that happens.</li>
+          <li>Keep Companion + phones on same AP band to avoid jitter; multicast discovery requires same subnet.</li>
+        </ul>
+      </section>
+
+      <p>
+        <a href="./index.html" class="btn btn-primary">Back to downloads →</a>
       </p>
     </main>
 
     <footer class="container footer">
       <p class="footer-line">
-        <a href="./index.html">Download</a>
+        <a href="./index.html">Home</a>
         <span class="footer-sep" aria-hidden="true">·</span>
-        <a href="./info.html" aria-current="page">Info</a>
+        <a href="./info.html" aria-current="page">Details</a>
       </p>
     </footer>
-
-    <script src="./site.js" defer></script>
   </body>
 </html>
