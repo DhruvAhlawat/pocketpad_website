@@ -1,0 +1,59 @@
+PocketPad PC Companion — Windows installer choices & Partner Center exit codes
+================================================================================
+
+WHICH INSTALLER TO SUBMIT (SUMMARY)
+-----------------------------------
+1) Inno Setup EXE  (dist\installer\PocketPad-PC-<ver>-Setup.exe)
+   - Primary choice for Partner Center. Custom script separates fresh success (0) vs upgrade/reinstall (64101).
+   - ViGEmBus runs after files copy (not nested inside Windows Installer).
+
+2) WiX Burn EXE   (dist\installer\PocketPad-PC-<ver>-Full-x64.exe)
+   - Different exit-code story than Inno; use only if Microsoft asks for an MSI chain bootstrapper.
+
+3) MSI only       (dist\installer\PocketPad-PC-<ver>-x64.msi)
+   - IT / msiexec; ViGEmBus is not launched automatically during MSI.
+
+
+SILENT INSTALL COMMAND LINE (INNO EXE)
+--------------------------------------
+  PocketPad-PC-<ver>-Setup.exe /VERYSILENT /NORESTART /SUPPRESSMSGBOXES /SP- /RESTARTEXITCODE=3010
+
+
+PARTNER CENTER — UNIQUE RETURN CODE PER SCENARIO (REQUIRED)
+------------------------------------------------------------
+Use these values for PocketPad-PC-<ver>-Setup.exe. Each scenario has a distinct integer.
+
+Scenario                                           Code      When you actually see it
+------------------------------------------------------------------------------------------------
+Installation successful                             0      First-time install on a machine with no prior PocketPad uninstall registry entry (see Inno script [Code]).
+
+Application already exists on the device          64101      Upgrade, reinstall, or repair: uninstall registry key `{AppId}_is1` was already present when Setup started; install finished OK.
+
+Installation cancelled by user                        2      Standard Inno: cancelled before install starts or first prompt declined. (Mid-install cancel may return 5 — treat both as "cancelled" in support docs; Partner row uses 2.)
+
+Another installation already in progress          64103      Reserved / not detected by this installer (use for form uniqueness; runtime rarely applies).
+
+Disk space is full                                64104      Often surfaces as Inno fatal code 4 during install; Partner label is 64104 for a unique form slot.
+
+A restart is required to complete the install      3010      Use silent flags: /VERYSILENT /NORESTART /RESTARTEXITCODE=3010 so Setup exits 3010 without rebooting.
+
+Network-related failures                           64105      Installer does not download over the network; reserved unique code for the form.
+
+Package rejected due to device security policy      64106      Often overlaps Inno init failure (e.g. code 1); reserved unique code for the form.
+
+Miscellaneous install failures                      64107      Often overlaps Inno install fatal (e.g. code 4); reserved unique code for the form.
+
+
+Fresh vs "already existed" (implemented)
+-----------------------------------------
+`gamepad_pc_companion.iss` calls `ExitProcess(64101)` after a successful install when the uninstall registry key already existed at `InitializeSetup`. Otherwise the process exits with Inno's normal success code **0**. Rebuild the Setup.exe after changing this behavior.
+
+
+INNO SETUP — STANDARD CODES (REFERENCE)
+----------------------------------------
+https://jrsoftware.org/ishelp/index.php?topic=setup_exit_codes
+
+
+WIX BURN FULL EXE
+-----------------
+Different bootstrapper exit semantics; see https://wixtoolset.org/docs/v3/
