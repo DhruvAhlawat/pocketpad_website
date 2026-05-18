@@ -1,18 +1,9 @@
 PocketPad PC Companion — Windows installer choices & Partner Center exit codes
 ================================================================================
 
-WHICH INSTALLER TO SUBMIT (SUMMARY)
------------------------------------
-1) Inno Setup EXE  (dist\installer\PocketPad-PC-<ver>-Setup.exe)
+Inno Setup EXE  (dist\installer\PocketPad-PC-<ver>-Setup.exe)
    - Primary choice for Partner Center. Custom script separates fresh success (0) vs upgrade/reinstall (64101).
    - ViGEmBus runs after files copy (not nested inside Windows Installer).
-
-2) WiX Burn EXE   (dist\installer\PocketPad-PC-<ver>-Full-x64.exe)
-   - Different exit-code story than Inno; use only if Microsoft asks for an MSI chain bootstrapper.
-
-3) MSI only       (dist\installer\PocketPad-PC-<ver>-x64.msi)
-   - IT / msiexec; ViGEmBus is not launched automatically during MSI.
-
 
 SILENT INSTALL COMMAND LINE (INNO EXE)
 --------------------------------------
@@ -52,8 +43,3 @@ Fresh vs "already existed" (implemented)
 INNO SETUP — STANDARD CODES (REFERENCE)
 ----------------------------------------
 https://jrsoftware.org/ishelp/index.php?topic=setup_exit_codes
-
-
-WIX BURN FULL EXE
------------------
-Different bootstrapper exit semantics; see https://wixtoolset.org/docs/v3/
