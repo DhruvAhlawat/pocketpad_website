@@ -10,3 +10,6 @@ export const datronHubPublicUrl = "https://datronapps.com/";
 export const pocketpadPagesSiteOrigin = "https://pocketpad.datronapps.com";
 
 export const pocketpadOverviewUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/apps/pocketpad/index.html`;
+
+/** Windows installers served from the site (not GitHub Releases). */
+export const pocketpadDownloadsBaseUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/downloads`;

@@ -7,7 +7,7 @@
  * Gallery: set each slide `src` to a relative path (from this page) or any https URL. Leave `src: ''` for a blank tile.
  */
 import { PocketPadDownloadRows } from "./pocketpad_downloads.generated.js";
-import { datronHubPublicUrl } from "./public_site_urls.js";
+import { datronHubPublicUrl, pocketpadDownloadsBaseUrl } from "./public_site_urls.js";
 
 export const PocketPadSiteContent = {
   meta: {
@@ -23,8 +23,7 @@ export const PocketPadSiteContent = {
     datronHome: datronHubPublicUrl,
     pocketpadDetailsPage: "./info.html",
     pocketpadOverviewPage: "./index.html",
-    /** Served from the same site as the installers (downloads/README.txt) */
-    checksumReadmeHref: "../../downloads/README.txt",
+    checksumReadmeHref: `${pocketpadDownloadsBaseUrl.replace(/\/$/, "")}/README.txt`,
   },
 
   chrome: {
@@ -283,6 +282,16 @@ function buildFeatures(c) {
   return section;
 }
 
+/** Always use site-hosted installers (never stale GitHub Release URLs). */
+function downloadHrefForRow(row) {
+  const fileName = String(row.downloadName || "").trim();
+  if (!fileName) {
+    return String(row.href || "").trim();
+  }
+  const base = pocketpadDownloadsBaseUrl.replace(/\/$/, "");
+  return `${base}/${encodeURIComponent(fileName).replace(/%2F/g, "/")}`;
+}
+
 function windowsLogoSvg() {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("class", "os-logo--windows");
@@ -325,13 +334,9 @@ function buildDownload(c) {
 
     const a = document.createElement("a");
     a.className = "download-row";
-    a.href = row.href;
-    const isExternal = /^https?:\/\//i.test(String(row.href || ""));
-    if (!isExternal && row.downloadName) {
+    a.href = downloadHrefForRow(row);
+    if (row.downloadName) {
       a.download = row.downloadName;
-    }
-    if (isExternal) {
-      a.rel = "noopener noreferrer";
     }
 
     const spanIcon = document.createElement("span");
