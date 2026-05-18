@@ -35,7 +35,7 @@ export const DatronHomeContent = {
       {
         title: "PocketPad",
         description_html:
-          "Turn your Android phone into a low-latency gamepad, mouse and keyboard, media remote, or slides controller — for your PC(Windows/Mac/Linux), Android or smart TV over <strong>Bluetooth HID</strong> or <strong>Wi‑Fi</strong>.",
+          "An all-in-one app to turn your Android phone into a low-latency <strong>gamepad, mouse and keyboard, media remote, or slides controller</strong> — for your PC(Windows/Mac/Linux), Android or smart TV over <strong>Bluetooth HID</strong> or <strong>Wi‑Fi</strong>.",
         ctaHref: "./apps/pocketpad/index.html",
         ctaLabel: "Go to page",
         iconSrcKey: "pocketPad",
