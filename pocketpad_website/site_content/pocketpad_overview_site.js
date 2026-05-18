@@ -23,6 +23,7 @@ export const PocketPadSiteContent = {
     datronHome: datronHubPublicUrl,
     pocketpadDetailsPage: "./info.html",
     pocketpadOverviewPage: "./index.html",
+    pocketpadPrivacyPage: "./privacy.html",
     checksumReadmeHref: `${pocketpadDownloadsBaseUrl.replace(/\/$/, "")}/README.txt`,
   },
 
@@ -32,6 +33,7 @@ export const PocketPadSiteContent = {
     navBrandSuffix: "",
     overviewNavLabel: "Overview",
     detailsNavLabel: "Details",
+    privacyNavLabel: "Privacy",
     /** `aria-label` for the mini-nav */
     pocketpadNavAriaLabel: "PocketPad",
   },
@@ -139,6 +141,7 @@ export const PocketPadSiteContent = {
     datronLinkLabel: "← Back to Datron",
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
+    privacyLinkLabel: "Privacy",
     mutedLine: "PocketPad Companion is open-source; the downloadable Windows package is linked above.",
     contactTitle: "Contact",
     contactEmail: "dasoft573@gmail.com",
@@ -198,6 +201,7 @@ function buildTop(c) {
   nav.appendChild(brand);
   nav.appendChild(pill(c.paths.pocketpadOverviewPage, c.chrome.overviewNavLabel, true));
   nav.appendChild(pill(c.paths.pocketpadDetailsPage, c.chrome.detailsNavLabel, false));
+  nav.appendChild(pill(c.paths.pocketpadPrivacyPage, c.chrome.privacyNavLabel, false));
 
   row.appendChild(back);
   row.appendChild(nav);
@@ -521,6 +525,12 @@ function buildFooter(c) {
   aInfo.href = c.paths.pocketpadDetailsPage;
   aInfo.textContent = f.detailsLinkLabel;
   line1.appendChild(aInfo);
+  addSep();
+
+  const aPrivacy = document.createElement("a");
+  aPrivacy.href = c.paths.pocketpadPrivacyPage;
+  aPrivacy.textContent = f.privacyLinkLabel;
+  line1.appendChild(aPrivacy);
 
   const muted = document.createElement("p");
   muted.className = "footer-line site-footer-muted";

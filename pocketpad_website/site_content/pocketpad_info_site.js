@@ -15,6 +15,7 @@ export const PocketPadInfoContent = {
     datronHome: datronHubPublicUrl,
     pocketpadOverviewPage: "./index.html",
     pocketpadDetailsPage: "./info.html",
+    pocketpadPrivacyPage: "./privacy.html",
   },
 
   chrome: {
@@ -22,6 +23,7 @@ export const PocketPadInfoContent = {
     navBrandSuffix: "",
     overviewNavLabel: "Overview",
     detailsNavLabel: "Details",
+    privacyNavLabel: "Privacy",
     pocketpadNavAriaLabel: "PocketPad",
   },
 
@@ -82,6 +84,7 @@ export const PocketPadInfoContent = {
   footer: {
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
+    privacyLinkLabel: "Privacy",
     mutedLine: "PocketPad Companion is open-source.",
     contactTitle: "Contact",
     contactEmail: "dasoft573@gmail.com",
@@ -149,6 +152,7 @@ function buildTop(c) {
   nav.appendChild(brand);
   nav.appendChild(pill(c.paths.pocketpadOverviewPage, c.chrome.overviewNavLabel, false));
   nav.appendChild(pill(c.paths.pocketpadDetailsPage, c.chrome.detailsNavLabel, true));
+  nav.appendChild(pill(c.paths.pocketpadPrivacyPage, c.chrome.privacyNavLabel, false));
 
   row.appendChild(back);
   row.appendChild(nav);
@@ -237,8 +241,13 @@ function buildFooter(c) {
   ai.href = c.paths.pocketpadDetailsPage;
   ai.setAttribute("aria-current", "page");
   ai.textContent = f.detailsLinkLabel;
-
   line1.appendChild(ai);
+  sep();
+
+  const ap = document.createElement("a");
+  ap.href = c.paths.pocketpadPrivacyPage;
+  ap.textContent = f.privacyLinkLabel;
+  line1.appendChild(ap);
 
   const muted = document.createElement("p");
   muted.className = "footer-line site-footer-muted";
