@@ -91,8 +91,7 @@ export const PocketPadPrivacyContent = {
     {
       title: "Children’s privacy",
       paragraphs_html: [
-        "PocketPad is a utility app and is not directed at children under 13. We do not knowingly collect personal information from children. " +
-          "If you believe a child has provided us personal information via email, contact us and we will delete it.",
+        "PocketPad is a utility app, and does not collect any data. We do not collect personal information from children. "
       ],
     },
     {
@@ -105,7 +104,7 @@ export const PocketPadPrivacyContent = {
     {
       title: "Contact",
       paragraphs_html: [
-        'Questions about privacy can be sent to <a href="mailto:dasoft573@gmail.com">dasoft573@gmail.com</a>. ' +
+        'Questions about privacy can be sent to <a href="mailto:support@datronapps.com">support@datronapps.com</a>. ' +
           "Please include <strong>Privacy:</strong> in the subject line so we can route your message.",
       ],
     },
@@ -122,7 +121,7 @@ export const PocketPadPrivacyContent = {
     privacyLinkLabel: "Privacy",
     mutedLine: "No accounts · No Datron-operated data collection servers · Preferences stored on your device.",
     contactTitle: "Contact",
-    contactEmail: "dasoft573@gmail.com",
+    contactEmail: "support@datronapps.com",
     contactHint_html:
       "For privacy questions, begin the subject with <strong>Privacy:</strong> …. For bugs or features, see the Overview page footer.",
     mailtoPrivacySubject: "Privacy: ",
