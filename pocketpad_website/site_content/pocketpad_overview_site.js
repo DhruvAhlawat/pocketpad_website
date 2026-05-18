@@ -4,10 +4,11 @@
  *
  * Download filenames & checksums: generated `pocketpad_downloads.generated.js` (run sync_pocketpad_website_downloads.ps1).
  *
- * Gallery: set each slide `src` to a relative path (from this page) or any https URL. Leave `src: ''` for a blank tile.
+ * Gallery: set each slide `src` to a site-root path (e.g. assets/screenshots/foo.png) or any https URL. Leave `src: ''` for a blank tile.
  */
 import { PocketPadDownloadRows } from "./pocketpad_downloads.generated.js";
 import { datronHubPublicUrl, pocketpadDownloadsBaseUrl } from "./public_site_urls.js";
+import { resolveAssetHref } from "./site_assets.js";
 
 export const PocketPadSiteContent = {
   meta: {
@@ -129,32 +130,32 @@ export const PocketPadSiteContent = {
     scrollDurationSec: 42,
     slides: [
       {
-        src: "../../assets/screenshots/full_gamepad.png",
+        src: "assets/screenshots/full_gamepad.png",
         alt: "PocketPad full Xbox-style gamepad layout on a phone",
         caption: "Full gamepad layout",
       },
       {
-        src: "../../assets/screenshots/bumpers_gamepad.png",
+        src: "assets/screenshots/bumpers_gamepad.png",
         alt: "PocketPad gamepad with shoulder bumpers and triggers",
         caption: "Bumpers & triggers",
       },
       {
-        src: "../../assets/screenshots/wasd_mouse.png",
+        src: "assets/screenshots/wasd_mouse.png",
         alt: "PocketPad WASD keys with a touch mouse area for PC control",
         caption: "WASD + mouse",
       },
       {
-        src: "../../assets/screenshots/mousepad.png",
+        src: "assets/screenshots/mousepad.png",
         alt: "PocketPad large touchpad for pointer and desktop navigation",
         caption: "Touchpad mode",
       },
       {
-        src: "../../assets/screenshots/customize_layout.png",
+        src: "assets/screenshots/customize_layout.png",
         alt: "PocketPad layout editor with draggable on-screen controls",
         caption: "Customize layouts",
       },
       {
-        src: "../../assets/screenshots/companion_app.png",
+        src: "assets/screenshots/companion_app.png",
         alt: "PocketPad Companion on Windows showing connected devices",
         caption: "Windows Companion",
       },
@@ -214,7 +215,7 @@ function buildTop(c) {
   const brand = document.createElement("span");
   brand.className = "pocket-mini-brand";
   const icon = document.createElement("img");
-  icon.src = c.paths.appIconPng;
+  icon.src = resolveAssetHref(c.paths.appIconPng);
   icon.width = 34;
   icon.height = 34;
   icon.alt = "";
@@ -239,7 +240,7 @@ function buildHero(c) {
 
   const icon = document.createElement("img");
   icon.className = "hero-mega__icon";
-  icon.src = c.paths.appIconPng;
+  icon.src = resolveAssetHref(c.paths.appIconPng);
   icon.width = 160;
   icon.height = 160;
   icon.alt = "";
@@ -456,10 +457,10 @@ function buildGallerySlide(slide) {
   const hasSrc = Boolean(slide.src && String(slide.src).trim());
   if (hasSrc) {
     const img = document.createElement("img");
-    img.src = String(slide.src).trim();
+    img.src = resolveAssetHref(slide.src);
     img.alt = slide.alt || "";
     img.decoding = "async";
-    img.loading = "lazy";
+    img.loading = "eager";
     wrap.appendChild(img);
   } else {
     const ph = document.createElement("div");

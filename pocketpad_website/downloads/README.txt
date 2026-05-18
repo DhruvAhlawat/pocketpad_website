@@ -1,4 +1,4 @@
-PocketPad Companion â€” published files (synced from game_controller\dist\ via sync_pocketpad_website_downloads.ps1)
+PocketPad Companion - published files (synced from game_controller\dist\ via sync_pocketpad_website_downloads.ps1)
 
 Generated (UTC): 2026-05-18T19:25:59Z
 
