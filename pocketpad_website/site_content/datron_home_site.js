@@ -24,7 +24,7 @@ export const DatronHomeContent = {
   hero: {
     heading: "Datron",
     tagline_html:
-      "<em>Just a developer who loves building fun apps.</em><br />Below you’ll find apps with downloads, docs, and support details.",
+      "<em>Just a developer who likes building fun apps.</em><br />Below you’ll find apps with downloads, docs, and support details.",
   },
 
   appsSection: {
@@ -35,7 +35,7 @@ export const DatronHomeContent = {
       {
         title: "PocketPad",
         description_html:
-          "Turn your Android phone into a low-latency gamepad, keyboard & mouse, media remote, or slideshow pad — over <strong>Bluetooth HID</strong> or <strong>Wi‑Fi</strong> with the Windows companion (downloadable on its page).",
+          "Turn your Android phone into a low-latency gamepad, mouse and keyboard, media remote, or slides controller — for your PC(Windows/Mac/Linux), Android or smart TV over <strong>Bluetooth HID</strong> or <strong>Wi‑Fi</strong>.",
         ctaHref: "./apps/pocketpad/index.html",
         ctaLabel: "Go to page",
         iconSrcKey: "pocketPad",
@@ -46,9 +46,9 @@ export const DatronHomeContent = {
   footer: {
     footerLineDatronLabel: "Datron",
     footerLineAppsLabel: "Apps",
-    asideLine: "Independent developer · projects shipped here",
+    asideLine: "Independent developer",
     contactTitle: "Contact",
-    contactEmail: "dasoft573@gmail.com",
+    contactEmail: "support@datronapps.com",
     contactHint_html:
       'For bugs or problems, begin the subject with <strong>Bug detected</strong> (for example: <strong>Bug detected:</strong> short summary). For new ideas or improvements, begin with <strong>Feature request</strong> (<strong>Feature request:</strong> short summary). For other topics, use a clear subject line so replies stay organized.',
     mailtoBugSubject: "Bug detected: ",
@@ -129,7 +129,8 @@ function buildAppArticle(c, app) {
   if (!app || !String(app.title).trim()) return null;
 
   const article = document.createElement("article");
-  article.className = "app-row";
+  article.className =
+    app.iconSrcKey === "pocketPad" ? "app-row app-row--pocketpad" : "app-row";
 
   const visual = document.createElement("div");
   visual.className = "app-row__visual";
