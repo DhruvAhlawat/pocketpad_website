@@ -162,6 +162,62 @@ body.page-pocketpad {
   border-color: var(--stroke);
 }
 
+.nav-dropdown {
+  position: relative;
+}
+
+button.nav-link {
+  margin: 0;
+  font: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  appearance: none;
+}
+
+.nav-dropdown__panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 40;
+  min-width: 200px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border-radius: 12px;
+  border: 1px solid var(--stroke);
+  background: linear-gradient(165deg, var(--surface) 0%, #0c0e14 100%);
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.nav-dropdown__item {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.nav-dropdown__item:hover {
+  color: var(--text);
+  background: var(--card);
+}
+
+.nav-dropdown__trigger[aria-expanded="true"] {
+  color: var(--text);
+  background: var(--card);
+  border-color: var(--stroke);
+}
+
+@media (max-width: 520px) {
+  .nav-dropdown__panel {
+    right: auto;
+    left: 0;
+  }
+}
 
 
 /* Developer hero */
@@ -388,15 +444,17 @@ body.page-pocketpad {
 .pocket-back {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  font-size: 0.87rem;
-  font-weight: 600;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 1.02rem;
+  font-weight: 700;
   color: var(--muted);
   text-decoration: none;
   border: 1px solid var(--stroke);
   background: var(--surface);
+  min-height: 48px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.22);
 }
 
 .pocket-back:hover {

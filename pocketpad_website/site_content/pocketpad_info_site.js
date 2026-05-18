@@ -16,7 +16,7 @@ export const PocketPadInfoContent = {
   },
 
   chrome: {
-    backToDatronLabel: "← Datron",
+    backToDatronLabel: "← Back to Datron",
     navBrandSuffix: "",
     overviewNavLabel: "Overview",
     detailsNavLabel: "Details",
@@ -117,6 +117,7 @@ function buildTop(c) {
   back.className = "pocket-back";
   back.href = c.paths.datronHome;
   back.textContent = c.chrome.backToDatronLabel;
+  back.title = "Datron — developer home";
 
   const nav = document.createElement("nav");
   nav.className = "pocket-mini-nav";

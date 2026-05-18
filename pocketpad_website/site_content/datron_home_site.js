@@ -19,6 +19,10 @@ export const DatronHomeContent = {
     brandLabel: "Datron",
     navHomeLabel: "Home",
     navAppsLabel: "Apps",
+    /** `aria-label` for the Apps menu control */
+    navAppsMenuAriaLabel: "Apps",
+    /** Items under Apps; extend when adding more app subsites */
+    navAppsItems: [{ label: "PocketPad", href: "./apps/pocketpad/index.html" }],
   },
 
   hero: {
@@ -79,6 +83,81 @@ function iconAltFor(item, paths) {
   return item.iconAlt || "";
 }
 
+function buildAppsNavDropdown(c) {
+  const items = Array.isArray(c.header.navAppsItems) ? c.header.navAppsItems : [];
+  const wrap = document.createElement("div");
+  wrap.className = "nav-dropdown";
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "nav-link nav-dropdown__trigger";
+  btn.textContent = c.header.navAppsLabel;
+  btn.setAttribute("aria-expanded", "false");
+  btn.setAttribute("aria-haspopup", "menu");
+  btn.setAttribute("aria-label", c.header.navAppsMenuAriaLabel || c.header.navAppsLabel);
+
+  const panel = document.createElement("ul");
+  const panelId = "dh-apps-menu-panel";
+  panel.id = panelId;
+  panel.className = "nav-dropdown__panel";
+  panel.setAttribute("role", "menu");
+  panel.hidden = true;
+  btn.setAttribute("aria-controls", panelId);
+
+  for (const item of items) {
+    if (!item || !String(item.label || "").trim() || !String(item.href || "").trim()) continue;
+    const li = document.createElement("li");
+    li.setAttribute("role", "none");
+    const a = document.createElement("a");
+    a.className = "nav-dropdown__item";
+    a.href = String(item.href).trim();
+    a.setAttribute("role", "menuitem");
+    a.textContent = String(item.label).trim();
+    li.appendChild(a);
+    panel.appendChild(li);
+  }
+
+  function close() {
+    btn.setAttribute("aria-expanded", "false");
+    panel.hidden = true;
+  }
+
+  function open() {
+    btn.setAttribute("aria-expanded", "true");
+    panel.hidden = false;
+  }
+
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (panel.hidden) {
+      open();
+    } else {
+      close();
+    }
+  });
+
+  panel.addEventListener("click", (e) => e.stopPropagation());
+
+  document.addEventListener(
+    "click",
+    () => {
+      close();
+    },
+    { capture: false },
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      close();
+      btn.focus();
+    }
+  });
+
+  wrap.appendChild(btn);
+  wrap.appendChild(panel);
+  return wrap;
+}
+
 function buildHeader(c) {
   const row = document.createElement("div");
   row.className = "nav-row";
@@ -97,13 +176,8 @@ function buildHeader(c) {
   home.href = "#top";
   home.textContent = c.header.navHomeLabel;
 
-  const apps = document.createElement("a");
-  apps.className = "nav-link";
-  apps.href = c.paths.pocketPadPageHref;
-  apps.textContent = c.header.navAppsLabel;
-
   nav.appendChild(home);
-  nav.appendChild(apps);
+  nav.appendChild(buildAppsNavDropdown(c));
   row.appendChild(brand);
   row.appendChild(nav);
   return row;

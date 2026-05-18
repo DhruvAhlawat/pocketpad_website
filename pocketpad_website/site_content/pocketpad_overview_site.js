@@ -22,11 +22,13 @@ export const PocketPadSiteContent = {
     datronHome: "../../index.html",
     pocketpadDetailsPage: "./info.html",
     pocketpadOverviewPage: "./index.html",
-    checksumReadmeHref: "../../downloads/README.txt",
+    /** Checksums README on GitHub (same repo as the site); updates when you push `downloads/README.txt` */
+    checksumReadmeHref:
+      "https://raw.githubusercontent.com/DhruvAhlawat/pocketpad_website/main/downloads/README.txt",
   },
 
   chrome: {
-    backToDatronLabel: "← Datron",
+    backToDatronLabel: "← Back to Datron",
     /** Appended after hero headline in mini-nav brand (optional) */
     navBrandSuffix: "",
     overviewNavLabel: "Overview",
@@ -135,7 +137,7 @@ export const PocketPadSiteContent = {
   },
 
   footer: {
-    datronLinkLabel: "← Datron",
+    datronLinkLabel: "← Back to Datron",
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
     mutedLine: "PocketPad Companion is open-source; the downloadable Windows package is linked above.",
@@ -177,6 +179,7 @@ function buildTop(c) {
   back.className = "pocket-back";
   back.href = c.paths.datronHome;
   back.textContent = c.chrome.backToDatronLabel;
+  back.title = "Datron — developer home";
 
   const nav = document.createElement("nav");
   nav.className = "pocket-mini-nav";
@@ -323,7 +326,13 @@ function buildDownload(c) {
     const a = document.createElement("a");
     a.className = "download-row";
     a.href = row.href;
-    a.download = row.downloadName;
+    const isExternal = /^https?:\/\//i.test(String(row.href || ""));
+    if (!isExternal && row.downloadName) {
+      a.download = row.downloadName;
+    }
+    if (isExternal) {
+      a.rel = "noopener noreferrer";
+    }
 
     const spanIcon = document.createElement("span");
     spanIcon.className = "download-row__icon";
