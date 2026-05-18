@@ -23,9 +23,8 @@ export const PocketPadSiteContent = {
     datronHome: datronHubPublicUrl,
     pocketpadDetailsPage: "./info.html",
     pocketpadOverviewPage: "./index.html",
-    /** Checksums README on GitHub (same repo as the site); updates when you push `downloads/README.txt` */
-    checksumReadmeHref:
-      "https://raw.githubusercontent.com/DhruvAhlawat/pocketpad_website/main/downloads/README.txt",
+    /** Served from the same site as the installers (downloads/README.txt) */
+    checksumReadmeHref: "../../downloads/README.txt",
   },
 
   chrome: {
