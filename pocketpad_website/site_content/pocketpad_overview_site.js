@@ -7,6 +7,7 @@
  * Gallery: set each slide `src` to a relative path (from this page) or any https URL. Leave `src: ''` for a blank tile.
  */
 import { PocketPadDownloadRows } from "./pocketpad_downloads.generated.js";
+import { datronHubPublicUrl } from "./public_site_urls.js";
 
 export const PocketPadSiteContent = {
   meta: {
@@ -15,11 +16,11 @@ export const PocketPadSiteContent = {
       "PocketPad turns your Android phone into a gamepad, keyboard & mouse, media remote, and slideshow controller — Bluetooth HID without a PC install, or Wi‑Fi with the Windows companion.",
   },
 
-  /** Relative paths — resolve from `apps/pocketpad/index.html` */
+  /** Paths — `datronHome` is the published Datron hub (see `public_site_urls.js`). */
   paths: {
     stylesheet: "../../styles.css",
     appIconPng: "../../assets/icons/gamepad_1.png",
-    datronHome: "../../index.html",
+    datronHome: datronHubPublicUrl,
     pocketpadDetailsPage: "./info.html",
     pocketpadOverviewPage: "./index.html",
     /** Checksums README on GitHub (same repo as the site); updates when you push `downloads/README.txt` */

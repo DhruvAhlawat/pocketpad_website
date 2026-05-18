@@ -1,6 +1,8 @@
 /**
  * PocketPad Details (`info.html`) — edit `PocketPadInfoContent` below for headings, bullets, links, images.
  */
+import { datronHubPublicUrl } from "./public_site_urls.js";
+
 export const PocketPadInfoContent = {
   meta: {
     title: "PocketPad — Features & setup",
@@ -10,7 +12,7 @@ export const PocketPadInfoContent = {
   paths: {
     stylesheet: "../../styles.css",
     appIconPng: "../../assets/icons/gamepad_1.png",
-    datronHome: "../../index.html",
+    datronHome: datronHubPublicUrl,
     pocketpadOverviewPage: "./index.html",
     pocketpadDetailsPage: "./info.html",
   },
