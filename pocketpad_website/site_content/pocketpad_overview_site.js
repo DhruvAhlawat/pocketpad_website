@@ -128,12 +128,36 @@ export const PocketPadSiteContent = {
     intro: "",
     scrollDurationSec: 42,
     slides: [
-      { src: "", alt: "", caption: "" },
-      { src: "", alt: "", caption: "" },
-      { src: "", alt: "", caption: "" },
-      { src: "", alt: "", caption: "" },
-      { src: "", alt: "", caption: "" },
-      { src: "", alt: "", caption: "" },
+      {
+        src: "../../assets/screenshots/full_gamepad.png",
+        alt: "PocketPad full Xbox-style gamepad layout on a phone",
+        caption: "Full gamepad layout",
+      },
+      {
+        src: "../../assets/screenshots/bumpers_gamepad.png",
+        alt: "PocketPad gamepad with shoulder bumpers and triggers",
+        caption: "Bumpers & triggers",
+      },
+      {
+        src: "../../assets/screenshots/wasd_mouse.png",
+        alt: "PocketPad WASD keys with a touch mouse area for PC control",
+        caption: "WASD + mouse",
+      },
+      {
+        src: "../../assets/screenshots/mousepad.png",
+        alt: "PocketPad large touchpad for pointer and desktop navigation",
+        caption: "Touchpad mode",
+      },
+      {
+        src: "../../assets/screenshots/customize_layout.png",
+        alt: "PocketPad layout editor with draggable on-screen controls",
+        caption: "Customize layouts",
+      },
+      {
+        src: "../../assets/screenshots/companion_app.png",
+        alt: "PocketPad Companion on Windows showing connected devices",
+        caption: "Windows Companion",
+      },
     ],
   },
 
