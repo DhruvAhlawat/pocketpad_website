@@ -7,7 +7,7 @@ export const PocketPadPrivacyContent = {
   meta: {
     title: "PocketPad — Privacy Policy",
     description:
-      "How PocketPad handles information: no accounts, no operator-run servers, and only on-device preferences are stored on your phone.",
+      "PocketPad privacy: no account sign-up, no Datron servers for your controller data, and only optional anonymous usage analytics when you opt in.",
   },
 
   paths: {
@@ -31,10 +31,11 @@ export const PocketPadPrivacyContent = {
   hero: {
     headline: "PocketPad",
     pageTitle: "Privacy Policy",
-    effectiveDate: "June 27, 2026",
+    effectiveDate: "June 28, 2026",
     lead_html:
-      "PocketPad is built so you can control your devices without creating an account. " +
-      "This policy explains what the app collects when you opt in to analytics, use ads, or make in-app purchases.",
+      "PocketPad lets you control your devices without creating an account or sending your layouts and live inputs to Datron-operated servers. " +
+      "The only information we may receive remotely is <strong>anonymous usage data</strong>—and only if you choose to allow it. " +
+      "This page explains that distinction, optional analytics, ads, and purchases.",
   },
 
   media: {
@@ -45,41 +46,71 @@ export const PocketPadPrivacyContent = {
     {
       title: "Summary",
       paragraphs_html: [
-        "We do not require sign-in and we do not sell personal data.",
-        "Core controller data (layouts, pairing helpers, connection preferences) stays <strong>on your device</strong>.",
-        "With your consent, the app may send <strong>anonymous usage analytics</strong> and <strong>crash reports</strong> through Google Firebase to help us fix bugs and improve retention.",
-        "The free version may show ads (Google AdMob). Purchasing PocketPad Pro removes ads. Purchases are processed by Google Play — we do not store payment card details.",
+        "PocketPad does not require sign-in, and we do not sell personal data.",
+        "Your layouts, pairing helpers, connection preferences, and live controller traffic stay <strong>on your device or local link</strong>—Datron does not operate backend servers that store or profile that activity.",
+        "The <strong>only automatic remote data</strong> PocketPad may send is <strong>anonymous usage data</strong> (plus crash diagnostics tied to the same opt-in), processed by <strong>Google Firebase Analytics</strong> when you allow analytics in the app.",
+        "The free version may show ads (Google AdMob). Purchasing PocketPad Pro removes ads. Purchases are handled by Google Play—we never see or store payment card details.",
       ],
     },
     {
-      title: "Analytics and crash reporting",
+      title: "No Datron backend servers for your controller data",
       paragraphs_html: [
-        "If you allow analytics in the app, Firebase Analytics may collect anonymous events such as screen views, session duration, connection mode (Wi‑Fi vs Bluetooth), and layout choices. " +
-          "Firebase Crashlytics may collect crash stack traces and device model/OS version when enabled.",
-        "These services do not receive your controller inputs, contacts, or precise location. You can decline or disable analytics anytime in PocketPad Settings.",
+        "When we say PocketPad does not send your usage to <em>our</em> servers, we mean Datron does not run infrastructure that receives, stores, or profiles your controller inputs, custom layouts, screen content, contacts, or location history.",
+        "Bluetooth HID and Wi‑Fi sessions travel directly between your phone and the device you are controlling on your local link. That traffic is not routed through Datron-operated servers.",
+        "Optional services from Google (analytics, crash reporting, ads, Play Billing, and voluntary feedback storage) are described below. They are separate from PocketPad’s core on-device and peer-to-peer design.",
       ],
+    },
+    {
+      title: "Anonymous usage analytics (opt in)",
+      paragraphs_html: [
+        "On first launch, PocketPad asks whether you want to share <strong>anonymous usage analytics</strong>. If you decline, no analytics or crash reports are sent. You can change this anytime in <strong>Settings → Analytics</strong>.",
+        "When enabled, the app uses <strong>Google Firebase Analytics</strong> (part of Google Analytics) to help us understand how PocketPad is used and where to improve it. Data is aggregated and not linked to your name, email, phone number, or a PocketPad account—because PocketPad does not create accounts.",
+      ],
+      bullets_html: [
+        "<strong>Screen and session activity</strong> — which screens you open, when a controller session starts or ends, and session length",
+        "<strong>Connection context</strong> — whether you used Wi‑Fi or Bluetooth, and which built-in or custom layout profile was active (layout identifiers only, not your button presses)",
+        "<strong>Feature toggles</strong> — for example whether tilt-to-steer was enabled",
+        "<strong>Product events</strong> — anonymous tallies such as rating-prompt actions, ad impressions (free tier), purchase restore outcomes, and feedback category when you submit feedback",
+        "<strong>Device context</strong> — app version, device manufacturer/model, and OS version (via Firebase user properties)",
+        "<strong>Crash diagnostics</strong> — when analytics is on, <strong>Firebase Crashlytics</strong> may also receive crash stack traces and the same basic device/OS context to help fix stability issues",
+      ],
+      tail_html:
+        "Firebase may assign a pseudonymous app-instance identifier to group events; it is not your Google account and is not used by Datron to identify you personally. " +
+        "Analytics does <strong>not</strong> receive your live controller inputs, keystrokes, contacts, photos, files, or precise GPS location. " +
+        "Google processes this data under its own terms: " +
+        '<a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google Privacy Policy</a>, ' +
+        '<a href="https://firebase.google.com/support/privacy" rel="noopener noreferrer">Firebase Privacy</a>, and ' +
+        '<a href="https://policies.google.com/technologies/partner-sites" rel="noopener noreferrer">How Google uses data from sites or apps that use its services</a>.',
     },
     {
       title: "Advertising",
       paragraphs_html: [
         "Non‑Pro users may see banner ads on home screens and full-screen ads during long play sessions. " +
-          "AdMob may use an advertising identifier as described in <a href=\"https://policies.google.com/privacy\" rel=\"noopener noreferrer\">Google’s privacy policy</a>. " +
-          "EU users are shown a consent form (Google UMP) before personalized ads when required.",
+          "AdMob may use an advertising identifier and collect data for ad delivery and measurement as described in <a href=\"https://policies.google.com/privacy\" rel=\"noopener noreferrer\">Google’s privacy policy</a>. " +
+          "This is separate from optional usage analytics above.",
+        "EU users are shown a consent form (Google UMP) before personalized ads when required by law.",
         "Purchasing PocketPad Pro removes all in-app advertisements.",
       ],
     },
     {
-      title: "In-app purchases and feedback",
+      title: "In-app purchases",
       paragraphs_html: [
-        "Pro upgrades and cosmetic skin packs are fulfilled by Google Play Billing. Restore purchases uses your Google account — PocketPad does not create its own accounts.",
-        "If you submit in-app feedback (bugs, feature requests, complaints), we store your message, category, app version, and basic device info in Firebase Firestore so we can respond and fix issues.",
+        "Pro upgrades and cosmetic skin packs are fulfilled by Google Play Billing. Restore purchases uses your Google account on Google’s systems—PocketPad does not create its own accounts or store payment card details.",
+      ],
+    },
+    {
+      title: "Voluntary feedback (not automatic analytics)",
+      paragraphs_html: [
+        "If you choose to send in-app feedback (bugs, feature requests, complaints), you write the message yourself. We store that message, the category you pick, app version, a random install identifier, and basic device info in <strong>Google Firebase Firestore</strong> so we can investigate.",
+        "Only submit information you are comfortable sharing. Feedback is initiated by you; it is not part of the automatic anonymous usage analytics above.",
       ],
     },
     {
       title: "Information we do not collect",
       paragraphs_html: [
-        "PocketPad is not designed to transmit your live controller inputs, screen content, contacts, or location history to Datron-operated servers for profiling.",
-        "Bluetooth and Wi‑Fi control traffic stays between your phone and the host device on your local link.",
+        "PocketPad is not designed to transmit your live controller inputs, screen content, contacts, address book, precise location, or identity-linked profiles to Datron-operated servers.",
+        "We do not run our own analytics warehouse, advertising network, or cloud sync tied to your identity for core controller use.",
+        "If you email us (see Contact), we receive only what you put in that message.",
       ],
     },
     {
@@ -108,14 +139,16 @@ export const PocketPadPrivacyContent = {
     {
       title: "Third-party services",
       paragraphs_html: [
-        "If you install PocketPad from Google Play or another store, that marketplace may collect installation or billing metadata under its own privacy terms. " +
-          "Those services are independent of PocketPad’s on-device behavior described here.",
+        "PocketPad relies on Google services for optional analytics (Firebase Analytics / Google Analytics), crash reporting (Firebase Crashlytics), voluntary feedback storage (Firebase Firestore), ads (AdMob), and purchases (Google Play). Each operates under Google’s policies.",
+        "If you install PocketPad from Google Play or another store, that marketplace may collect installation or billing metadata under its own privacy terms. Those services are independent of PocketPad’s on-device and peer-to-peer controller behavior.",
       ],
     },
     {
       title: "Children’s privacy",
       paragraphs_html: [
-        "PocketPad is a utility app, and does not collect any data. We do not collect personal information from children. "
+        "PocketPad is a general-purpose controller utility and is not directed at children under 13. We do not knowingly collect personal information from children.",
+        "Automatic collection is limited to the <strong>optional, anonymous usage analytics</strong> described above, which requires an in-app choice and can be turned off in Settings. It does not include your controller inputs or account sign-up because PocketPad has neither accounts nor input telemetry.",
+        "If you believe a child has provided personal information through voluntary feedback or email, contact us at <a href=\"mailto:support@datronapps.com\">support@datronapps.com</a> with <strong>Privacy:</strong> in the subject line and we will delete it where reasonably possible.",
       ],
     },
     {
@@ -143,7 +176,7 @@ export const PocketPadPrivacyContent = {
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
     privacyLinkLabel: "Privacy",
-    mutedLine: "Optional anonymous analytics · Ads in free tier · Pro removes ads · Preferences on device.",
+    mutedLine: "No Datron controller servers · Optional anonymous usage analytics · Ads in free tier · Preferences on device.",
     contactTitle: "Contact",
     contactEmail: "support@datronapps.com",
     contactHint_html:
