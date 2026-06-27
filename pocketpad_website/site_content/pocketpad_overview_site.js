@@ -26,6 +26,7 @@ export const PocketPadSiteContent = {
     pocketpadOverviewPage: "./index.html",
     pocketpadPrivacyPage: "./privacy.html",
     checksumReadmeHref: `${pocketpadDownloadsBaseUrl.replace(/\/$/, "")}/README.txt`,
+    thirdPartyNoticesHref: `${pocketpadDownloadsBaseUrl.replace(/\/$/, "")}/THIRD_PARTY_NOTICES.txt`,
   },
 
   chrome: {
@@ -104,10 +105,23 @@ export const PocketPadSiteContent = {
   downloadSection: {
     title: "PocketPad Companion for Windows",
     intro_html:
-      "Download the <strong>Windows installer (EXE)</strong> for a normal setup (Program Files, ViGEmBus during install, Start menu), or grab the <strong>portable ZIP</strong> if you prefer extracting and running <strong>pc_companion_ui.exe</strong> yourself. Allow the app on <strong>private</strong> networks in Windows Firewall, then connect from PocketPad over Wi‑Fi.",
+      "Download the <strong>Windows installer (EXE)</strong> for a normal setup (Program Files, Start menu). During setup, PocketPad may install the open-source <strong>ViGEmBus</strong> kernel driver so virtual Xbox controllers appear in Windows — this is disclosed up front, not hidden bundleware. Prefer a portable build? Grab the <strong>ZIP</strong>, run <strong>pc_companion_ui.exe</strong>, and install ViGEmBus manually from <code>drivers\\</code> if needed. Allow the app on <strong>private</strong> networks in Windows Firewall, then connect from PocketPad over Wi‑Fi.",
     rows: PocketPadDownloadRows,
     checksumLinePrefix: "Checksums & notes:",
     checksumLinkLabel: "README.txt",
+    thirdPartyLinePrefix: "Third-party licenses (ViGEmClient / ViGEmBus):",
+    thirdPartyLinkLabel: "THIRD_PARTY_NOTICES.txt",
+  },
+
+  thirdPartySection: {
+    title: "Third-party software (Windows Companion)",
+    lead_html:
+      "PocketPad Companion is not adware or toolbar bundleware. It does ship and optionally install reputable <strong>open-source</strong> components so Windows can expose virtual gamepads:",
+    bullets_html: [
+      "<strong><a href=\"https://github.com/nefarius/ViGEmClient\" rel=\"noopener noreferrer\">ViGEmClient</a></strong> (<code>vigemclient.dll</code>, MIT License) — user-mode library PocketPad uses to feed virtual controllers.",
+      "<strong><a href=\"https://github.com/nefarius/ViGEmBus\" rel=\"noopener noreferrer\">ViGEmBus</a></strong> (BSD 3-Clause) — optional system driver installed by the Windows setup EXE when it is not already present. Maintained by Nefarius Software Solutions e.U., not Datron.",
+      "Full license texts: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a> (also installed next to <code>pc_companion_ui.exe</code>). Uninstalling PocketPad can optionally remove ViGEmBus if PocketPad installed it.",
+    ],
   },
 
   quickStartSection: {
@@ -413,6 +427,23 @@ function buildDownload(c) {
   section.appendChild(intro);
   section.appendChild(list);
   section.appendChild(checksumP);
+
+  if (d.thirdPartyLinePrefix && c.paths.thirdPartyNoticesHref) {
+    const thirdP = document.createElement("p");
+    thirdP.className = "muted small";
+    thirdP.style.marginTop = "8px";
+    thirdP.appendChild(document.createTextNode(d.thirdPartyLinePrefix));
+    thirdP.appendChild(document.createTextNode("\u00a0"));
+    const thirdA = document.createElement("a");
+    thirdA.href = c.paths.thirdPartyNoticesHref;
+    const thirdCode = document.createElement("code");
+    thirdCode.textContent = d.thirdPartyLinkLabel || "THIRD_PARTY_NOTICES.txt";
+    thirdA.appendChild(thirdCode);
+    thirdA.appendChild(document.createTextNode(" \u2192"));
+    thirdP.appendChild(thirdA);
+    section.appendChild(thirdP);
+  }
+
   return section;
 }
 
@@ -447,6 +478,39 @@ function buildQuickStart(c) {
   section.appendChild(h2);
   section.appendChild(ol);
   section.appendChild(p);
+  return section;
+}
+
+function buildThirdParty(c) {
+  const t = c.thirdPartySection;
+  if (!t) {
+    return document.createDocumentFragment();
+  }
+
+  const section = document.createElement("section");
+  section.className = "section-block";
+  section.setAttribute("aria-labelledby", "third-party-heading");
+
+  const h2 = document.createElement("h2");
+  h2.id = "third-party-heading";
+  h2.className = "h-section";
+  h2.textContent = t.title;
+
+  const lead = document.createElement("p");
+  lead.className = "muted";
+  lead.appendChild(htmlToNodes(t.lead_html));
+
+  const ul = document.createElement("ul");
+  ul.className = "feature-bullets";
+  for (const bullet of t.bullets_html || []) {
+    const li = document.createElement("li");
+    li.appendChild(htmlToNodes(bullet));
+    ul.appendChild(li);
+  }
+
+  section.appendChild(h2);
+  section.appendChild(lead);
+  section.appendChild(ul);
   return section;
 }
 
@@ -620,7 +684,7 @@ function renderPocketPadOverview(c = PocketPadSiteContent) {
   }
 
   top.replaceChildren(buildTop(c));
-  main.replaceChildren(buildHero(c), buildWhy(c), buildFeatures(c), buildDownload(c), buildQuickStart(c), buildGallery(c));
+  main.replaceChildren(buildHero(c), buildWhy(c), buildFeatures(c), buildDownload(c), buildThirdParty(c), buildQuickStart(c), buildGallery(c));
   footer.replaceChildren(...buildFooter(c));
 }
 

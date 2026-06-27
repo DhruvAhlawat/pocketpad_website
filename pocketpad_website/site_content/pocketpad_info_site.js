@@ -16,6 +16,7 @@ export const PocketPadInfoContent = {
     pocketpadOverviewPage: "./index.html",
     pocketpadDetailsPage: "./info.html",
     pocketpadPrivacyPage: "./privacy.html",
+    thirdPartyNoticesHref: "./downloads/THIRD_PARTY_NOTICES.txt",
   },
 
   chrome: {
@@ -56,6 +57,7 @@ export const PocketPadInfoContent = {
         "<strong>PocketPad Companion</strong> bundles discovery, encryption handshakes for Universal layouts, dashboards, verbose logging.",
         "Companion auto-runs LAN listeners optimized for multiplayer — multiple phones negotiating independent sessions concurrently.",
         'On Windows, install Companion from <a href="./index.html">PocketPad Overview</a> (installer EXE recommended, portable ZIP optional — checksums in README.txt).',
+        "The installer may install the open-source <strong>ViGEmBus</strong> driver (BSD 3-Clause, Nefarius) when it is not already on the PC so virtual Xbox controllers appear in Windows. This is disclosed on the overview page — not hidden bundleware. See <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a> for ViGEmClient (MIT) and ViGEmBus license texts.",
       ],
     },
     {
@@ -72,6 +74,14 @@ export const PocketPadInfoContent = {
         "Wake sleeping hosts — Bluetooth radios pause HID until active.",
         "Some TVs mute local speakers while treating the phone like a headset; disable Bluetooth media audio when that happens.",
         "Keep Companion + phones on same AP band to avoid jitter; multicast discovery requires same subnet.",
+      ],
+    },
+    {
+      title: "Third-party software & uninstall",
+      bullets_html: [
+        "<strong>ViGEmClient</strong> (<code>vigemclient.dll</code>, MIT) ships with Companion and is removed when you uninstall PocketPad.",
+        "<strong>ViGEmBus</strong> (BSD 3-Clause) is a separate system driver. The PocketPad installer only installs it when missing, records that fact, and on uninstall asks whether to remove it. Choose <em>keep</em> if other apps (e.g. DS4Windows) still need ViGEmBus.",
+        "License texts and attribution: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a>.",
       ],
     },
   ],
