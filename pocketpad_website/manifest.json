@@ -1,0 +1,21 @@
+{
+  "name": "PocketPad — Phone as Gamepad, Keyboard, Mouse & Remote",
+  "short_name": "PocketPad",
+  "description": "Turn your phone into a wireless gamepad, keyboard & mouse, TV remote, media remote, and presentation controller for PC, Mac, Android, and Smart TVs.",
+  "start_url": "/apps/pocketpad/index.html",
+  "display": "browser",
+  "background_color": "#0a0f1a",
+  "theme_color": "#1db954",
+  "icons": [
+    {
+      "src": "/assets/icons/gamepad_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/gamepad_new_fixed.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
