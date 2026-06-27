@@ -27,6 +27,8 @@ export const PocketPadSiteContent = {
     pocketpadPrivacyPage: "./privacy.html",
     checksumReadmeHref: `${pocketpadDownloadsBaseUrl.replace(/\/$/, "")}/README.txt`,
     thirdPartyNoticesHref: `${pocketpadDownloadsBaseUrl.replace(/\/$/, "")}/THIRD_PARTY_NOTICES.txt`,
+    eulaHref: "./license.html",
+    eulaTextHref: `${pocketpadDownloadsBaseUrl.replace(/\/$/, "")}/EULA.txt`,
   },
 
   chrome: {
@@ -105,22 +107,24 @@ export const PocketPadSiteContent = {
   downloadSection: {
     title: "PocketPad Companion for Windows",
     intro_html:
-      "Download the <strong>Windows installer (EXE)</strong> for a normal setup (Program Files, Start menu). During setup, PocketPad may install the open-source <strong>ViGEmBus</strong> kernel driver so virtual Xbox controllers appear in Windows — this is disclosed up front, not hidden bundleware. Prefer a portable build? Grab the <strong>ZIP</strong>, run <strong>pc_companion_ui.exe</strong>, and install ViGEmBus manually from <code>drivers\\</code> if needed. Allow the app on <strong>private</strong> networks in Windows Firewall, then connect from PocketPad over Wi‑Fi.",
+      "Download the <strong>Windows installer (EXE)</strong> for a normal setup (Program Files, Start menu). <strong>PocketPad Companion is proprietary software</strong> — installers are hosted on this site (GitHub Pages); source code is not published. During setup, the installer may also install the third-party <strong>ViGEmBus</strong> driver so virtual Xbox controllers appear in Windows (disclosed up front). Prefer portable? Grab the <strong>ZIP</strong>, run <strong>pc_companion_ui.exe</strong>, and install ViGEmBus manually from <code>drivers\\</code> if needed. Allow the app on <strong>private</strong> networks in Windows Firewall, then connect from PocketPad over Wi‑Fi.",
     rows: PocketPadDownloadRows,
     checksumLinePrefix: "Checksums & notes:",
     checksumLinkLabel: "README.txt",
     thirdPartyLinePrefix: "Third-party licenses (ViGEmClient / ViGEmBus):",
     thirdPartyLinkLabel: "THIRD_PARTY_NOTICES.txt",
+    eulaLinePrefix: "End User License Agreement (EULA):",
+    eulaLinkLabel: "Read license terms",
   },
 
   thirdPartySection: {
     title: "Third-party software (Windows Companion)",
     lead_html:
-      "PocketPad Companion is not adware or toolbar bundleware. It does ship and optionally install reputable <strong>open-source</strong> components so Windows can expose virtual gamepads:",
+      "<strong>PocketPad Companion is proprietary software</strong>, distributed as pre-built Windows installers from this website (GitHub Pages). It is not open source. To expose virtual gamepads, the package also includes or installs reputable <strong>third-party</strong> components:",
     bullets_html: [
       "<strong><a href=\"https://github.com/nefarius/ViGEmClient\" rel=\"noopener noreferrer\">ViGEmClient</a></strong> (<code>vigemclient.dll</code>, MIT License) — user-mode library PocketPad uses to feed virtual controllers.",
       "<strong><a href=\"https://github.com/nefarius/ViGEmBus\" rel=\"noopener noreferrer\">ViGEmBus</a></strong> (BSD 3-Clause) — optional system driver installed by the Windows setup EXE when it is not already present. Maintained by Nefarius Software Solutions e.U., not Datron.",
-      "Full license texts: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a> (also installed next to <code>pc_companion_ui.exe</code>). Uninstalling PocketPad can optionally remove ViGEmBus if PocketPad installed it.",
+      "Full third-party license texts: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a>. Your use of PocketPad itself is governed by the <a href=\"./license.html\">EULA</a>. Uninstalling PocketPad can optionally remove ViGEmBus if PocketPad installed it.",
     ],
   },
 
@@ -181,7 +185,7 @@ export const PocketPadSiteContent = {
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
     privacyLinkLabel: "Privacy",
-    mutedLine: "PocketPad Companion is open-source; the downloadable Windows package is linked above.",
+    mutedLine: "Proprietary software · Hosted on GitHub Pages · Subject to the EULA · ViGEm is third-party open source.",
     contactTitle: "Contact",
     contactEmail: "dasoft573@gmail.com",
     contactHint_html:
@@ -442,6 +446,20 @@ function buildDownload(c) {
     thirdA.appendChild(document.createTextNode(" \u2192"));
     thirdP.appendChild(thirdA);
     section.appendChild(thirdP);
+  }
+
+  if (d.eulaLinePrefix && c.paths.eulaHref) {
+    const eulaP = document.createElement("p");
+    eulaP.className = "muted small";
+    eulaP.style.marginTop = "8px";
+    eulaP.appendChild(document.createTextNode(d.eulaLinePrefix));
+    eulaP.appendChild(document.createTextNode("\u00a0"));
+    const eulaA = document.createElement("a");
+    eulaA.href = c.paths.eulaHref;
+    eulaA.textContent = d.eulaLinkLabel || "EULA";
+    eulaA.appendChild(document.createTextNode(" \u2192"));
+    eulaP.appendChild(eulaA);
+    section.appendChild(eulaP);
   }
 
   return section;

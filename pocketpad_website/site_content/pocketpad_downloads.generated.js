@@ -11,10 +11,10 @@ export const PocketPadDownloadArtifacts = {
   exeFileName: "PocketPad-PC-1.1.1-Setup.exe",
   zipFileName: "PocketPad-PC-1.1.1-Windows-x64.zip",
   msiFileName: null,
-  exeSha256: "176c68eee9fdb7609763bea9a5c5efc5bdccfb7b8aa1becb524b53a7ea033857",
-  zipSha256: "1ecf751c3e9be6f40ffa26afc469196510d58bae4911652e9cc749fd749b260a",
+  exeSha256: "4d51e71455c54c5df3c5ca6264d05a3be9a4bcfcb6230cf1f055da3203099227",
+  zipSha256: "9767a60019d704e0f6cc1cccfce67259404a482d65531b61361814ba645bbd53",
   msiSha256: null,
-  generatedAtUtc: "2026-06-27T16:06:30Z",
+  generatedAtUtc: "2026-06-27T16:17:38Z",
 };
 
 /** Rows injected into downloadSection on the PocketPad overview page */
@@ -24,7 +24,7 @@ export const PocketPadDownloadRows = [
     downloadName: "PocketPad-PC-1.1.1-Setup.exe",
     rowTitle: "Windows installer Â· v1.1.1 (x64)",
     rowDescription:
-      "Recommended. Windows 10 / 11, x64. Installs Companion and, if needed, the open-source ViGEmBus driver (disclosed during setup). Includes an uninstaller that can remove ViGEmBus when PocketPad installed it. Approve UAC when prompted.",
+      "Recommended. Windows 10 / 11, x64. Proprietary PocketPad Companion installer (hosted on GitHub Pages). Installs the app and, if needed, the third-party ViGEmBus driver (disclosed during setup). Approve UAC when prompted.",
     rowCtaLabel: "Download",
   },
   {

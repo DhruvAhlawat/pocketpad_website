@@ -57,7 +57,7 @@ export const PocketPadInfoContent = {
         "<strong>PocketPad Companion</strong> bundles discovery, encryption handshakes for Universal layouts, dashboards, verbose logging.",
         "Companion auto-runs LAN listeners optimized for multiplayer — multiple phones negotiating independent sessions concurrently.",
         'On Windows, install Companion from <a href="./index.html">PocketPad Overview</a> (installer EXE recommended, portable ZIP optional — checksums in README.txt).',
-        "The installer may install the open-source <strong>ViGEmBus</strong> driver (BSD 3-Clause, Nefarius) when it is not already on the PC so virtual Xbox controllers appear in Windows. This is disclosed on the overview page — not hidden bundleware. See <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a> for ViGEmClient (MIT) and ViGEmBus license texts.",
+        "The installer may install the third-party <strong>ViGEmBus</strong> driver (BSD 3-Clause, Nefarius) when it is not already on the PC so virtual Xbox controllers appear in Windows. PocketPad itself is <strong>proprietary</strong> — only the Windows installer is published here (GitHub Pages), not source code. See <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a> for ViGEm license texts and the <a href=\"./license.html\">EULA</a> for PocketPad terms.",
       ],
     },
     {
@@ -81,7 +81,7 @@ export const PocketPadInfoContent = {
       bullets_html: [
         "<strong>ViGEmClient</strong> (<code>vigemclient.dll</code>, MIT) ships with Companion and is removed when you uninstall PocketPad.",
         "<strong>ViGEmBus</strong> (BSD 3-Clause) is a separate system driver. The PocketPad installer only installs it when missing, records that fact, and on uninstall asks whether to remove it. Choose <em>keep</em> if other apps (e.g. DS4Windows) still need ViGEmBus.",
-        "License texts and attribution: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a>.",
+        "License texts and attribution: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a>. Companion use is governed by the <a href=\"./license.html\">End User License Agreement (EULA)</a>.",
       ],
     },
   ],
@@ -95,7 +95,7 @@ export const PocketPadInfoContent = {
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
     privacyLinkLabel: "Privacy",
-    mutedLine: "PocketPad Companion is open-source.",
+    mutedLine: "Proprietary software · Hosted on GitHub Pages · Subject to the EULA · ViGEm is third-party open source.",
     contactTitle: "Contact",
     contactEmail: "dasoft573@gmail.com",
     contactHint_html:

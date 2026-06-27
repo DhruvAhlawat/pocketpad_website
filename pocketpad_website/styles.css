@@ -1024,6 +1024,21 @@ code {
   color: var(--text);
 }
 
+.legal-eula-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface-2) 88%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  overflow-x: auto;
+  max-height: min(70vh, 720px);
+  overflow-y: auto;
+}
+
 .footer {
   padding: 28px 0 44px;
 }
