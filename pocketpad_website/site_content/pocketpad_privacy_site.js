@@ -31,7 +31,7 @@ export const PocketPadPrivacyContent = {
   hero: {
     headline: "PocketPad",
     pageTitle: "Privacy Policy",
-    effectiveDate: "June 28, 2026",
+    effectiveDate: "June 29, 2026",
     lead_html:
       "PocketPad lets you control your devices without creating an account or sending your layouts and live inputs to Datron-operated servers. " +
       "The only information we may receive remotely is <strong>anonymous usage data</strong>—and only if you choose to allow it. " +
@@ -63,7 +63,8 @@ export const PocketPadPrivacyContent = {
     {
       title: "Anonymous usage analytics (opt in)",
       paragraphs_html: [
-        "On first launch, PocketPad asks whether you want to share <strong>anonymous usage analytics</strong>. If you decline, no analytics or crash reports are sent. You can change this anytime in <strong>Settings → Analytics</strong>.",
+        "In regions where privacy law requires upfront consent (the European Economic Area, United Kingdom, and Switzerland), PocketPad asks on first launch whether you want to share <strong>anonymous usage analytics</strong>. If you decline, no analytics or crash reports are sent. " +
+          "Elsewhere, anonymous usage analytics is <strong>enabled by default</strong> to help improve the app; you can turn it off anytime in <strong>Settings → Analytics</strong>.",
         "When enabled, the app uses <strong>Google Firebase Analytics</strong> (part of Google Analytics) to help us understand how PocketPad is used and where to improve it. Data is aggregated and not linked to your name, email, phone number, or a PocketPad account—because PocketPad does not create accounts.",
       ],
       bullets_html: [
@@ -147,7 +148,7 @@ export const PocketPadPrivacyContent = {
       title: "Children’s privacy",
       paragraphs_html: [
         "PocketPad is a general-purpose controller utility and is not directed at children under 13. We do not knowingly collect personal information from children.",
-        "Automatic collection is limited to the <strong>optional, anonymous usage analytics</strong> described above, which requires an in-app choice and can be turned off in Settings. It does not include your controller inputs or account sign-up because PocketPad has neither accounts nor input telemetry.",
+        "Automatic collection is limited to the <strong>optional, anonymous usage analytics</strong> described above. In the EEA, UK, and Switzerland it requires upfront consent; elsewhere it is on by default until you turn it off in Settings. It does not include your controller inputs or account sign-up because PocketPad has neither accounts nor input telemetry.",
         "If you believe a child has provided personal information through voluntary feedback or email, contact us at <a href=\"mailto:support@datronapps.com\">support@datronapps.com</a> with <strong>Privacy:</strong> in the subject line and we will delete it where reasonably possible.",
       ],
     },
