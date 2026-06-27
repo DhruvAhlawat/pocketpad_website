@@ -107,7 +107,7 @@ export const PocketPadSiteContent = {
   downloadSection: {
     title: "PocketPad Companion for Windows",
     intro_html:
-      "Download the <strong>Windows installer (EXE)</strong> for a normal setup (Program Files, Start menu). <strong>PocketPad Companion is proprietary software</strong> — installers are hosted on this site (GitHub Pages); source code is not published. During setup, the installer may also install the third-party <strong>ViGEmBus</strong> driver so virtual Xbox controllers appear in Windows (disclosed up front). Prefer portable? Grab the <strong>ZIP</strong>, run <strong>pc_companion_ui.exe</strong>, and install ViGEmBus manually from <code>drivers\\</code> if needed. Allow the app on <strong>private</strong> networks in Windows Firewall, then connect from PocketPad over Wi‑Fi.",
+      "Download the <strong>Windows installer (EXE)</strong> for a normal setup (Program Files, Start menu). During setup, the installer may also install the third-party <strong>ViGEmBus</strong> driver so virtual Xbox controllers appear in Windows (disclosed up front). Prefer portable? Grab the <strong>ZIP</strong>, run <strong>pc_companion_ui.exe</strong>, and install ViGEmBus manually from <code>drivers\\</code> if needed. Allow the app on <strong>private</strong> networks in Windows Firewall, then connect from PocketPad over Wi‑Fi.",
     rows: PocketPadDownloadRows,
     checksumLinePrefix: "Checksums & notes:",
     checksumLinkLabel: "README.txt",
@@ -120,7 +120,7 @@ export const PocketPadSiteContent = {
   thirdPartySection: {
     title: "Third-party software (Windows Companion)",
     lead_html:
-      "<strong>PocketPad Companion is proprietary software</strong>, distributed as pre-built Windows installers from this website (GitHub Pages). It is not open source. To expose virtual gamepads, the package also includes or installs reputable <strong>third-party</strong> components:",
+      "To expose virtual gamepads, the Windows Companion package includes or installs reputable <strong>third-party</strong> components:",
     bullets_html: [
       "<strong><a href=\"https://github.com/nefarius/ViGEmClient\" rel=\"noopener noreferrer\">ViGEmClient</a></strong> (<code>vigemclient.dll</code>, MIT License) — user-mode library PocketPad uses to feed virtual controllers.",
       "<strong><a href=\"https://github.com/nefarius/ViGEmBus\" rel=\"noopener noreferrer\">ViGEmBus</a></strong> (BSD 3-Clause) — optional system driver installed by the Windows setup EXE when it is not already present. Maintained by Nefarius Software Solutions e.U., not Datron.",
@@ -185,7 +185,7 @@ export const PocketPadSiteContent = {
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
     privacyLinkLabel: "Privacy",
-    mutedLine: "Proprietary software · Hosted on GitHub Pages · Subject to the EULA · ViGEm is third-party open source.",
+    mutedLine: "Hosted on GitHub Pages · Subject to the EULA · ViGEm is third-party open source.",
     contactTitle: "Contact",
     contactEmail: "dasoft573@gmail.com",
     contactHint_html:

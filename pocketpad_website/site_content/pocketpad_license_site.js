@@ -37,7 +37,7 @@ export const PocketPadLicenseContent = {
     pageTitle: "End User License Agreement",
     effectiveDate: "June 27, 2026",
     lead_html:
-      "This page shows the <strong>End User License Agreement (EULA)</strong> for <strong>PocketPad PC Companion</strong> on Windows. PocketPad is <strong>proprietary software</strong>; installers are distributed from this website (GitHub Pages), not as open source. " +
+      "This page shows the <strong>End User License Agreement (EULA)</strong> for <strong>PocketPad PC Companion</strong> on Windows. " +
       "Separate from this agreement, <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a> lists third-party open-source license texts for ViGEm components only.",
   },
 
@@ -50,7 +50,7 @@ export const PocketPadLicenseContent = {
     detailsLinkLabel: "Details",
     privacyLinkLabel: "Privacy",
     licenseLinkLabel: "License",
-    mutedLine: "Proprietary software · Hosted on GitHub Pages · ViGEm components remain under their own licenses.",
+    mutedLine: "Hosted on GitHub Pages · ViGEm components remain under their own licenses.",
     contactTitle: "Contact",
     contactEmail: "dasoft573@gmail.com",
     contactHint_html:

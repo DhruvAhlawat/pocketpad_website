@@ -1,7 +1,7 @@
 PocketPad PC Companion - Third-Party Software Notices
 =====================================================
 
-PocketPad Companion is proprietary software. It includes third-party open-source
+PocketPad Companion includes third-party open-source
 components (ViGEmClient and optionally ViGEmBus) to expose virtual Xbox 360
 controllers in Windows (joy.cpl / XInput). The notices below satisfy the
 license requirements for redistributing those third-party components in binary form.

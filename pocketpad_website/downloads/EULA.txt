@@ -10,8 +10,7 @@ and any installers or portable packages that include the application (collective
 If you do not agree, do not install or use the Software.
 
 This Agreement governs your use of the Software. The Software is proprietary to Datron.
-Publishing installers on the PocketPad website (GitHub Pages) or elsewhere does not
-release source code or grant open-source rights. This Agreement is separate from, and
+This Agreement is separate from, and
 does not replace, third-party license texts for components such as ViGEmClient and
 ViGEmBus. Those notices are in THIRD_PARTY_NOTICES.txt (shipped with the Software and
 published on the PocketPad website).
