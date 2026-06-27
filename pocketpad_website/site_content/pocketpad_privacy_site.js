@@ -31,10 +31,10 @@ export const PocketPadPrivacyContent = {
   hero: {
     headline: "PocketPad",
     pageTitle: "Privacy Policy",
-    effectiveDate: "May 19, 2026",
+    effectiveDate: "June 27, 2026",
     lead_html:
-      "PocketPad is built so you can control your devices without creating an account or sending your usage to our servers. " +
-      "This policy explains what the app does—and does not—do with information.",
+      "PocketPad is built so you can control your devices without creating an account. " +
+      "This policy explains what the app collects when you opt in to analytics, use ads, or make in-app purchases.",
   },
 
   media: {
@@ -45,17 +45,41 @@ export const PocketPadPrivacyContent = {
     {
       title: "Summary",
       paragraphs_html: [
-        "We do not operate backend servers that collect, store, or profile your activity. " +
-          "PocketPad does not require sign-in, and we do not sell or rent personal data.",
-        "The only information the app routinely keeps is stored <strong>locally on your device</strong>—for example layout presets, themes, and other preferences you choose so the controller works the way you want.",
+        "We do not require sign-in and we do not sell personal data.",
+        "Core controller data (layouts, pairing helpers, connection preferences) stays <strong>on your device</strong>.",
+        "With your consent, the app may send <strong>anonymous usage analytics</strong> and <strong>crash reports</strong> through Google Firebase to help us fix bugs and improve retention.",
+        "The free version may show ads (Google AdMob). Purchasing PocketPad Pro removes ads. Purchases are processed by Google Play — we do not store payment card details.",
+      ],
+    },
+    {
+      title: "Analytics and crash reporting",
+      paragraphs_html: [
+        "If you allow analytics in the app, Firebase Analytics may collect anonymous events such as screen views, session duration, connection mode (Wi‑Fi vs Bluetooth), and layout choices. " +
+          "Firebase Crashlytics may collect crash stack traces and device model/OS version when enabled.",
+        "These services do not receive your controller inputs, contacts, or precise location. You can decline or disable analytics anytime in PocketPad Settings.",
+      ],
+    },
+    {
+      title: "Advertising",
+      paragraphs_html: [
+        "Non‑Pro users may see banner ads on home screens and full-screen ads during long play sessions. " +
+          "AdMob may use an advertising identifier as described in <a href=\"https://policies.google.com/privacy\" rel=\"noopener noreferrer\">Google’s privacy policy</a>. " +
+          "EU users are shown a consent form (Google UMP) before personalized ads when required.",
+        "Purchasing PocketPad Pro removes all in-app advertisements.",
+      ],
+    },
+    {
+      title: "In-app purchases and feedback",
+      paragraphs_html: [
+        "Pro upgrades and cosmetic skin packs are fulfilled by Google Play Billing. Restore purchases uses your Google account — PocketPad does not create its own accounts.",
+        "If you submit in-app feedback (bugs, feature requests, complaints), we store your message, category, app version, and basic device info in Firebase Firestore so we can respond and fix issues.",
       ],
     },
     {
       title: "Information we do not collect",
       paragraphs_html: [
-        "PocketPad is not designed to transmit your inputs, screen content, contacts, location history, or device identifiers to Datron or any other party operated by us.",
-        "We do not run analytics pipelines, advertising networks, or cloud sync tied to your identity for PocketPad.",
-        "If you contact us by email (see below), we receive only what you choose to put in that message.",
+        "PocketPad is not designed to transmit your live controller inputs, screen content, contacts, or location history to Datron-operated servers for profiling.",
+        "Bluetooth and Wi‑Fi control traffic stays between your phone and the host device on your local link.",
       ],
     },
     {
@@ -119,7 +143,7 @@ export const PocketPadPrivacyContent = {
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
     privacyLinkLabel: "Privacy",
-    mutedLine: "No accounts · No Datron-operated data collection servers · Preferences stored on your device.",
+    mutedLine: "Optional anonymous analytics · Ads in free tier · Pro removes ads · Preferences on device.",
     contactTitle: "Contact",
     contactEmail: "support@datronapps.com",
     contactHint_html:
