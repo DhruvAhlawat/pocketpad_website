@@ -1,6 +1,6 @@
 PocketPad Companion — published files (synced from game_controller\dist\ via sync_pocketpad_website_downloads.ps1)
 
-Generated (UTC): 2026-06-27T17:07:18Z
+Generated (UTC): 2026-06-27T18:54:36Z
 
 File: PocketPad-PC-1.1.1-Setup.exe
 SHA-256:
@@ -11,7 +11,7 @@ SHA-256:
 
 File: PocketPad-PC-1.1.1-Windows-x64.zip
 SHA-256:
-  6a6421d45925a19549886c6dc00032321b5ee0abb41568fcbe4969d2da932789
+  01fa40fadf700530f39aaf71cd6471377157173238dff4b18cbf9a9c5cefafde
 
   Portable: extract anywhere, run pc_companion_ui.exe.
   ViGEmBus: run the installer under drivers\ if you need the virtual Xbox controller in joy.cpl.
