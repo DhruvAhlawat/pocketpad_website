@@ -1,10 +1,9 @@
 PocketPad PC Companion - Third-Party Software Notices
 =====================================================
 
-PocketPad Companion includes third-party open-source
-components (ViGEmClient and optionally ViGEmBus) to expose virtual Xbox 360
-controllers in Windows (joy.cpl / XInput). The notices below satisfy the
-license requirements for redistributing those third-party components in binary form.
+PocketPad Companion includes ViGEmClient (always) and ViGEmBus (installed by
+setup when not already on your PC) so virtual Xbox 360 controllers appear in
+Windows. License texts for these components are below.
 
 --------------------------------------------------------------------------------
 ViGEmClient (vigemclient.dll)
@@ -33,7 +32,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 --------------------------------------------------------------------------------
-ViGEmBus (optional kernel driver installer)
+ViGEmBus (kernel driver)
 --------------------------------------------------------------------------------
 Project:  https://github.com/nefarius/ViGEmBus
 Docs:     https://docs.nefarius.at/projects/ViGEm/
@@ -71,9 +70,10 @@ How PocketPad uses ViGEm
 --------------------------------------------------------------------------------
 - vigemclient.dll ships next to pc_companion_ui.exe and talks to the ViGEmBus
   driver when it is installed.
-- The Windows installer may run the official ViGEmBus 1.22.0 setup so virtual
-  gamepads appear in Windows. The portable ZIP includes the same driver setup
-  under drivers\ for manual installation.
+- The Windows installer runs the official ViGEmBus 1.22.0 setup when ViGEmBus
+  is not already on your PC, so virtual gamepads appear in Windows. If ViGEmBus
+  is already installed, setup skips this step. The portable ZIP includes the
+  same driver setup under drivers\ for manual installation.
 - ViGEmBus is system-wide software maintained by Nefarius Software Solutions
-  e.U.; it is not authored by Datron. Uninstalling PocketPad can optionally
-  remove ViGEmBus only when PocketPad installed it during setup.
+  e.U.; it is not authored by Datron. When uninstalling PocketPad, you can
+  remove ViGEmBus only if PocketPad installed it during setup.

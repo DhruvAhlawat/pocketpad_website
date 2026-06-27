@@ -25,8 +25,9 @@ PocketPad PC Companion is a Windows host application that:
   • Presents a dashboard showing connected devices and live input state.
   • Creates virtual Xbox 360–compatible game controllers in Windows through the
     ViGEm framework when the ViGEmBus driver is installed.
-  • May install the third-party ViGEmBus kernel driver during setup if it is not
-    already present on your computer, which is needed to emulate Xinput of Xbox gamepads.
+  • Installs the ViGEmBus kernel driver during setup when it is not already on
+    your computer. ViGEmBus is required for games to see your phone as an Xbox
+    controller. If ViGEmBus is already installed, setup skips this step.
 
 The Software is designed to operate on your local network. It is not designed to
 collect usage analytics or require a Datronapps account. See the PocketPad Privacy Policy
@@ -72,17 +73,18 @@ address in Section 10 to request written permission.
 --------------------------------------------------------------------------------
 4. THIRD-PARTY SOFTWARE (INCLUDING VIGEM)
 --------------------------------------------------------------------------------
-The Software incorporates or may install third-party components, including:
+The Software includes third-party components, including:
 
-  • ViGEmClient (vigemclient.dll) — MIT License
-  • ViGEmBus (optional kernel driver) — BSD 3-Clause License
+  • ViGEmClient (vigemclient.dll) — MIT License (always included with Companion)
+  • ViGEmBus (kernel driver) — BSD 3-Clause License (installed by setup when
+    not already present on your computer)
 
 Those components are licensed to you under their respective licenses, not under this
 Agreement. Licensor does not own ViGEmBus or ViGEmClient. Full attribution and license
 texts are in THIRD_PARTY_NOTICES.txt.
 
 
-Windows installer may offer to remove ViGEmBus when you uninstall PocketPad only if
+Windows uninstall can offer to remove ViGEmBus only if
 PocketPad installed ViGEmBus during setup. You may choose to keep ViGEmBus if other
 applications on your computer require it.
 

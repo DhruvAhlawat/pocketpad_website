@@ -11,10 +11,10 @@ export const PocketPadDownloadArtifacts = {
   exeFileName: "PocketPad-PC-1.1.1-Setup.exe",
   zipFileName: "PocketPad-PC-1.1.1-Windows-x64.zip",
   msiFileName: null,
-  exeSha256: "13fcd647d87a414e1fe882e768daea9d636b298c9c2a83480d48d7d7d4265592",
-  zipSha256: "bd8c84e2f8f4449926fff27eb6d73ac015d9c595fb2b86f838192b1f16b81b38",
+  exeSha256: "815f85888ae2ca59aed53b9cbe761d4c390678ba170aa37a9c3318dfd4ac201e",
+  zipSha256: "6a6421d45925a19549886c6dc00032321b5ee0abb41568fcbe4969d2da932789",
   msiSha256: null,
-  generatedAtUtc: "2026-06-27T16:46:24Z",
+  generatedAtUtc: "2026-06-27T17:07:18Z",
 };
 
 /** Rows injected into downloadSection on the PocketPad overview page */

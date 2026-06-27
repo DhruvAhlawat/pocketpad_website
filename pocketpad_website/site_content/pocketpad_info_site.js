@@ -54,10 +54,10 @@ export const PocketPadInfoContent = {
     {
       title: "Wi‑Fi companion (Windows)",
       bullets_html: [
-        "<strong>PocketPad Companion</strong> bundles discovery, encryption handshakes for Universal layouts, dashboards, verbose logging.",
+        "<strong>PocketPad Companion</strong> bundles discovery, pairing codes for Universal layouts, and a live dashboard.",
         "Companion auto-runs LAN listeners optimized for multiplayer — multiple phones negotiating independent sessions concurrently.",
         'On Windows, install Companion from <a href="./index.html">PocketPad Overview</a> (installer EXE recommended, portable ZIP optional — checksums in README.txt).',
-        "The installer may install the third-party <strong>ViGEmBus</strong> driver (BSD 3-Clause, Nefarius) when it is not already on the PC so virtual Xbox controllers appear in Windows. See <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a> for ViGEm license texts and the <a href=\"./license.html\">EULA</a> for PocketPad terms.",
+        "The Windows installer adds <strong>ViGEmBus</strong> when it is not already on your PC—the driver Windows needs so virtual gamepads show up in games. If ViGEmBus is already installed, setup skips that step. License texts: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a>. PocketPad terms: <a href=\"./license.html\">EULA</a>.",
       ],
     },
     {
@@ -80,7 +80,7 @@ export const PocketPadInfoContent = {
       title: "Third-party software & uninstall",
       bullets_html: [
         "<strong>ViGEmClient</strong> (<code>vigemclient.dll</code>, MIT) ships with Companion and is removed when you uninstall PocketPad.",
-        "<strong>ViGEmBus</strong> (BSD 3-Clause) is a separate system driver. The PocketPad installer only installs it when missing, records that fact, and on uninstall asks whether to remove it. Choose <em>keep</em> if other apps (e.g. DS4Windows) still need ViGEmBus.",
+        "<strong>ViGEmBus</strong> (BSD 3-Clause) is a separate Windows driver. The installer adds it only when missing; on uninstall you can keep or remove it. Choose <em>keep</em> if other apps (e.g. DS4Windows) still use ViGEmBus.",
         "License texts and attribution: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a>. Companion use is governed by the <a href=\"./license.html\">End User License Agreement (EULA)</a>.",
       ],
     },
@@ -95,7 +95,7 @@ export const PocketPadInfoContent = {
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
     privacyLinkLabel: "Privacy",
-    mutedLine: "Hosted on GitHub Pages · Subject to the EULA · ViGEm is third-party open source.",
+    mutedLine: "Hosted on GitHub Pages · Subject to the EULA",
     contactTitle: "Contact",
     contactEmail: "dasoft573@gmail.com",
     contactHint_html:
