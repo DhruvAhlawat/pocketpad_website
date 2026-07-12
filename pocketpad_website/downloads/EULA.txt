@@ -1,8 +1,8 @@
-POCKETPAD PC COMPANION — END USER LICENSE AGREEMENT (EULA)
+POCKETPAD PC COMPANION - END USER LICENSE AGREEMENT (EULA)
 
 Effective date: June 27, 2026
 
-IMPORTANT — READ CAREFULLY: This End User License Agreement ("Agreement") is a legal
+IMPORTANT - READ CAREFULLY: This End User License Agreement ("Agreement") is a legal
 contract between you ("you" or "User") and Datron ("Licensor," "we," "us," or "our")
 for the PocketPad PC Companion software for Windows, including updates, documentation,
 and any installers or portable packages that include the application (collectively, the
@@ -20,12 +20,12 @@ published on the PocketPad website).
 --------------------------------------------------------------------------------
 PocketPad PC Companion is a Windows host application that:
 
-  • Receives controller, keyboard, and mouse input from PocketPad on your phone over
-    your local network (Wi‑Fi / UDP) when you choose that connection mode.
-  • Presents a dashboard showing connected devices and live input state.
-  • Creates virtual Xbox 360–compatible game controllers in Windows through the
+  - Receives controller, keyboard, and mouse input from PocketPad on your phone over
+    your local network (Wi-Fi / UDP) when you choose that connection mode.
+  - Presents a dashboard showing connected devices and live input state.
+  - Creates virtual Xbox 360-compatible game controllers in Windows through the
     ViGEm framework when the ViGEmBus driver is installed.
-  • Installs the ViGEmBus kernel driver during setup when it is not already on
+  - Installs the ViGEmBus kernel driver during setup when it is not already on
     your computer. ViGEmBus is required for games to see your phone as an Xbox
     controller. If ViGEmBus is already installed, setup skips this step.
 
@@ -48,7 +48,7 @@ No ownership of the Software is transferred to you. All rights not expressly gra
 are reserved by Licensor.
 
 --------------------------------------------------------------------------------
-3. RESTRICTIONS — YOU MAY NOT
+3. RESTRICTIONS - YOU MAY NOT
 --------------------------------------------------------------------------------
 Except to the extent applicable law expressly permits despite this limitation, you
 may not, and may not permit any third party to:
@@ -75,8 +75,8 @@ address in Section 10 to request written permission.
 --------------------------------------------------------------------------------
 The Software includes third-party components, including:
 
-  • ViGEmClient (vigemclient.dll) — MIT License (always included with Companion)
-  • ViGEmBus (kernel driver) — BSD 3-Clause License (installed by setup when
+  - ViGEmClient (vigemclient.dll) - MIT License (always included with Companion)
+  - ViGEmBus (kernel driver) - BSD 3-Clause License (installed by setup when
     not already present on your computer)
 
 Those components are licensed to you under their respective licenses, not under this
@@ -165,7 +165,7 @@ consumer protection laws provide otherwise.
 --------------------------------------------------------------------------------
 Questions about this Agreement:
 
-  Datron — PocketPad
+  Datron - PocketPad
   Email: dasoft573@gmail.com
 
 When contacting us about licensing or permissions, use a clear subject line such as

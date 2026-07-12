@@ -889,6 +889,27 @@ a.download-row:hover {
     0 0 0 1px rgba(28, 215, 96, 0.15);
 }
 
+.play-store-cta {
+  text-align: center;
+}
+
+.play-store-badge {
+  display: inline-block;
+  margin-top: 12px;
+  line-height: 0;
+}
+
+.play-store-badge img {
+  height: 64px;
+  width: auto;
+}
+
+@media (min-width: 640px) {
+  .play-store-badge img {
+    height: 80px;
+  }
+}
+
 .short-steps {
   margin: 0;
   padding-left: 1.15rem;

@@ -7,14 +7,25 @@
  * Gallery: set each slide `src` to a site-root path (e.g. assets/screenshots/foo.png) or any https URL. Leave `src: ''` for a blank tile.
  */
 import { PocketPadDownloadRows } from "./pocketpad_downloads.generated.js";
-import { datronHubPublicUrl, pocketpadDownloadsBaseUrl } from "./public_site_urls.js";
+import {
+  datronHubPublicUrl,
+  pocketpadDownloadsBaseUrl,
+  pocketpadPlayStoreUrl,
+} from "./public_site_urls.js";
 import { resolveAssetHref } from "./site_assets.js";
 
 export const PocketPadSiteContent = {
   meta: {
-    title: "PocketPad — Universal phone controller (Bluetooth & Wi‑Fi)",
+    title: "PocketPad — Use Phone as Gamepad, Keyboard, Mouse, TV Remote & Slide Controller",
     description:
-      "PocketPad turns your Android phone into a gamepad, keyboard & mouse, media remote, and slideshow controller — Bluetooth HID without a PC install, or Wi‑Fi with the Windows companion.",
+      "PocketPad turns your Android phone into a wireless game controller, PC remote, keyboard & mouse, TV remote, media remote, and presentation slide controller. Bluetooth HID with no install or Wi‑Fi with the Windows companion. Free download.",
+  },
+
+  playStoreSection: {
+    title: "Get PocketPad on Android",
+    blurb: "Free on Google Play — gamepad, keyboard & mouse, TV remote, and slide controller in one app.",
+    badgeAlt: "Get it on Google Play",
+    badgeHref: pocketpadPlayStoreUrl,
   },
 
   /** Paths — `datronHome` is the published Datron hub (see `public_site_urls.js`). */
@@ -286,6 +297,47 @@ function buildHero(c) {
   section.appendChild(h1);
   section.appendChild(blurb);
   section.appendChild(chips);
+  return section;
+}
+
+function buildPlayStore(c) {
+  const ps = c.playStoreSection;
+  const href = String(ps?.badgeHref || "").trim();
+  if (!ps || !href) {
+    return document.createDocumentFragment();
+  }
+
+  const section = document.createElement("section");
+  section.className = "section-tight play-store-cta";
+  section.setAttribute("aria-labelledby", "play-store-heading");
+
+  const h2 = document.createElement("h2");
+  h2.id = "play-store-heading";
+  h2.className = "h-section";
+  h2.textContent = ps.title;
+
+  const blurb = document.createElement("p");
+  blurb.className = "muted";
+  blurb.textContent = ps.blurb;
+
+  const link = document.createElement("a");
+  link.className = "play-store-badge";
+  link.href = href;
+  link.rel = "noopener noreferrer";
+  link.target = "_blank";
+
+  const img = document.createElement("img");
+  img.src = "https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png";
+  img.alt = ps.badgeAlt || "Get it on Google Play";
+  img.width = 270;
+  img.height = 80;
+  img.decoding = "async";
+  img.loading = "lazy";
+  link.appendChild(img);
+
+  section.appendChild(h2);
+  section.appendChild(blurb);
+  section.appendChild(link);
   return section;
 }
 
@@ -702,7 +754,16 @@ function renderPocketPadOverview(c = PocketPadSiteContent) {
   }
 
   top.replaceChildren(buildTop(c));
-  main.replaceChildren(buildHero(c), buildWhy(c), buildFeatures(c), buildDownload(c), buildThirdParty(c), buildQuickStart(c), buildGallery(c));
+  main.replaceChildren(
+    buildHero(c),
+    buildPlayStore(c),
+    buildWhy(c),
+    buildFeatures(c),
+    buildDownload(c),
+    buildThirdParty(c),
+    buildQuickStart(c),
+    buildGallery(c),
+  );
   footer.replaceChildren(...buildFooter(c));
 }
 
