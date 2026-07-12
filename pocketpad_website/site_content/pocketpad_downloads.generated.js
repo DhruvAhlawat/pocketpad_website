@@ -7,30 +7,30 @@
  * Download hrefs use https://pocketpad.datronapps.com/downloads/ (also resolved at render time from public_site_urls.js). Commit downloads/ when you push.
  */
 export const PocketPadDownloadArtifacts = {
-  version: "1.2.0",
-  exeFileName: "PocketPad-PC-1.2.0-Setup.exe",
-  zipFileName: "PocketPad-PC-1.2.0-Windows-x64.zip",
+  version: "2.0.0",
+  exeFileName: "PocketPad-PC-2.0.0-Setup.exe",
+  zipFileName: "PocketPad-PC-2.0.0-Windows-x64.zip",
   msiFileName: null,
-  exeSha256: "ab0e076d40b75054e7e14176cb0a6c8acab06868f1319289935d5bf5c9dd301d",
-  zipSha256: "53ef59f401ffcd7cfc9595c77d723f9b3e9ef04511062b6d01298ca40940a2aa",
+  exeSha256: "7c919831d884bed6bb889a0f0c499143cfd90a316320ad5b0ec16708cbe2c9e7",
+  zipSha256: "4bfb8d9c8bbf4445cff3fb2b5415f46a2cc32e1b236d16d85463afafadcf4b07",
   msiSha256: null,
-  generatedAtUtc: "2026-07-12T14:46:15Z",
+  generatedAtUtc: "2026-07-12T20:33:47Z",
 };
 
 /** Rows injected into downloadSection on the PocketPad overview page */
 export const PocketPadDownloadRows = [
   {
-    href: "https://pocketpad.datronapps.com/downloads/PocketPad-PC-1.2.0-Setup.exe",
-    downloadName: "PocketPad-PC-1.2.0-Setup.exe",
-    rowTitle: "Windows installer · v1.2.0 (x64)",
+    href: "https://pocketpad.datronapps.com/downloads/PocketPad-PC-2.0.0-Setup.exe",
+    downloadName: "PocketPad-PC-2.0.0-Setup.exe",
+    rowTitle: "Windows installer · v2.0.0 (x64)",
     rowDescription:
       "Recommended. Windows 10 / 11, x64. Installs the app and, if needed, the third-party ViGEmBus driver (disclosed during setup). Approve UAC when prompted.",
     rowCtaLabel: "Download",
   },
   {
-    href: "https://pocketpad.datronapps.com/downloads/PocketPad-PC-1.2.0-Windows-x64.zip",
-    downloadName: "PocketPad-PC-1.2.0-Windows-x64.zip",
-    rowTitle: "Portable zip · v1.2.0 (x64)",
+    href: "https://pocketpad.datronapps.com/downloads/PocketPad-PC-2.0.0-Windows-x64.zip",
+    downloadName: "PocketPad-PC-2.0.0-Windows-x64.zip",
+    rowTitle: "Portable zip · v2.0.0 (x64)",
     rowDescription:
       "No installer — extract anywhere, run pc_companion_ui.exe. ViGEmBus setup is included under drivers\\\\ (install manually if needed).",
     rowCtaLabel: "Download",

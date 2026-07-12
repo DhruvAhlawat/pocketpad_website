@@ -1,17 +1,17 @@
 PocketPad Companion — published files (synced from game_controller\dist\ via sync_pocketpad_website_downloads.ps1)
 
-Generated (UTC): 2026-07-12T14:46:15Z
+Generated (UTC): 2026-07-12T20:33:47Z
 
-File: PocketPad-PC-1.2.0-Setup.exe
+File: PocketPad-PC-2.0.0-Setup.exe
 SHA-256:
-  ab0e076d40b75054e7e14176cb0a6c8acab06868f1319289935d5bf5c9dd301d
+  7c919831d884bed6bb889a0f0c499143cfd90a316320ad5b0ec16708cbe2c9e7
 
   Graphical installer (Inno Setup). Windows 10 / 11 x64. Approve UAC when prompted.
   Allow PocketPad Companion on private networks in Windows Firewall when asked.
 
-File: PocketPad-PC-1.2.0-Windows-x64.zip
+File: PocketPad-PC-2.0.0-Windows-x64.zip
 SHA-256:
-  53ef59f401ffcd7cfc9595c77d723f9b3e9ef04511062b6d01298ca40940a2aa
+  4bfb8d9c8bbf4445cff3fb2b5415f46a2cc32e1b236d16d85463afafadcf4b07
 
   Portable: extract anywhere, run pc_companion_ui.exe.
   ViGEmBus: run the installer under drivers\ if you need the virtual Xbox controller in joy.cpl.
