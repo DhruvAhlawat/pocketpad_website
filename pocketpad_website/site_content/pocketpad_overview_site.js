@@ -11,6 +11,7 @@ import {
   datronHubPublicUrl,
   pocketpadDownloadsBaseUrl,
   pocketpadPlayStoreUrl,
+  pocketpadThirdPartyNoticesUrl,
 } from "./public_site_urls.js";
 import { resolveAssetHref } from "./site_assets.js";
 
@@ -135,7 +136,7 @@ export const PocketPadSiteContent = {
     bullets_html: [
       "<strong><a href=\"https://github.com/nefarius/ViGEmClient\" rel=\"noopener noreferrer\">ViGEmClient</a></strong> (<code>vigemclient.dll</code>, MIT License) — included with Companion and removed when you uninstall PocketPad.",
       "<strong><a href=\"https://github.com/nefarius/ViGEmBus\" rel=\"noopener noreferrer\">ViGEmBus</a></strong> (BSD 3-Clause) — Windows driver for virtual controllers. The installer adds it when missing; if ViGEmBus is already on your PC, setup skips this step. Maintained by Nefarius Software Solutions e.U., not Datron.",
-      "License texts: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a>. PocketPad terms: <a href=\"./license.html\">EULA</a>. When uninstalling, you can remove ViGEmBus too if PocketPad installed it.",
+      `License texts: <a href="${pocketpadThirdPartyNoticesUrl}">THIRD_PARTY_NOTICES.txt</a>. PocketPad terms: <a href="./license.html">EULA</a>. When uninstalling, you can remove ViGEmBus too if PocketPad installed it.`,
     ],
   },
 

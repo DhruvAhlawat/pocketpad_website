@@ -1,7 +1,7 @@
 /**
  * PocketPad Details (`info.html`) — edit `PocketPadInfoContent` below for headings, bullets, links, images.
  */
-import { datronHubPublicUrl } from "./public_site_urls.js";
+import { datronHubPublicUrl, pocketpadThirdPartyNoticesUrl } from "./public_site_urls.js";
 
 export const PocketPadInfoContent = {
   meta: {
@@ -16,7 +16,7 @@ export const PocketPadInfoContent = {
     pocketpadOverviewPage: "./index.html",
     pocketpadDetailsPage: "./info.html",
     pocketpadPrivacyPage: "./privacy.html",
-    thirdPartyNoticesHref: "./downloads/THIRD_PARTY_NOTICES.txt",
+    thirdPartyNoticesHref: pocketpadThirdPartyNoticesUrl,
   },
 
   chrome: {
@@ -57,7 +57,7 @@ export const PocketPadInfoContent = {
         "<strong>PocketPad Companion</strong> bundles discovery, pairing codes for Universal layouts, and a live dashboard.",
         "Companion auto-runs LAN listeners optimized for multiplayer — multiple phones negotiating independent sessions concurrently.",
         'On Windows, install Companion from <a href="./index.html">PocketPad Overview</a> (installer EXE recommended, portable ZIP optional — checksums in README.txt).',
-        "The Windows installer adds <strong>ViGEmBus</strong> when it is not already on your PC—the driver Windows needs so virtual gamepads show up in games. If ViGEmBus is already installed, setup skips that step. License texts: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a>. PocketPad terms: <a href=\"./license.html\">EULA</a>.",
+        `The Windows installer adds <strong>ViGEmBus</strong> when it is not already on your PC—the driver Windows needs so virtual gamepads show up in games. If ViGEmBus is already installed, setup skips that step. License texts: <a href="${pocketpadThirdPartyNoticesUrl}">THIRD_PARTY_NOTICES.txt</a>. PocketPad terms: <a href="./license.html">EULA</a>.`,
       ],
     },
     {
@@ -81,7 +81,7 @@ export const PocketPadInfoContent = {
       bullets_html: [
         "<strong>ViGEmClient</strong> (<code>vigemclient.dll</code>, MIT) ships with Companion and is removed when you uninstall PocketPad.",
         "<strong>ViGEmBus</strong> (BSD 3-Clause) is a separate Windows driver. The installer adds it only when missing; on uninstall you can keep or remove it. Choose <em>keep</em> if other apps (e.g. DS4Windows) still use ViGEmBus.",
-        "License texts and attribution: <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a>. Companion use is governed by the <a href=\"./license.html\">End User License Agreement (EULA)</a>.",
+        `License texts and attribution: <a href="${pocketpadThirdPartyNoticesUrl}">THIRD_PARTY_NOTICES.txt</a>. Companion use is governed by the <a href="./license.html">End User License Agreement (EULA)</a>.`,
       ],
     },
   ],

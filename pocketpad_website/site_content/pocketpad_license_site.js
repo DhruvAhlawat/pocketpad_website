@@ -1,7 +1,11 @@
 /**
  * PocketPad License Agreement (`license.html`) — full text loaded from downloads/EULA.txt.
  */
-import { datronHubPublicUrl } from "./public_site_urls.js";
+import {
+  datronHubPublicUrl,
+  pocketpadEulaTextUrl,
+  pocketpadThirdPartyNoticesUrl,
+} from "./public_site_urls.js";
 
 export const PocketPadLicenseContent = {
   meta: {
@@ -18,8 +22,8 @@ export const PocketPadLicenseContent = {
     pocketpadDetailsPage: "./info.html",
     pocketpadPrivacyPage: "./privacy.html",
     pocketpadLicensePage: "./license.html",
-    eulaTextHref: "./downloads/EULA.txt",
-    thirdPartyNoticesHref: "./downloads/THIRD_PARTY_NOTICES.txt",
+    eulaTextHref: pocketpadEulaTextUrl,
+    thirdPartyNoticesHref: pocketpadThirdPartyNoticesUrl,
   },
 
   chrome: {
@@ -38,7 +42,7 @@ export const PocketPadLicenseContent = {
     effectiveDate: "June 27, 2026",
     lead_html:
       "This page shows the <strong>End User License Agreement (EULA)</strong> for <strong>PocketPad PC Companion</strong> on Windows. " +
-      "Separate from this agreement, <a href=\"./downloads/THIRD_PARTY_NOTICES.txt\">THIRD_PARTY_NOTICES.txt</a> lists third-party open-source license texts for ViGEm components only.",
+      `Separate from this agreement, <a href="${pocketpadThirdPartyNoticesUrl}">THIRD_PARTY_NOTICES.txt</a> lists third-party open-source license texts for ViGEm components only.`,
   },
 
   media: {
