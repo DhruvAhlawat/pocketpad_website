@@ -16,3 +16,7 @@ export const pocketpadPrivacyUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, ""
 
 /** Windows installers served from the site (not GitHub Releases). */
 export const pocketpadDownloadsBaseUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/downloads`;
+
+/** Google Play listing — set to "" to hide the badge until the app is live. */
+export const pocketpadPlayStoreUrl =
+  "https://play.google.com/store/apps/details?id=com.datron.pocketpad";
