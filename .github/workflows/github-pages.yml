@@ -26,6 +26,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Validate static site
+        run: node pocketpad_website/tools/validate_site.mjs
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:

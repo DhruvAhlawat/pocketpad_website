@@ -1,7 +1,8 @@
 /**
  * PocketPad Privacy Policy (`privacy.html`) — edit `PocketPadPrivacyContent` for legal copy.
  */
-import { datronHubPublicUrl } from "./public_site_urls.js";
+import { datronHubPublicUrl, pocketpadAppIconAsset } from "./public_site_urls.js";
+import { resolveAssetHref } from "./site_assets.js";
 
 export const PocketPadPrivacyContent = {
   meta: {
@@ -12,7 +13,7 @@ export const PocketPadPrivacyContent = {
 
   paths: {
     stylesheet: "../../styles.css",
-    appIconPng: "../../assets/icons/gamepad_1.png",
+    appIconPng: pocketpadAppIconAsset,
     datronHome: datronHubPublicUrl,
     pocketpadOverviewPage: "./index.html",
     pocketpadDetailsPage: "./info.html",
@@ -224,7 +225,7 @@ function buildTop(c) {
   const iconSrc = String(c.paths.appIconPng || "").trim();
   if (iconSrc) {
     const icon = document.createElement("img");
-    icon.src = iconSrc;
+    icon.src = resolveAssetHref(iconSrc);
     icon.width = 34;
     icon.height = 34;
     icon.alt = c.media.appIconAlt || "";

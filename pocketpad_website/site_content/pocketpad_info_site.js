@@ -1,7 +1,13 @@
 /**
  * PocketPad Details (`info.html`) — edit `PocketPadInfoContent` below for headings, bullets, links, images.
  */
-import { datronHubPublicUrl, pocketpadThirdPartyNoticesUrl } from "./public_site_urls.js";
+import {
+  datronHubPublicUrl,
+  pocketpadAppIconAsset,
+  pocketpadDownloadsReadmeUrl,
+  pocketpadThirdPartyNoticesUrl,
+} from "./public_site_urls.js";
+import { resolveAssetHref } from "./site_assets.js";
 
 export const PocketPadInfoContent = {
   meta: {
@@ -11,7 +17,7 @@ export const PocketPadInfoContent = {
 
   paths: {
     stylesheet: "../../styles.css",
-    appIconPng: "../../assets/icons/gamepad_1.png",
+    appIconPng: pocketpadAppIconAsset,
     datronHome: datronHubPublicUrl,
     pocketpadOverviewPage: "./index.html",
     pocketpadDetailsPage: "./info.html",
@@ -56,7 +62,7 @@ export const PocketPadInfoContent = {
       bullets_html: [
         "<strong>PocketPad Companion</strong> bundles discovery, pairing codes for Universal layouts, and a live dashboard.",
         "Companion auto-runs LAN listeners optimized for multiplayer — multiple phones negotiating independent sessions concurrently.",
-        'On Windows, install Companion from <a href="./index.html">PocketPad Overview</a> (installer EXE recommended, portable ZIP optional — checksums in README.txt).',
+        `On Windows, install Companion from <a href="./index.html">PocketPad Overview</a> (installer EXE recommended, portable ZIP optional — checksums in <a href="${pocketpadDownloadsReadmeUrl}">README.txt</a>).`,
         `The Windows installer adds <strong>ViGEmBus</strong> when it is not already on your PC—the driver Windows needs so virtual gamepads show up in games. If ViGEmBus is already installed, setup skips that step. License texts: <a href="${pocketpadThirdPartyNoticesUrl}">THIRD_PARTY_NOTICES.txt</a>. PocketPad terms: <a href="./license.html">EULA</a>.`,
       ],
     },
@@ -144,7 +150,7 @@ function buildTop(c) {
   const iconSrc = String(c.paths.appIconPng || "").trim();
   if (iconSrc) {
     const icon = document.createElement("img");
-    icon.src = iconSrc;
+    icon.src = resolveAssetHref(iconSrc);
     icon.width = 34;
     icon.height = 34;
     icon.alt = c.media.appIconAlt || "";
@@ -177,7 +183,7 @@ function buildIntro(c) {
   if (iconSrc) {
     const img = document.createElement("img");
     img.className = "info-intro__icon";
-    img.src = iconSrc;
+    img.src = resolveAssetHref(iconSrc);
     img.width = 80;
     img.height = 80;
     img.alt = c.media.appIconAlt || "";

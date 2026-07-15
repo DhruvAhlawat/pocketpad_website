@@ -3,9 +3,11 @@
  */
 import {
   datronHubPublicUrl,
+  pocketpadAppIconAsset,
   pocketpadEulaTextUrl,
   pocketpadThirdPartyNoticesUrl,
 } from "./public_site_urls.js";
+import { resolveAssetHref } from "./site_assets.js";
 
 export const PocketPadLicenseContent = {
   meta: {
@@ -16,7 +18,7 @@ export const PocketPadLicenseContent = {
 
   paths: {
     stylesheet: "../../styles.css",
-    appIconPng: "../../assets/icons/gamepad_1.png",
+    appIconPng: pocketpadAppIconAsset,
     datronHome: datronHubPublicUrl,
     pocketpadOverviewPage: "./index.html",
     pocketpadDetailsPage: "./info.html",
@@ -82,14 +84,30 @@ function buildTop(c) {
   row.className = "pocket-top__row";
 
   const back = document.createElement("a");
-  back.className = "pocket-top__back";
+  back.className = "pocket-back";
   back.href = c.paths.datronHome;
   back.textContent = c.chrome.backToDatronLabel;
   back.title = "Datron — developer home";
 
   const nav = document.createElement("nav");
-  nav.className = "pocket-top__nav";
+  nav.className = "pocket-mini-nav";
   nav.setAttribute("aria-label", c.chrome.pocketpadNavAriaLabel);
+
+  const brand = document.createElement("span");
+  brand.className = "pocket-mini-brand";
+  const iconSrc = String(c.paths.appIconPng || "").trim();
+  if (iconSrc) {
+    const icon = document.createElement("img");
+    icon.src = resolveAssetHref(iconSrc);
+    icon.width = 34;
+    icon.height = 34;
+    icon.alt = c.media.appIconAlt || "";
+    icon.decoding = "async";
+    brand.appendChild(icon);
+  }
+  brand.appendChild(document.createTextNode(c.hero.headline + (c.chrome.navBrandSuffix || "")));
+
+  nav.appendChild(brand);
   nav.appendChild(pill(c.paths.pocketpadOverviewPage, c.chrome.overviewNavLabel, false));
   nav.appendChild(pill(c.paths.pocketpadDetailsPage, c.chrome.detailsNavLabel, false));
   nav.appendChild(pill(c.paths.pocketpadPrivacyPage, c.chrome.privacyNavLabel, false));

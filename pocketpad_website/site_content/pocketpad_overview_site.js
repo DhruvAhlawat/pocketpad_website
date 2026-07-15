@@ -10,8 +10,11 @@ import { PocketPadDownloadRows } from "./pocketpad_downloads.generated.js";
 import {
   datronHubPublicUrl,
   pocketpadDownloadsBaseUrl,
+  pocketpadDownloadsReadmeUrl,
+  pocketpadEulaTextUrl,
   pocketpadPlayStoreUrl,
   pocketpadThirdPartyNoticesUrl,
+  pocketpadAppIconAsset,
 } from "./public_site_urls.js";
 import { resolveAssetHref } from "./site_assets.js";
 
@@ -32,15 +35,15 @@ export const PocketPadSiteContent = {
   /** Paths — `datronHome` is the published Datron hub (see `public_site_urls.js`). */
   paths: {
     stylesheet: "../../styles.css",
-    appIconPng: "../../assets/icons/gamepad_1.png",
+    appIconPng: pocketpadAppIconAsset,
     datronHome: datronHubPublicUrl,
     pocketpadDetailsPage: "./info.html",
     pocketpadOverviewPage: "./index.html",
     pocketpadPrivacyPage: "./privacy.html",
-    checksumReadmeHref: `${pocketpadDownloadsBaseUrl.replace(/\/$/, "")}/README.txt`,
-    thirdPartyNoticesHref: `${pocketpadDownloadsBaseUrl.replace(/\/$/, "")}/THIRD_PARTY_NOTICES.txt`,
+    checksumReadmeHref: pocketpadDownloadsReadmeUrl,
+    thirdPartyNoticesHref: pocketpadThirdPartyNoticesUrl,
     eulaHref: "./license.html",
-    eulaTextHref: `${pocketpadDownloadsBaseUrl.replace(/\/$/, "")}/EULA.txt`,
+    eulaTextHref: pocketpadEulaTextUrl,
   },
 
   chrome: {
