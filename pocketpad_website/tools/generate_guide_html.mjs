@@ -1,0 +1,167 @@
+/**
+ * Generates how-to.html and faq.html with static SEO content.
+ * Run: node pocketpad_website/tools/generate_guide_html.mjs
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { PocketPadFaqEntries } from "../site_content/pocketpad_faq_entries.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const siteRoot = path.resolve(__dirname, "..");
+const appsDir = path.join(siteRoot, "apps", "pocketpad");
+
+const schema = JSON.parse(
+  fs.readFileSync(path.join(siteRoot, "site_content", "pocketpad_faq_schema.json"), "utf8"),
+);
+
+// Regenerate schema from entries so faq.html embed stays current
+const faqSchemaOut = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: PocketPadFaqEntries.map((e) => ({
+    "@type": "Question",
+    name: e.question,
+    acceptedAnswer: { "@type": "Answer", text: e.answer },
+  })),
+};
+fs.writeFileSync(
+  path.join(siteRoot, "site_content", "pocketpad_faq_schema.json"),
+  JSON.stringify(faqSchemaOut),
+);
+const schemaForHtml = faqSchemaOut;
+
+function noscriptFaq() {
+  return PocketPadFaqEntries.map((e) => `<h3>${e.question}</h3><p>${e.answer}</p>`).join("\n");
+}
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      name: "Connect PocketPad via Bluetooth HID (no PC install)",
+      description:
+        "Pair your Android phone as a Bluetooth gamepad, keyboard, or mouse with zero software on the host.",
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Install PocketPad", text: "Install PocketPad on your Android phone from Google Play." },
+        { "@type": "HowToStep", position: 2, name: "Select Bluetooth", text: "Open Connect and choose Bluetooth as the transport." },
+        { "@type": "HowToStep", position: 3, name: "Prepare for pairing", text: "Tap Prepare for pairing in the app." },
+        { "@type": "HowToStep", position: 4, name: "Pair from host", text: "On PC/Mac/TV, open Bluetooth settings, add device, and select your phone." },
+        { "@type": "HowToStep", position: 5, name: "Choose a layout", text: "Pick Gamepad, Universal, Media Remote, or Slide Controller and start controlling." },
+      ],
+    },
+    {
+      "@type": "HowTo",
+      name: "Connect PocketPad over Wi-Fi with Companion on Windows",
+      description:
+        "Use PocketPad Companion for LAN discovery, virtual Xbox controllers, and multiplayer on Windows.",
+      step: [
+        { "@type": "HowToStep", position: 1, name: "Install Companion", text: "Download and run the PocketPad Companion installer EXE on Windows." },
+        { "@type": "HowToStep", position: 2, name: "Firewall", text: "Allow PocketPad Companion on private networks in Windows Firewall." },
+        { "@type": "HowToStep", position: 3, name: "Same Wi-Fi", text: "Connect phone and PC to the same LAN." },
+        { "@type": "HowToStep", position: 4, name: "Connect", text: "Open Companion, then in PocketPad tap Connect and select your PC." },
+        { "@type": "HowToStep", position: 5, name: "Pairing code", text: "For Universal keyboard/mouse layouts, enter the 6-digit code from Companion Settings." },
+      ],
+    },
+  ],
+};
+
+const howToNoscript = `
+        <h1>How to connect PocketPad — Bluetooth & Wi‑Fi</h1>
+        <p>Connect in under a minute via <strong>Bluetooth HID</strong> (no PC install) or <strong>Wi‑Fi + Companion</strong> on Windows.</p>
+        <h2 id="bluetooth">Bluetooth HID — instant pairing</h2>
+        <ol>
+          <li>Install PocketPad on Android.</li>
+          <li>Open Connect → choose <strong>Bluetooth</strong>.</li>
+          <li>Tap <strong>Prepare for pairing</strong>.</li>
+          <li>On your PC/Mac/TV: Bluetooth settings → Add device → select your phone.</li>
+          <li>Pick a layout (Gamepad, Universal, Media Remote, or Slide Controller).</li>
+        </ol>
+        <h2 id="wifi">Wi‑Fi + PocketPad Companion (Windows)</h2>
+        <ol>
+          <li>Install Companion from the <a href="./index.html">overview page</a> (EXE installer).</li>
+          <li>Allow private network access in Windows Firewall.</li>
+          <li>Same Wi‑Fi for phone and PC.</li>
+          <li>Open Companion; in PocketPad tap Connect → Wi‑Fi → your PC.</li>
+          <li>For Universal layouts, enter the 6-digit code from Companion Settings.</li>
+        </ol>
+        <p><a href="./faq.html">FAQ</a> · <a href="./index.html">Overview</a></p>`;
+
+const headCommon = (title, desc, canonical, ogTitle) => `
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${title}</title>
+    <meta name="description" content="${desc}" />
+    <link rel="canonical" href="${canonical}" />
+    <link rel="icon" type="image/png" sizes="512x512" href="../../assets/icons/gamepad_512.png" />
+    <link rel="apple-touch-icon" href="../../assets/icons/gamepad_512.png" />
+    <link rel="manifest" href="../../manifest.json" />
+    <meta name="theme-color" content="#1db954" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="${canonical}" />
+    <meta property="og:title" content="${ogTitle}" />
+    <meta property="og:description" content="${desc}" />
+    <meta property="og:image" content="https://pocketpad.datronapps.com/assets/banners/banner_final_2.png" />
+    <meta property="og:site_name" content="PocketPad" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles.css" />`;
+
+const faqHtml = `<!DOCTYPE html>
+<html lang="en" class="page-pocketpad">
+  <head>${headCommon(
+    "PocketPad FAQ — Phone as Gamepad, Keyboard, Mouse, TV Remote & More",
+    "Answers about using PocketPad: Bluetooth vs Wi‑Fi, no PC install, multiplayer, Steam, Mac/Linux/TV, latency, privacy, Pro, and troubleshooting.",
+    "https://pocketpad.datronapps.com/apps/pocketpad/faq.html",
+    "PocketPad FAQ",
+  )}
+    <script type="application/ld+json">${JSON.stringify(schemaForHtml)}</script>
+  </head>
+  <body class="page-pocketpad">
+    <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+    <div class="container pocket-top" id="fq-top"></div>
+    <main class="container main-wide" id="fq-main">
+      <noscript>
+        <h1>PocketPad — Frequently Asked Questions</h1>
+        <p>Answers about using your phone as a wireless gamepad, keyboard & mouse, TV remote, and presentation controller. <a href="./how-to.html">How-to guide</a>.</p>
+        ${noscriptFaq()}
+        <p><a href="./how-to.html">Connection guide</a> · <a href="./index.html">Overview</a></p>
+      </noscript>
+    </main>
+    <footer class="container footer" id="fq-footer"></footer>
+    <script type="module" src="../../site_content/pocketpad_faq_site.js"></script>
+  </body>
+</html>
+`;
+
+const howToHtml = `<!DOCTYPE html>
+<html lang="en" class="page-pocketpad">
+  <head>${headCommon(
+    "How to Connect PocketPad — Instant Bluetooth & Wi‑Fi Setup Guide",
+    "Step-by-step: connect PocketPad via Bluetooth HID in seconds (no PC install) or over Wi‑Fi with PocketPad Companion on Windows for lowest latency and multiplayer.",
+    "https://pocketpad.datronapps.com/apps/pocketpad/how-to.html",
+    "How to Connect PocketPad",
+  )}
+    <script type="application/ld+json">${JSON.stringify(howToSchema)}</script>
+  </head>
+  <body class="page-pocketpad">
+    <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+    <div class="container pocket-top" id="ht-top"></div>
+    <main class="container main-wide" id="ht-main">
+      <noscript>${howToNoscript}</noscript>
+    </main>
+    <footer class="container footer" id="ht-footer"></footer>
+    <script type="module" src="../../site_content/pocketpad_howto_site.js"></script>
+  </body>
+</html>
+`;
+
+fs.writeFileSync(path.join(appsDir, "faq.html"), faqHtml);
+fs.writeFileSync(path.join(appsDir, "how-to.html"), howToHtml);
+console.log("Generated faq.html and how-to.html");

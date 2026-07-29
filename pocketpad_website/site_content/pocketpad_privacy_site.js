@@ -3,6 +3,7 @@
  */
 import { datronHubPublicUrl, pocketpadAppIconAsset } from "./public_site_urls.js";
 import { resolveAssetHref } from "./site_assets.js";
+import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
 export const PocketPadPrivacyContent = {
   meta: {
@@ -17,6 +18,8 @@ export const PocketPadPrivacyContent = {
     datronHome: datronHubPublicUrl,
     pocketpadOverviewPage: "./index.html",
     pocketpadDetailsPage: "./info.html",
+    pocketpadHowToPage: "./how-to.html",
+    pocketpadFaqPage: "./faq.html",
     pocketpadPrivacyPage: "./privacy.html",
   },
 
@@ -25,6 +28,8 @@ export const PocketPadPrivacyContent = {
     navBrandSuffix: "",
     overviewNavLabel: "Overview",
     detailsNavLabel: "Details",
+    howToNavLabel: "How-to",
+    faqNavLabel: "FAQ",
     privacyNavLabel: "Privacy",
     pocketpadNavAriaLabel: "PocketPad",
   },
@@ -177,6 +182,8 @@ export const PocketPadPrivacyContent = {
   footer: {
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
+    howToLinkLabel: "How-to",
+    faqLinkLabel: "FAQ",
     privacyLinkLabel: "Privacy",
     mutedLine: "No Datron controller servers · Optional anonymous usage analytics · Ads in free tier · Preferences on device.",
     contactTitle: "Contact",
@@ -187,63 +194,6 @@ export const PocketPadPrivacyContent = {
     quickMailPrivacyLabel: "Privacy inquiry",
   },
 };
-
-function htmlToNodes(html) {
-  const t = document.createElement("template");
-  t.innerHTML = html.trim();
-  return t.content;
-}
-
-function pill(href, label, active) {
-  const a = document.createElement("a");
-  a.className = "nav-pill" + (active ? " nav-pill--active" : "");
-  a.href = href;
-  a.textContent = label;
-  if (active) {
-    a.setAttribute("aria-current", "page");
-  }
-  return a;
-}
-
-function buildTop(c) {
-  const row = document.createElement("div");
-  row.className = "pocket-top__row";
-
-  const back = document.createElement("a");
-  back.className = "pocket-back";
-  back.href = c.paths.datronHome;
-  back.textContent = c.chrome.backToDatronLabel;
-  back.title = "Datron — developer home";
-
-  const nav = document.createElement("nav");
-  nav.className = "pocket-mini-nav";
-  nav.setAttribute("aria-label", c.chrome.pocketpadNavAriaLabel);
-
-  const brand = document.createElement("span");
-  brand.className = "pocket-mini-brand";
-
-  const iconSrc = String(c.paths.appIconPng || "").trim();
-  if (iconSrc) {
-    const icon = document.createElement("img");
-    icon.src = resolveAssetHref(iconSrc);
-    icon.width = 34;
-    icon.height = 34;
-    icon.alt = c.media.appIconAlt || "";
-    icon.decoding = "async";
-    brand.appendChild(icon);
-  }
-
-  brand.appendChild(document.createTextNode(c.hero.headline + (c.chrome.navBrandSuffix || "")));
-
-  nav.appendChild(brand);
-  nav.appendChild(pill(c.paths.pocketpadOverviewPage, c.chrome.overviewNavLabel, false));
-  nav.appendChild(pill(c.paths.pocketpadDetailsPage, c.chrome.detailsNavLabel, false));
-  nav.appendChild(pill(c.paths.pocketpadPrivacyPage, c.chrome.privacyNavLabel, true));
-
-  row.appendChild(back);
-  row.appendChild(nav);
-  return row;
-}
 
 function buildIntro(c) {
   const sec = document.createElement("section");
@@ -337,6 +287,18 @@ function buildFooter(c) {
   line1.appendChild(ai);
   sep();
 
+  const ah = document.createElement("a");
+  ah.href = c.paths.pocketpadHowToPage;
+  ah.textContent = f.howToLinkLabel;
+  line1.appendChild(ah);
+  sep();
+
+  const af = document.createElement("a");
+  af.href = c.paths.pocketpadFaqPage;
+  af.textContent = f.faqLinkLabel;
+  line1.appendChild(af);
+  sep();
+
   const ap = document.createElement("a");
   ap.href = c.paths.pocketpadPrivacyPage;
   ap.setAttribute("aria-current", "page");
@@ -399,7 +361,7 @@ function renderPocketPadPrivacy(content = PocketPadPrivacyContent) {
     return;
   }
 
-  top.replaceChildren(buildTop(content));
+  top.replaceChildren(buildPocketPadTop(content, "privacy"));
   const mainNodes = [buildIntro(content)];
   for (const def of content.sections || []) {
     mainNodes.push(buildLegalSection(def));

@@ -95,6 +95,8 @@ for (const legal of ["EULA.txt", "THIRD_PARTY_NOTICES.txt", "README.txt"]) {
 // ——— HTML pages load existing modules ———
 const htmlFiles = [
   "apps/pocketpad/index.html",
+  "apps/pocketpad/how-to.html",
+  "apps/pocketpad/faq.html",
   "apps/pocketpad/info.html",
   "apps/pocketpad/privacy.html",
   "apps/pocketpad/license.html",

@@ -17,6 +17,7 @@ import {
   pocketpadAppIconAsset,
 } from "./public_site_urls.js";
 import { resolveAssetHref } from "./site_assets.js";
+import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
 export const PocketPadSiteContent = {
   meta: {
@@ -39,6 +40,8 @@ export const PocketPadSiteContent = {
     datronHome: datronHubPublicUrl,
     pocketpadDetailsPage: "./info.html",
     pocketpadOverviewPage: "./index.html",
+    pocketpadHowToPage: "./how-to.html",
+    pocketpadFaqPage: "./faq.html",
     pocketpadPrivacyPage: "./privacy.html",
     checksumReadmeHref: pocketpadDownloadsReadmeUrl,
     thirdPartyNoticesHref: pocketpadThirdPartyNoticesUrl,
@@ -52,6 +55,8 @@ export const PocketPadSiteContent = {
     navBrandSuffix: "",
     overviewNavLabel: "Overview",
     detailsNavLabel: "Details",
+    howToNavLabel: "How-to",
+    faqNavLabel: "FAQ",
     privacyNavLabel: "Privacy",
     /** `aria-label` for the mini-nav */
     pocketpadNavAriaLabel: "PocketPad",
@@ -151,8 +156,12 @@ export const PocketPadSiteContent = {
       "For Universal keyboard/mouse, enter the 6-digit code shown inside Companion Settings.",
       "Prefer Bluetooth? Switch transport in-app, prepare pairing once, bind from Windows Bluetooth settings.",
     ],
-    detailsPromptPrefix: "Want the deep dive?",
-    detailsLinkLabel: "Read the Details page →",
+    detailsPromptPrefix: "Step-by-step connection?",
+    detailsLinkLabel: "Read the How-to guide →",
+    detailsLinkHref: "./how-to.html",
+    faqPromptPrefix: "More questions?",
+    faqLinkLabel: "Browse the FAQ →",
+    faqLinkHref: "./faq.html",
   },
 
   gallerySection: {
@@ -199,6 +208,8 @@ export const PocketPadSiteContent = {
     datronLinkLabel: "← Back to Datron",
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
+    howToLinkLabel: "How-to",
+    faqLinkLabel: "FAQ",
     privacyLinkLabel: "Privacy",
     mutedLine: "Hosted on GitHub Pages · Subject to the EULA",
     contactTitle: "Contact",
@@ -213,58 +224,6 @@ export const PocketPadSiteContent = {
 };
 
 // ——— Render (keep below fold; edit `PocketPadSiteContent` above only for copy) ———
-
-function htmlToNodes(html) {
-  const t = document.createElement("template");
-  t.innerHTML = html.trim();
-  return t.content;
-}
-
-function pill(href, label, active) {
-  const a = document.createElement("a");
-  a.className = "nav-pill" + (active ? " nav-pill--active" : "");
-  a.href = href;
-  a.textContent = label;
-  if (active) {
-    a.setAttribute("aria-current", "page");
-  }
-  return a;
-}
-
-function buildTop(c) {
-  const row = document.createElement("div");
-  row.className = "pocket-top__row";
-
-  const back = document.createElement("a");
-  back.className = "pocket-back";
-  back.href = c.paths.datronHome;
-  back.textContent = c.chrome.backToDatronLabel;
-  back.title = "Datron — developer home";
-
-  const nav = document.createElement("nav");
-  nav.className = "pocket-mini-nav";
-  nav.setAttribute("aria-label", c.chrome.pocketpadNavAriaLabel);
-
-  const brand = document.createElement("span");
-  brand.className = "pocket-mini-brand";
-  const icon = document.createElement("img");
-  icon.src = resolveAssetHref(c.paths.appIconPng);
-  icon.width = 34;
-  icon.height = 34;
-  icon.alt = "";
-  icon.decoding = "async";
-  brand.appendChild(icon);
-  brand.appendChild(document.createTextNode(c.hero.headline + (c.chrome.navBrandSuffix || "")));
-
-  nav.appendChild(brand);
-  nav.appendChild(pill(c.paths.pocketpadOverviewPage, c.chrome.overviewNavLabel, true));
-  nav.appendChild(pill(c.paths.pocketpadDetailsPage, c.chrome.detailsNavLabel, false));
-  nav.appendChild(pill(c.paths.pocketpadPrivacyPage, c.chrome.privacyNavLabel, false));
-
-  row.appendChild(back);
-  row.appendChild(nav);
-  return row;
-}
 
 function buildHero(c) {
   const section = document.createElement("section");
@@ -545,9 +504,16 @@ function buildQuickStart(c) {
   p.style.marginTop = "12px";
   p.appendChild(document.createTextNode(q.detailsPromptPrefix));
   const a = document.createElement("a");
-  a.href = c.paths.pocketpadDetailsPage;
+  a.href = q.detailsLinkHref || c.paths.pocketpadDetailsPage;
   a.appendChild(document.createTextNode("\u00a0" + q.detailsLinkLabel));
   p.appendChild(a);
+  if (q.faqLinkLabel && q.faqLinkHref) {
+    p.appendChild(document.createTextNode(" \u00b7 " + q.faqPromptPrefix));
+    const faqA = document.createElement("a");
+    faqA.href = q.faqLinkHref;
+    faqA.appendChild(document.createTextNode("\u00a0" + q.faqLinkLabel));
+    p.appendChild(faqA);
+  }
 
   section.appendChild(h2);
   section.appendChild(ol);
@@ -690,6 +656,18 @@ function buildFooter(c) {
   line1.appendChild(aInfo);
   addSep();
 
+  const aHow = document.createElement("a");
+  aHow.href = c.paths.pocketpadHowToPage;
+  aHow.textContent = f.howToLinkLabel;
+  line1.appendChild(aHow);
+  addSep();
+
+  const aFaq = document.createElement("a");
+  aFaq.href = c.paths.pocketpadFaqPage;
+  aFaq.textContent = f.faqLinkLabel;
+  line1.appendChild(aFaq);
+  addSep();
+
   const aPrivacy = document.createElement("a");
   aPrivacy.href = c.paths.pocketpadPrivacyPage;
   aPrivacy.textContent = f.privacyLinkLabel;
@@ -757,7 +735,7 @@ function renderPocketPadOverview(c = PocketPadSiteContent) {
     return;
   }
 
-  top.replaceChildren(buildTop(c));
+  top.replaceChildren(buildPocketPadTop(c, "overview"));
   main.replaceChildren(
     buildHero(c),
     buildPlayStore(c),

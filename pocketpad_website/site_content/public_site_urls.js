@@ -18,6 +18,10 @@ export const pocketpadPrivacyUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, ""
 
 export const pocketpadLicenseUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/apps/pocketpad/license.html`;
 
+export const pocketpadHowToUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/apps/pocketpad/how-to.html`;
+
+export const pocketpadFaqUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/apps/pocketpad/faq.html`;
+
 /** Windows installers served from the site (not GitHub Releases). */
 export const pocketpadDownloadsBaseUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/downloads`;
 

@@ -8,6 +8,7 @@ import {
   pocketpadThirdPartyNoticesUrl,
 } from "./public_site_urls.js";
 import { resolveAssetHref } from "./site_assets.js";
+import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
 export const PocketPadInfoContent = {
   meta: {
@@ -21,6 +22,8 @@ export const PocketPadInfoContent = {
     datronHome: datronHubPublicUrl,
     pocketpadOverviewPage: "./index.html",
     pocketpadDetailsPage: "./info.html",
+    pocketpadHowToPage: "./how-to.html",
+    pocketpadFaqPage: "./faq.html",
     pocketpadPrivacyPage: "./privacy.html",
     thirdPartyNoticesHref: pocketpadThirdPartyNoticesUrl,
   },
@@ -30,6 +33,8 @@ export const PocketPadInfoContent = {
     navBrandSuffix: "",
     overviewNavLabel: "Overview",
     detailsNavLabel: "Details",
+    howToNavLabel: "How-to",
+    faqNavLabel: "FAQ",
     privacyNavLabel: "Privacy",
     pocketpadNavAriaLabel: "PocketPad",
   },
@@ -100,6 +105,8 @@ export const PocketPadInfoContent = {
   footer: {
     overviewLinkLabel: "Overview",
     detailsLinkLabel: "Details",
+    howToLinkLabel: "How-to",
+    faqLinkLabel: "FAQ",
     privacyLinkLabel: "Privacy",
     mutedLine: "Hosted on GitHub Pages · Subject to the EULA",
     contactTitle: "Contact",
@@ -112,68 +119,6 @@ export const PocketPadInfoContent = {
     quickMailFeatureLabel: "Feature request",
   },
 };
-
-function htmlToNodes(html) {
-  const t = document.createElement("template");
-  t.innerHTML = html.trim();
-  return t.content;
-}
-
-function pill(href, label, active) {
-  const a = document.createElement("a");
-  a.className = "nav-pill" + (active ? " nav-pill--active" : "");
-  a.href = href;
-  a.textContent = label;
-  if (active) {
-    a.setAttribute("aria-current", "page");
-  }
-  return a;
-}
-
-function buildTop(c) {
-  const row = document.createElement("div");
-  row.className = "pocket-top__row";
-
-  const back = document.createElement("a");
-  back.className = "pocket-back";
-  back.href = c.paths.datronHome;
-  back.textContent = c.chrome.backToDatronLabel;
-  back.title = "Datron — developer home";
-
-  const nav = document.createElement("nav");
-  nav.className = "pocket-mini-nav";
-  nav.setAttribute("aria-label", c.chrome.pocketpadNavAriaLabel);
-
-  const brand = document.createElement("span");
-  brand.className = "pocket-mini-brand";
-
-  const iconSrc = String(c.paths.appIconPng || "").trim();
-  if (iconSrc) {
-    const icon = document.createElement("img");
-    icon.src = resolveAssetHref(iconSrc);
-    icon.width = 34;
-    icon.height = 34;
-    icon.alt = c.media.appIconAlt || "";
-    icon.decoding = "async";
-    brand.appendChild(icon);
-  } else {
-    const ph = document.createElement("span");
-    ph.className = "pocket-mini-brand__placeholder";
-    ph.setAttribute("aria-hidden", "true");
-    brand.appendChild(ph);
-  }
-
-  brand.appendChild(document.createTextNode(c.hero.headline + (c.chrome.navBrandSuffix || "")));
-
-  nav.appendChild(brand);
-  nav.appendChild(pill(c.paths.pocketpadOverviewPage, c.chrome.overviewNavLabel, false));
-  nav.appendChild(pill(c.paths.pocketpadDetailsPage, c.chrome.detailsNavLabel, true));
-  nav.appendChild(pill(c.paths.pocketpadPrivacyPage, c.chrome.privacyNavLabel, false));
-
-  row.appendChild(back);
-  row.appendChild(nav);
-  return row;
-}
 
 function buildIntro(c) {
   const sec = document.createElement("section");
@@ -260,6 +205,18 @@ function buildFooter(c) {
   line1.appendChild(ai);
   sep();
 
+  const ah = document.createElement("a");
+  ah.href = c.paths.pocketpadHowToPage;
+  ah.textContent = f.howToLinkLabel;
+  line1.appendChild(ah);
+  sep();
+
+  const af = document.createElement("a");
+  af.href = c.paths.pocketpadFaqPage;
+  af.textContent = f.faqLinkLabel;
+  line1.appendChild(af);
+  sep();
+
   const ap = document.createElement("a");
   ap.href = c.paths.pocketpadPrivacyPage;
   ap.textContent = f.privacyLinkLabel;
@@ -325,7 +282,7 @@ function renderPocketPadInfo(content = PocketPadInfoContent) {
     return;
   }
 
-  top.replaceChildren(buildTop(content));
+  top.replaceChildren(buildPocketPadTop(content, "details"));
   const mainNodes = [buildIntro(content)];
   for (const def of content.sections || []) {
     mainNodes.push(buildBulletSection(def));
