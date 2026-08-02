@@ -9,7 +9,7 @@
 import { PocketPadDownloadRows } from "./pocketpad_downloads.generated.js";
 import {
   datronHubPublicUrl,
-  pocketpadDownloadsBaseUrl,
+  pocketpadDownloadsLatestBaseUrl,
   pocketpadDownloadsReadmeUrl,
   pocketpadEulaTextUrl,
   pocketpadPlayStoreUrl,
@@ -127,7 +127,7 @@ export const PocketPadSiteContent = {
   downloadSection: {
     title: "PocketPad Companion for Windows",
     intro_html:
-      "Download the <strong>Windows installer (EXE)</strong> for a normal setup (Program Files, Start menu). Setup installs the <strong>ViGEmBus</strong> driver when it is not already on your PC—the standard driver PocketPad uses so games see your phone as an Xbox controller. If ViGEmBus is already installed (for example from DS4Windows), setup skips that step. Prefer portable? Grab the <strong>ZIP</strong>, run <strong>pc_companion_ui.exe</strong>, and run the ViGEmBus installer under <code>drivers\\</code> if your PC does not have ViGEmBus yet. Allow the app on <strong>private</strong> networks in Windows Firewall, then connect from PocketPad over Wi‑Fi.",
+      "Download the <strong>Windows installer (EXE)</strong> for a normal setup (Program Files, Start menu). Setup installs the <strong>ViGEmBus</strong> driver when it is not already on your PC—the standard driver PocketPad uses so games see your phone as an Xbox controller. If ViGEmBus is already installed (for example from DS4Windows), setup skips that step. Allow the app on <strong>private</strong> networks in Windows Firewall, then connect from PocketPad over Wi‑Fi.",
     rows: PocketPadDownloadRows,
     checksumLinePrefix: "Checksums & notes:",
     checksumLinkLabel: "README.txt",
@@ -151,7 +151,7 @@ export const PocketPadSiteContent = {
   quickStartSection: {
     title: "Quick start on Windows",
     steps: [
-      "Run the <strong>installer EXE</strong> (recommended) or unpack the ZIP and launch <strong>pc_companion_ui.exe</strong>; approve UAC / SmartScreen and network prompts.",
+      "Run the <strong>installer EXE</strong>; approve UAC / SmartScreen and network prompts.",
       "Open PocketPad on your phone (same LAN), tap <strong>Connect</strong>.",
       "For Universal keyboard/mouse, enter the 6-digit code shown inside Companion Settings.",
       "Prefer Bluetooth? Switch transport in-app, prepare pairing once, bind from Windows Bluetooth settings.",
@@ -344,13 +344,18 @@ function buildFeatures(c) {
   return section;
 }
 
-/** Always use site-hosted installers (never stale GitHub Release URLs). */
+/** Always use /downloads/latest stable names (never stale versioned or GitHub Release URLs). */
 function downloadHrefForRow(row) {
   const fileName = String(row.downloadName || "").trim();
   if (!fileName) {
     return String(row.href || "").trim();
   }
-  const base = pocketpadDownloadsBaseUrl.replace(/\/$/, "");
+  // Absolute http(s) href from generated rows wins (e.g. temporary GitHub Releases mode).
+  const rawHref = String(row.href || "").trim();
+  if (/^https?:\/\//i.test(rawHref) && !rawHref.includes("/downloads/latest/")) {
+    return rawHref;
+  }
+  const base = pocketpadDownloadsLatestBaseUrl.replace(/\/$/, "");
   return `${base}/${encodeURIComponent(fileName).replace(/%2F/g, "/")}`;
 }
 

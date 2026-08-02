@@ -25,6 +25,14 @@ export const pocketpadFaqUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/a
 /** Windows installers served from the site (not GitHub Releases). */
 export const pocketpadDownloadsBaseUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/downloads`;
 
+/**
+ * Always-latest Windows installers (stable filenames overwritten on each publish).
+ * Prefer these for download buttons and bookmarks.
+ */
+export const pocketpadDownloadsLatestBaseUrl = `${pocketpadDownloadsBaseUrl}/latest`;
+export const pocketpadDownloadsLatestExeUrl = `${pocketpadDownloadsLatestBaseUrl}/PocketPad-PC-Setup.exe`;
+export const pocketpadDownloadsLatestZipUrl = `${pocketpadDownloadsLatestBaseUrl}/PocketPad-PC-Windows-x64.zip`;
+
 /** Legal / attribution text files under /downloads (site root, not under /apps/pocketpad/). */
 export const pocketpadDownloadsReadmeUrl = `${pocketpadDownloadsBaseUrl}/README.txt`;
 export const pocketpadEulaTextUrl = `${pocketpadDownloadsBaseUrl}/EULA.txt`;

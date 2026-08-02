@@ -79,17 +79,65 @@ while ((slideMatch = slideSrcRe.exec(overviewText)) !== null) {
 const downloadsGen = await import(
   pathToFileURL(path.join(contentDir, "pocketpad_downloads.generated.js")).href
 );
+const artifacts = downloadsGen.PocketPadDownloadArtifacts || {};
+const currentVersion = String(artifacts.version || "").trim();
+
 for (const row of downloadsGen.PocketPadDownloadRows || []) {
   const name = String(row.downloadName || "").trim();
-  if (name && !fileExists(path.join("downloads", name))) {
-    fail(`Download artifact missing in downloads/: ${name}`);
+  if (!name) continue;
+  // Site buttons use /downloads/latest/<stable name>.
+  const latestRel = path.join("downloads", "latest", name);
+  if (!fileExists(latestRel)) {
+    fail(`Latest download artifact missing: ${latestRel}`);
   }
+}
+
+for (const [key, label] of [
+  ["exeFileName", "versioned EXE"],
+  ["zipFileName", "versioned ZIP"],
+]) {
+  const name = String(artifacts[key] || "").trim();
+  if (name && !fileExists(path.join("downloads", name))) {
+    fail(`Missing ${label} in downloads/: ${name}`);
+  }
+}
+if (artifacts.msiFileName) {
+  const msi = String(artifacts.msiFileName).trim();
+  if (msi && !fileExists(path.join("downloads", msi))) {
+    fail(`Missing versioned MSI in downloads/: ${msi}`);
+  }
+}
+
+if (!fileExists("downloads/latest/index.html")) {
+  fail("Missing downloads/latest/index.html");
+}
+
+// Stale versioned installers must not remain (causes wrong-version downloads).
+const downloadsAbs = path.join(siteRoot, "downloads");
+const keepVersioned = new Set(
+  [artifacts.exeFileName, artifacts.zipFileName, artifacts.msiFileName]
+    .map((n) => String(n || "").trim())
+    .filter(Boolean),
+);
+for (const name of fs.readdirSync(downloadsAbs)) {
+  if (!name.startsWith("PocketPad-PC-")) continue;
+  if (!keepVersioned.has(name)) {
+    fail(`Stale installer must be removed from downloads/: ${name}`);
+  }
+}
+
+if (currentVersion && !String(artifacts.exeFileName || "").includes(currentVersion)) {
+  fail(`exeFileName does not match artifacts.version (${currentVersion})`);
 }
 
 for (const legal of ["EULA.txt", "THIRD_PARTY_NOTICES.txt", "README.txt"]) {
   if (!fileExists(path.join("downloads", legal))) {
     fail(`Missing downloads/${legal}`);
   }
+}
+
+if (!urlsModule.pocketpadDownloadsLatestBaseUrl) {
+  fail("public_site_urls.js missing pocketpadDownloadsLatestBaseUrl");
 }
 
 // ——— HTML pages load existing modules ———

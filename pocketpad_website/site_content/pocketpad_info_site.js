@@ -67,7 +67,7 @@ export const PocketPadInfoContent = {
       bullets_html: [
         "<strong>PocketPad Companion</strong> bundles discovery, pairing codes for Universal layouts, and a live dashboard.",
         "Companion auto-runs LAN listeners optimized for multiplayer — multiple phones negotiating independent sessions concurrently.",
-        `On Windows, install Companion from <a href="./index.html">PocketPad Overview</a> (installer EXE recommended, portable ZIP optional — checksums in <a href="${pocketpadDownloadsReadmeUrl}">README.txt</a>).`,
+        `On Windows, install Companion from <a href="./index.html">PocketPad Overview</a> (Windows installer EXE — checksums in <a href="${pocketpadDownloadsReadmeUrl}">README.txt</a>).`,
         `The Windows installer adds <strong>ViGEmBus</strong> when it is not already on your PC—the driver Windows needs so virtual gamepads show up in games. If ViGEmBus is already installed, setup skips that step. License texts: <a href="${pocketpadThirdPartyNoticesUrl}">THIRD_PARTY_NOTICES.txt</a>. PocketPad terms: <a href="./license.html">EULA</a>.`,
       ],
     },
