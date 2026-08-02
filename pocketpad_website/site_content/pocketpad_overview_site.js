@@ -125,9 +125,12 @@ export const PocketPadSiteContent = {
   },
 
   downloadSection: {
-    title: "PocketPad Companion for Windows",
+    title: "PocketPad Companion for Windows (Not required when using Bluetooth connection)",
     intro_html:
-      "Download the <strong>Windows installer (EXE)</strong> for a normal setup (Program Files, Start menu). Setup installs the <strong>ViGEmBus</strong> driver when it is not already on your PC—the standard driver PocketPad uses so games see your phone as an Xbox controller. If ViGEmBus is already installed (for example from DS4Windows), setup skips that step. Allow the app on <strong>private</strong> networks in Windows Firewall, then connect from PocketPad over Wi‑Fi.",
+      "<strong>You do not need to download this.</strong> PocketPad works over <strong>Bluetooth HID</strong> with zero install on your PC — just pair from Windows Bluetooth settings and play. " +
+      "Download Companion <strong>only if</strong> you want easier PC discovery, a live dashboard, multiplayer over the same Wi‑Fi, or the lowest-jitter Wi‑Fi path. " +
+      "The installer (EXE) sets up Program Files / Start menu and adds the <strong>ViGEmBus</strong> driver when it is missing (so games see your phone as an Xbox controller; skipped if ViGEmBus is already installed). " +
+      "Allow Companion on <strong>private</strong> networks in Windows Firewall when using Wi‑Fi.",
     rows: PocketPadDownloadRows,
     checksumLinePrefix: "Checksums & notes:",
     checksumLinkLabel: "README.txt",
@@ -149,12 +152,12 @@ export const PocketPadSiteContent = {
   },
 
   quickStartSection: {
-    title: "Quick start on Windows",
+    title: "Quick start",
     steps: [
-      "Run the <strong>installer EXE</strong>; approve UAC / SmartScreen and network prompts.",
-      "Open PocketPad on your phone (same LAN), tap <strong>Connect</strong>.",
-      "For Universal keyboard/mouse, enter the 6-digit code shown inside Companion Settings.",
-      "Prefer Bluetooth? Switch transport in-app, prepare pairing once, bind from Windows Bluetooth settings.",
+      "<strong>Bluetooth (no Companion):</strong> In PocketPad, prepare pairing, then pair the phone from Windows Bluetooth settings and connect.",
+      "<strong>Optional Wi‑Fi / Companion:</strong> Install the EXE only if you want discovery, dashboard, or multiplayer over LAN; approve UAC / SmartScreen and firewall prompts.",
+      "Open PocketPad on your phone (same Wi‑Fi as the PC when using Companion), tap <strong>Connect</strong>.",
+      "For Universal keyboard/mouse over Wi‑Fi, enter the 6-digit code from Companion when pairing code is required.",
     ],
     detailsPromptPrefix: "Step-by-step connection?",
     detailsLinkLabel: "Read the How-to guide →",
