@@ -227,8 +227,8 @@
 
     <div class="container pocket-top" id="pp-top"></div>
     <main class="container main-landing" id="pp-main">
-      <!-- Server-rendered SEO content: visible to crawlers that don't execute JS -->
-      <noscript>
+      <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->
+      <article class="seo-static">
         <h1>PocketPad — Use Your Phone as a Gamepad, Keyboard, Mouse, TV Remote & Slide Controller</h1>
         <p>PocketPad turns your Android phone into a <strong>wireless game controller</strong>, <strong>PC keyboard and mouse</strong>, <strong>TV remote</strong>, <strong>media remote</strong>, and <strong>presentation slide controller</strong>. Connect via <strong>Bluetooth HID</strong> with no install on the host, or use <strong>Wi‑Fi</strong> with the free PocketPad Companion on Windows for the lowest latency and multiplayer.</p>
         <h2>Use Your Phone As</h2>
@@ -270,8 +270,8 @@
         <p><a href="./faq.html">Browse all FAQs</a> (connection, Steam, Mac/Linux, privacy, troubleshooting).</p>
         <h2>Download</h2>
         <p><a href="https://play.google.com/store/apps/details?id=com.datron.pocketpad">Get PocketPad on Google Play</a></p>
-        <p><a href="https://pocketpad.datronapps.com/downloads/latest/PocketPad-PC-Setup.exe">Download PocketPad Companion for Windows</a></p>
-      </noscript>
+        <p><a href="https://pocketpad.datronapps.com/downloads/latest/PocketPad-PC-Setup.exe">Download PocketPad Companion for Windows</a> (optional — not required for Bluetooth)</p>
+      </article>
     </main>
     <footer class="container footer" id="pp-footer"></footer>
     <script type="module" src="../../site_content/pocketpad_overview_site.js"></script>

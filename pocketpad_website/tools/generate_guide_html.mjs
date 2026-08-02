@@ -31,7 +31,7 @@ fs.writeFileSync(
 );
 const schemaForHtml = faqSchemaOut;
 
-function noscriptFaq() {
+function seoFaq() {
   return PocketPadFaqEntries.map((e) => `<h3>${e.question}</h3><p>${e.answer}</p>`).join("\n");
 }
 
@@ -67,7 +67,7 @@ const howToSchema = {
   ],
 };
 
-const howToNoscript = `
+const howToSeo = `
         <h1>How to connect PocketPad — Bluetooth & Wi‑Fi</h1>
         <p>Connect in under a minute via <strong>Bluetooth HID</strong> (no PC install) or <strong>Wi‑Fi + Companion</strong> on Windows.</p>
         <h2 id="bluetooth">Bluetooth HID — instant pairing</h2>
@@ -126,12 +126,13 @@ const faqHtml = `<!DOCTYPE html>
     <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
     <div class="container pocket-top" id="fq-top"></div>
     <main class="container main-wide" id="fq-main">
-      <noscript>
+      <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->
+      <article class="seo-static">
         <h1>PocketPad — Frequently Asked Questions</h1>
         <p>Answers about using your phone as a wireless gamepad, keyboard & mouse, TV remote, and presentation controller. <a href="./how-to.html">How-to guide</a>.</p>
-        ${noscriptFaq()}
+        ${seoFaq()}
         <p><a href="./how-to.html">Connection guide</a> · <a href="./index.html">Overview</a></p>
-      </noscript>
+      </article>
     </main>
     <footer class="container footer" id="fq-footer"></footer>
     <script type="module" src="../../site_content/pocketpad_faq_site.js"></script>
@@ -154,7 +155,9 @@ const howToHtml = `<!DOCTYPE html>
     <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
     <div class="container pocket-top" id="ht-top"></div>
     <main class="container main-wide" id="ht-main">
-      <noscript>${howToNoscript}</noscript>
+      <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->
+      <article class="seo-static">${howToSeo}
+      </article>
     </main>
     <footer class="container footer" id="ht-footer"></footer>
     <script type="module" src="../../site_content/pocketpad_howto_site.js"></script>

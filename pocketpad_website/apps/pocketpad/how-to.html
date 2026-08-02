@@ -29,7 +29,8 @@
     <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
     <div class="container pocket-top" id="ht-top"></div>
     <main class="container main-wide" id="ht-main">
-      <noscript>
+      <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->
+      <article class="seo-static">
         <h1>How to connect PocketPad — Bluetooth & Wi‑Fi</h1>
         <p>Connect in under a minute via <strong>Bluetooth HID</strong> (no PC install) or <strong>Wi‑Fi + Companion</strong> on Windows.</p>
         <h2 id="bluetooth">Bluetooth HID — instant pairing</h2>
@@ -48,7 +49,8 @@
           <li>Open Companion; in PocketPad tap Connect → Wi‑Fi → your PC.</li>
           <li>For Universal layouts, enter the 6-digit code from Companion Settings.</li>
         </ol>
-        <p><a href="./faq.html">FAQ</a> · <a href="./index.html">Overview</a></p></noscript>
+        <p><a href="./faq.html">FAQ</a> · <a href="./index.html">Overview</a></p>
+      </article>
     </main>
     <footer class="container footer" id="ht-footer"></footer>
     <script type="module" src="../../site_content/pocketpad_howto_site.js"></script>

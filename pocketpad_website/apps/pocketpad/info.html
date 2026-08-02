@@ -37,7 +37,30 @@
     <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
 
     <div class="container pocket-top" id="pi-top"></div>
-    <main class="container main-wide" id="pi-main"></main>
+    <main class="container main-wide" id="pi-main">
+      <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->
+      <article class="seo-static">
+        <h1>How PocketPad works</h1>
+        <p>PocketPad splits into two paths: <strong>Bluetooth HID</strong> (no Companion on the host) and optional <strong>Wi‑Fi / Companion</strong> on Windows for discovery, dashboards, and multiplayer.</p>
+        <h2>Bluetooth HID</h2>
+        <ul>
+          <li>No install on hosts that accept standard HID pairings.</li>
+          <li>Gamepad vs keyboard/mouse modes may require re-pairing when switching.</li>
+          <li>Media &amp; TV remotes work with smart TVs and media apps.</li>
+        </ul>
+        <h2>Wi‑Fi companion (Windows)</h2>
+        <ul>
+          <li>Optional PocketPad Companion for discovery, pairing codes, and a live dashboard.</li>
+          <li>Multiplayer: multiple phones as separate Xbox controllers.</li>
+          <li>Download the installer from the <a href="./index.html">overview page</a> only if you need Wi‑Fi features.</li>
+        </ul>
+        <h2>Controller surfaces</h2>
+        <ul>
+          <li>Custom layouts, tilt-to-steer, Universal keyboard &amp; mouse, presentation and media modes.</li>
+        </ul>
+        <p><a href="./how-to.html">How-to guide</a> · <a href="./faq.html">FAQ</a> · <a href="./index.html">Overview</a></p>
+      </article>
+    </main>
     <footer class="container footer" id="pi-footer"></footer>
     <script type="module" src="../../site_content/pocketpad_info_site.js"></script>
   </body>
