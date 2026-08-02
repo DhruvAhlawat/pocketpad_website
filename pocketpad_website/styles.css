@@ -742,6 +742,7 @@ a:hover {
 
 .pp-scrolling-gallery__track {
   display: flex;
+  align-items: flex-start;
   gap: 14px;
   width: max-content;
   padding: 14px;
@@ -765,7 +766,9 @@ a:hover {
 .pp-scrolling-gallery__slide {
   position: relative;
   flex: 0 0 auto;
-  width: min(300px, 72vw);
+  width: fit-content;
+  max-width: min(560px, 88vw);
+  height: fit-content;
   margin: 0;
   border-radius: 12px;
   overflow: hidden;
@@ -774,12 +777,12 @@ a:hover {
 }
 
 .pp-scrolling-gallery__slide img {
-  width: 100%;
-  height: auto;
-  max-height: min(460px, 72vh);
-  object-fit: contain;
   display: block;
-  vertical-align: middle;
+  width: auto;
+  height: auto;
+  max-width: min(560px, 88vw);
+  max-height: min(420px, 68vh);
+  object-fit: contain;
 }
 
 .pp-scrolling-gallery__placeholder {
