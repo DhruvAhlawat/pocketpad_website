@@ -127,7 +127,7 @@ export const PocketPadHowToContent = {
       {
         title: "Download Companion for Windows",
         body_html:
-          `Install the <strong>EXE installer</strong> from the <a href="./index.html">PocketPad overview</a> page (portable ZIP optional). Checksums: <a href="${pocketpadDownloadsReadmeUrl}">README.txt</a>.`,
+          `Install the <strong>EXE installer</strong> from the <a href="./index.html">PocketPad overview</a> page. Checksums: <a href="${pocketpadDownloadsReadmeUrl}">README.txt</a>.`,
       },
       {
         title: "Run setup and approve prompts",
