@@ -767,7 +767,6 @@ a:hover {
   position: relative;
   flex: 0 0 auto;
   width: fit-content;
-  max-width: min(560px, 88vw);
   height: fit-content;
   margin: 0;
   border-radius: 12px;
@@ -778,10 +777,10 @@ a:hover {
 
 .pp-scrolling-gallery__slide img {
   display: block;
+  /* Shared height → landscape slides become wider; portrait stay narrower. */
+  height: min(380px, 58vh);
   width: auto;
-  height: auto;
-  max-width: min(560px, 88vw);
-  max-height: min(420px, 68vh);
+  max-width: min(720px, 92vw);
   object-fit: contain;
 }
 
