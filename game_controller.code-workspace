@@ -7,6 +7,6 @@
   ],
   "settings": {
     "terminal.integrated.cwd": "${workspaceFolder}",
-    "dart.flutterSdkPath": "C:\\SDKs\\flutter"
+    "dart.flutterSdkPath": "C:\\Users\\admin\\flutter"
   }
 }
