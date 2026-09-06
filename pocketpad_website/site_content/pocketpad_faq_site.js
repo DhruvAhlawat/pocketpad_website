@@ -1,7 +1,7 @@
 /**
  * PocketPad FAQ (`faq.html`).
  */
-import { datronHubPublicUrl, pocketpadAppIconAsset } from "./public_site_urls.js";
+import { datronHubPublicUrl, pocketpadAppIconAsset, pocketpadPlayStoreUrl } from "./public_site_urls.js";
 import { PocketPadFaqEntries } from "./pocketpad_faq_entries.js";
 import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
@@ -43,7 +43,8 @@ export const PocketPadFaqContent = {
     pageTitle: "Frequently asked questions",
     lead_html:
       "Quick answers about using your phone as a <strong>wireless gamepad</strong>, <strong>keyboard & mouse</strong>, <strong>TV remote</strong>, and <strong>presentation controller</strong>. " +
-      "For step-by-step setup, see the <a href=\"./how-to.html\">How-to guide</a>.",
+      `For step-by-step setup, see the <a href="./how-to.html">How-to guide</a>. ` +
+      `Download PocketPad on <a href="${pocketpadPlayStoreUrl}" rel="noopener noreferrer" target="_blank">Google Play</a>.`,
   },
 
   sections: [

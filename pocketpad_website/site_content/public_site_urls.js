@@ -41,6 +41,6 @@ export const pocketpadThirdPartyNoticesUrl = `${pocketpadDownloadsBaseUrl}/THIRD
 /** Site-root asset path for resolveAssetHref() in site_content modules. */
 export const pocketpadAppIconAsset = "assets/icons/gamepad_1.png";
 
-/** Google Play listing — set to "" to hide the badge until the app is live. */
+/** Google Play listing — set to "" to hide the overview badge. */
 export const pocketpadPlayStoreUrl =
   "https://play.google.com/store/apps/details?id=com.datron.pocketpad";

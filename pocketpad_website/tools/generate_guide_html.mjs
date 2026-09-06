@@ -6,6 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { PocketPadFaqEntries } from "../site_content/pocketpad_faq_entries.js";
+import { pocketpadPlayStoreUrl } from "../site_content/public_site_urls.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, "..");
@@ -72,7 +73,7 @@ const howToSeo = `
         <p>Connect in under a minute via <strong>Bluetooth HID</strong> (no PC install) or <strong>Wi‑Fi + Companion</strong> on Windows.</p>
         <h2 id="bluetooth">Bluetooth HID — instant pairing</h2>
         <ol>
-          <li>Install PocketPad on Android.</li>
+          <li>Install PocketPad on Android from <a href="${pocketpadPlayStoreUrl}">Google Play</a>.</li>
           <li>Open Connect → choose <strong>Bluetooth</strong>.</li>
           <li>Tap <strong>Prepare for pairing</strong>.</li>
           <li>On your PC/Mac/TV: Bluetooth settings → Add device → select your phone.</li>
@@ -86,7 +87,7 @@ const howToSeo = `
           <li>Open Companion; in PocketPad tap Connect → Wi‑Fi → your PC.</li>
           <li>For Universal layouts, enter the 6-digit code from Companion Settings.</li>
         </ol>
-        <p><a href="./faq.html">FAQ</a> · <a href="./index.html">Overview</a></p>`;
+        <p><a href="./faq.html">FAQ</a> · <a href="./index.html">Overview</a> · <a href="${pocketpadPlayStoreUrl}">Google Play</a></p>`;
 
 const headCommon = (title, desc, canonical, ogTitle) => `
     <meta charset="UTF-8" />
@@ -129,9 +130,9 @@ const faqHtml = `<!DOCTYPE html>
       <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->
       <article class="seo-static">
         <h1>PocketPad — Frequently Asked Questions</h1>
-        <p>Answers about using your phone as a wireless gamepad, keyboard & mouse, TV remote, and presentation controller. <a href="./how-to.html">How-to guide</a>.</p>
+        <p>Answers about using your phone as a wireless gamepad, keyboard & mouse, TV remote, and presentation controller. <a href="./how-to.html">How-to guide</a> · <a href="${pocketpadPlayStoreUrl}">Get it on Google Play</a>.</p>
         ${seoFaq()}
-        <p><a href="./how-to.html">Connection guide</a> · <a href="./index.html">Overview</a></p>
+        <p><a href="./how-to.html">Connection guide</a> · <a href="./index.html">Overview</a> · <a href="${pocketpadPlayStoreUrl}">Google Play</a></p>
       </article>
     </main>
     <footer class="container footer" id="fq-footer"></footer>

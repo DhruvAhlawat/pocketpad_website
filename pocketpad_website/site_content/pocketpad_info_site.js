@@ -5,6 +5,7 @@ import {
   datronHubPublicUrl,
   pocketpadAppIconAsset,
   pocketpadDownloadsReadmeUrl,
+  pocketpadPlayStoreUrl,
   pocketpadThirdPartyNoticesUrl,
 } from "./public_site_urls.js";
 import { resolveAssetHref } from "./site_assets.js";
@@ -45,7 +46,7 @@ export const PocketPadInfoContent = {
     lead_html:
       "PocketPad splits naturally into two paths: <strong>Bluetooth HID</strong> sessions that emulate USB-class devices after pairing (no Companion software on the host) " +
       "and optional <strong>Wi‑Fi / UDP Companion</strong> on Windows for dashboards, KM pairing tokens, multicast discovery, " +
-      "and extremely low jitter when lots of phones connect at once.",
+      `and extremely low jitter when lots of phones connect at once. Get the Android app on <a href="${pocketpadPlayStoreUrl}" rel="noopener noreferrer" target="_blank">Google Play</a>.`,
   },
 
   /** Optional alt text when `paths.appIconPng` is set */

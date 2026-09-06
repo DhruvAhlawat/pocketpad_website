@@ -172,7 +172,7 @@ export const PocketPadSiteContent = {
     title: "Features",
     /** Shown under the title; leave "" to hide */
     intro: "",
-    scrollDurationSec: 56,
+    scrollDurationSec: 62,
     slides: [
       {
         src: "assets/screenshots/01_gamepad_classic.png",
@@ -217,6 +217,11 @@ export const PocketPadSiteContent = {
       {
         src: "assets/screenshots/08_slides_remote.png",
         alt: "Presentation slides remote for PowerPoint, Google Slides, and similar apps",
+        caption: "",
+      },
+      {
+        src: "assets/screenshots/09_connectivity.png",
+        alt: "Connect instantly over Bluetooth or Wi-Fi — gamepad, mouse and keyboard, and TV remote",
         caption: "",
       },
     ],

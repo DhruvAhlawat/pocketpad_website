@@ -5,6 +5,7 @@ import {
   datronHubPublicUrl,
   pocketpadAppIconAsset,
   pocketpadDownloadsReadmeUrl,
+  pocketpadPlayStoreUrl,
   pocketpadThirdPartyNoticesUrl,
 } from "./public_site_urls.js";
 import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
@@ -88,7 +89,7 @@ export const PocketPadHowToContent = {
       {
         title: "Install PocketPad on Android",
         body_html:
-          "Get <strong>PocketPad</strong> from Google Play (or your pre-release build). Grant Bluetooth permissions when asked.",
+          `Get <strong>PocketPad</strong> from <a href="${pocketpadPlayStoreUrl}" rel="noopener noreferrer" target="_blank">Google Play</a>. Grant Bluetooth permissions when asked.`,
       },
       {
         title: "Choose Bluetooth in the app",

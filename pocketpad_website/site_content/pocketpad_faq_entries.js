@@ -2,12 +2,14 @@
  * PocketPad FAQ entries — single source for FAQ page rendering.
  * Plain `answer` is used for FAQPage JSON-LD in faq.html (keep in sync when editing).
  */
+import { pocketpadPlayStoreUrl } from "./public_site_urls.js";
+
 export const PocketPadFaqEntries = [
   {
     id: "phone-as-gamepad",
     question: "How can I use my phone as a gamepad or game controller?",
     answer_html:
-      "Install <strong>PocketPad</strong> on your Android phone. Open a gamepad layout (Xbox-style or PlayStation-style), connect via <strong>Bluetooth HID</strong> (no app on your PC) or <strong>Wi‑Fi</strong> with PocketPad Companion on Windows, then play. Your phone sends real gamepad input — sticks, triggers, D-pad, and face buttons.",
+      `Install <strong>PocketPad</strong> on your Android phone from <a href="${pocketpadPlayStoreUrl}" rel="noopener noreferrer" target="_blank">Google Play</a>. Open a gamepad layout (Xbox-style or PlayStation-style), connect via <strong>Bluetooth HID</strong> (no app on your PC) or <strong>Wi‑Fi</strong> with PocketPad Companion on Windows, then play. Your phone sends real gamepad input — sticks, triggers, D-pad, and face buttons.`,
     answer:
       "Install PocketPad on your Android phone. Open a gamepad layout, connect via Bluetooth HID (no app on your PC) or Wi-Fi with PocketPad Companion on Windows, then play.",
   },
