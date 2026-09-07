@@ -893,12 +893,17 @@ a.download-row:hover {
 }
 
 .play-store-cta {
-  text-align: center;
+  text-align: left;
+}
+
+.play-store-cta .muted {
+  margin: 0;
 }
 
 .play-store-badge {
   display: inline-block;
-  margin-top: 12px;
+  /* Official Play badge PNG includes transparent padding around the artwork. */
+  margin: -6px 0 -10px -11px;
   line-height: 0;
 }
 
@@ -911,6 +916,18 @@ a.download-row:hover {
   .play-store-badge img {
     height: 80px;
   }
+}
+
+.get-started-cta {
+  margin-bottom: 36px;
+}
+
+.get-started-cta .play-store-cta {
+  margin-bottom: 8px;
+}
+
+.get-started-cta .companion-download .h-section {
+  margin-top: 4px;
 }
 
 .short-steps {

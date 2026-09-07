@@ -125,10 +125,10 @@ export const PocketPadSiteContent = {
   },
 
   downloadSection: {
-    title: "PocketPad Companion for Windows (Not required when using Bluetooth connection)",
+    title: "PocketPad Companion for Windows (optional)",
     intro_html:
-      "<strong>You do not need to download this.</strong> PocketPad works over <strong>Bluetooth HID</strong> with zero install on your PC — just pair from Windows Bluetooth settings and play. " +
-      "Download Companion <strong>only if</strong> you want easier PC discovery, a live dashboard, multiplayer over the same Wi‑Fi, or the lowest-jitter Wi‑Fi path. " +
+      "<strong>You do not need to download this to use the app.</strong> Bluetooth works by instantly connecting without setup — pair from your PC, Mac, or TV and play. " +
+      "This companion app provides a better interface for switching between <strong>Universal</strong> (mouse and keyboard) and <strong>Gamepad</strong> modes, plus Wi‑Fi discovery, a live dashboard, and multiplayer. " +
       "The installer (EXE) sets up Program Files / Start menu and adds the <strong>ViGEmBus</strong> driver when it is missing (so games see your phone as an Xbox controller; skipped if ViGEmBus is already installed). " +
       "Allow Companion on <strong>private</strong> networks in Windows Firewall when using Wi‑Fi.",
     rows: PocketPadDownloadRows,
@@ -294,7 +294,7 @@ function buildPlayStore(c) {
   }
 
   const section = document.createElement("section");
-  section.className = "section-tight play-store-cta";
+  section.className = "play-store-cta";
   section.setAttribute("aria-labelledby", "play-store-heading");
 
   const h2 = document.createElement("h2");
@@ -401,7 +401,7 @@ function windowsLogoSvg() {
 function buildDownload(c) {
   const d = c.downloadSection;
   const section = document.createElement("section");
-  section.className = "section-tight";
+  section.className = "companion-download";
   section.setAttribute("aria-labelledby", "downloads-heading");
 
   const h2 = document.createElement("h2");
@@ -748,6 +748,15 @@ function buildFooter(c) {
   return [line1, muted, split];
 }
 
+function buildGetStarted(c) {
+  const wrap = document.createElement("div");
+  wrap.className = "get-started-cta";
+  wrap.setAttribute("aria-label", "Download PocketPad");
+  wrap.appendChild(buildPlayStore(c));
+  wrap.appendChild(buildDownload(c));
+  return wrap;
+}
+
 function renderPocketPadOverview(c = PocketPadSiteContent) {
   document.title = c.meta.title;
   const dm = document.querySelector('meta[name="description"]');
@@ -766,10 +775,9 @@ function renderPocketPadOverview(c = PocketPadSiteContent) {
   top.replaceChildren(buildPocketPadTop(c, "overview"));
   main.replaceChildren(
     buildHero(c),
-    buildPlayStore(c),
+    buildGetStarted(c),
     buildWhy(c),
     buildFeatures(c),
-    buildDownload(c),
     buildThirdParty(c),
     buildQuickStart(c),
     buildGallery(c),
