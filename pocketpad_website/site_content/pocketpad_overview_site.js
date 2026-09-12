@@ -315,8 +315,8 @@ function buildPlayStore(c) {
   const img = document.createElement("img");
   img.src = "https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png";
   img.alt = ps.badgeAlt || "Get it on Google Play";
-  img.width = 270;
-  img.height = 80;
+  img.width = 810;
+  img.height = 240;
   img.decoding = "async";
   img.loading = "lazy";
   link.appendChild(img);
