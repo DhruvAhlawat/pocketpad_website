@@ -730,7 +730,7 @@ function updateCard(rec, now) {
   }
 
   const idle = now - rec.lastActivity;
-  const active = idle < 2000;
+  const active = rec.seen && idle < 2000;
   rec.card.classList.toggle("gpt-card--active", active);
 
   rec.idle.textContent = !rec.seen
@@ -815,6 +815,12 @@ let idleStatusText = "No gamepad detected. Press any button on your controller."
 
 const REMOVE_GRACE_MS = 1500;
 const STALE_DISCONNECT_MS = 10000;
+const SUPPRESS_MS = 30000;
+const suppression = new Map();
+
+function padSignature(pad) {
+  return `${pad.id || ""}|${stateKey(pad)}`;
+}
 
 function updatePresence() {
   const count = cards.size;
@@ -837,6 +843,16 @@ function updatePads(now) {
   for (const pad of pads) {
     if (!pad || !pad.connected) continue;
     alive.set(pad.index, pad);
+    const sup = suppression.get(pad.index);
+    if (sup) {
+      if (now >= sup.until) {
+        suppression.delete(pad.index);
+      } else if (padSignature(pad) !== sup.signature) {
+        suppression.delete(pad.index);
+      } else {
+        continue;
+      }
+    }
     let rec = cards.get(pad.index);
     if (!rec) {
       rec = buildCardFor(pad, now);
@@ -859,6 +875,9 @@ function updatePads(now) {
       }
     }
     if (rec.removeAt != null && now >= rec.removeAt) {
+      if (pad && now - rec.lastActivity > STALE_DISCONNECT_MS) {
+        suppression.set(pad.index, { signature: padSignature(pad), until: now + SUPPRESS_MS });
+      }
       rec.card.remove();
       cards.delete(index);
     }
@@ -899,9 +918,14 @@ function startEngine() {
 
   const ping = () => updatePresence();
 
-  window.addEventListener("gamepadconnected", ping);
+  window.addEventListener("gamepadconnected", (e) => {
+    suppression.delete(e.gamepad && e.gamepad.index);
+    ping();
+  });
   window.addEventListener("gamepaddisconnected", (e) => {
-    const rec = e.gamepad && cards.get(e.gamepad.index);
+    const index = e.gamepad && e.gamepad.index;
+    suppression.delete(index);
+    const rec = index != null && cards.get(index);
     if (rec && rec.removeAt == null) rec.removeAt = performance.now() + REMOVE_GRACE_MS;
   });
   if (resetEl) resetEl.addEventListener("click", resetChecks);
