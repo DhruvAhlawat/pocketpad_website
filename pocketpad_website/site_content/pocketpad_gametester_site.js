@@ -448,6 +448,16 @@ function buildCardFor(pad, now) {
   const lb = makeBtn("gpt-bumper gpt-bumper--l", 4, "LB", "Left bumper");
   const rb = makeBtn("gpt-bumper gpt-bumper--r", 5, "RB", "Right bumper");
 
+  const center = document.createElement("div");
+  center.className = "gpt-center";
+  const back = makeBtn("gpt-centerbtn gpt-centerbtn--back", 8, "◀", "Back selector button");
+  const home = makeBtn("gpt-centerbtn gpt-centerbtn--home", 16, "◉", "Home button");
+  home.style.display = "none";
+  const start = makeBtn("gpt-centerbtn gpt-centerbtn--start", 9, "▶", "Start menu button");
+  center.appendChild(back);
+  center.appendChild(home);
+  center.appendChild(start);
+
   const dpad = document.createElement("div");
   dpad.className = "gpt-dpad";
   for (const [i, dir] of Object.entries(DPAD_BTNS)) {
@@ -486,6 +496,7 @@ function buildCardFor(pad, now) {
   padEl.appendChild(face);
   padEl.appendChild(stickL);
   padEl.appendChild(stickR);
+  padEl.appendChild(center);
   visual.appendChild(padEl);
 
   const values = document.createElement("div");
@@ -544,6 +555,7 @@ function buildCardFor(pad, now) {
   chips.className = "gpt-chips";
   const chipMap = new Map();
   const nButtons = pad.buttons ? pad.buttons.length : 0;
+  home.style.display = nButtons > 16 ? "" : "none";
   for (let i = 0; i < nButtons; i++) {
     const li = document.createElement("li");
     li.className = "gpt-chip";
@@ -610,6 +622,7 @@ const BUTTON_LABELS = {
   4: "LB", 5: "RB", 6: "LT", 7: "RT",
   8: "Back", 9: "Start", 10: "L3", 11: "R3",
   12: "D‑up", 13: "D‑down", 14: "D‑left", 15: "D‑right",
+  16: "Home",
 };
 
 function stateKey(pad) {
