@@ -424,7 +424,10 @@ function buildCardFor(pad, now) {
   meta.textContent = pid;
   const mapping = document.createElement("span");
   mapping.className = "gpt-card__mapping";
-  mapping.textContent = pad.mapping === "standard" ? " · standard layout" : " · custom layout";
+  mapping.textContent =
+    pad.mapping === "standard"
+      ? " · standard layout"
+      : " · DirectInput layout (auto-remapped)";
   meta.appendChild(mapping);
 
   const visual = document.createElement("div");
@@ -555,14 +558,19 @@ function buildCardFor(pad, now) {
   chips.className = "gpt-chips";
   const chipMap = new Map();
   const nButtons = pad.buttons ? pad.buttons.length : 0;
-  home.style.display = nButtons > 16 ? "" : "none";
+  const layout = pad.mapping === "standard" ? null : buildRawLayout();
+  home.style.display = layout || nButtons > 16 ? "" : "none";
   for (let i = 0; i < nButtons; i++) {
     const li = document.createElement("li");
     li.className = "gpt-chip";
     li.dataset.btn = String(i);
     const label = document.createElement("span");
     label.className = "gpt-chip__label";
-    const lbName = BUTTON_LABELS[i] || String(i);
+    const stdIdx = layout ? layout.btnRaw[i] : i;
+    const lbName =
+      (stdIdx !== undefined && BUTTON_LABELS[stdIdx]) ||
+      BUTTON_LABELS[i] ||
+      String(i);
     label.textContent = `${i} · ${lbName}`;
     const val = document.createElement("span");
     val.className = "gpt-chip__val";
@@ -599,6 +607,7 @@ function buildCardFor(pad, now) {
   rec.trLnum = trLnum;
   rec.trRnum = trRnum;
   rec.chips = chipMap;
+  rec.layout = layout;
   rec.badge = badge;
   rec.idle = idle;
   rec.rumble = rumble;
@@ -640,15 +649,43 @@ function stateKey(pad) {
   return ax.join(",") + "|" + bt.join(",");
 }
 
-function axisAt(pad, i) {
-  if (!pad.axes || i >= pad.axes.length) return 0;
-  const v = pad.axes[i];
+function axisAt(pad, i, layout) {
+  const raw = layout && layout.axis[i] !== undefined ? layout.axis[i] : i;
+  if (!pad.axes || raw >= pad.axes.length) return 0;
+  const v = pad.axes[raw];
   return typeof v === "number" && isFinite(v) ? v : 0;
 }
 
-function buttonAt(pad, i) {
-  if (!pad.buttons || i >= pad.buttons.length) return null;
-  return pad.buttons[i];
+function buttonAt(pad, i, layout) {
+  let raw = i;
+  if (layout && layout.btn[i] !== undefined) raw = layout.btn[i];
+  if (raw < 0) return null;
+  if (!pad.buttons || raw >= pad.buttons.length) return null;
+  return pad.buttons[raw];
+}
+
+/* Remap for DirectInput-mode pads (mapping !== "standard").
+   Raw browser order for DInput pads follows the classic 360/DInput
+   convention: A B X Y LB RB Back Start L3 R3 Guide D-up D-down D-left D-right
+   (raw 0..14) and axes X Y Z Rx Ry Rz (raw 0..5) where Z/Rz are the analog
+   triggers. Maps standard indexes backward to those raw indexes. */
+function buildRawLayout() {
+  return {
+    btn: {
+      0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5,
+      6: -1, 7: -1,
+      8: 6, 9: 7, 10: 8, 11: 9,
+      12: 11, 13: 12, 14: 13, 15: 14,
+      16: 10,
+    },
+    btnRaw: {
+      0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 8, 7: 9,
+      8: 10, 9: 11, 10: 16, 11: 12, 12: 13, 13: 14, 14: 15,
+    },
+    axis: { 0: 0, 1: 1, 2: 3, 3: 4 },
+    trigL: 2,
+    trigR: 5,
+  };
 }
 
 function setKnob(knob, x, y) {
@@ -681,20 +718,28 @@ function updateCard(rec, now) {
       : "Receiving input";
   rec.idle.classList.toggle("gpt-idle--warn", rec.seen && idle > 4000);
 
-  setKnob(rec.knobL, axisAt(pad, 0), axisAt(pad, 1));
-  setKnob(rec.knobR, axisAt(pad, 2), axisAt(pad, 3));
-  rec.axisL.textContent = `${axisAt(pad, 0).toFixed(2)}, ${axisAt(pad, 1).toFixed(2)}`;
-  rec.axisR.textContent = `${axisAt(pad, 2).toFixed(2)}, ${axisAt(pad, 3).toFixed(2)}`;
+  const L = rec.layout;
+  setKnob(rec.knobL, axisAt(pad, 0, L), axisAt(pad, 1, L));
+  setKnob(rec.knobR, axisAt(pad, 2, L), axisAt(pad, 3, L));
+  rec.axisL.textContent = `${axisAt(pad, 0, L).toFixed(2)}, ${axisAt(pad, 1, L).toFixed(2)}`;
+  rec.axisR.textContent = `${axisAt(pad, 2, L).toFixed(2)}, ${axisAt(pad, 3, L).toFixed(2)}`;
 
-  const lt = ((buttonAt(pad, 6) || {}).value) || 0;
-  const rt = ((buttonAt(pad, 7) || {}).value) || 0;
+  let lt = 0;
+  let rt = 0;
+  if (L) {
+    lt = cap((axisAt(pad, L.trigL) + 1) / 2, 0, 1);
+    rt = cap((axisAt(pad, L.trigR) + 1) / 2, 0, 1);
+  } else {
+    lt = ((buttonAt(pad, 6) || {}).value) || 0;
+    rt = ((buttonAt(pad, 7) || {}).value) || 0;
+  }
   rec.trLfill.style.width = `${cap(lt, 0, 1) * 100}%`;
   rec.trRfill.style.width = `${cap(rt, 0, 1) * 100}%`;
   rec.trLnum.textContent = lt.toFixed(2);
   rec.trRnum.textContent = rt.toFixed(2);
 
   for (const [i, el] of rec.padBtns) {
-    const b = buttonAt(pad, i);
+    const b = buttonAt(pad, i, L);
     const pressed = Boolean(b && b.pressed);
     el.classList.toggle("is-pressed", pressed);
   }
