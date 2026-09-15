@@ -148,6 +148,7 @@ const htmlFiles = [
   "apps/pocketpad/info.html",
   "apps/pocketpad/privacy.html",
   "apps/pocketpad/license.html",
+  "apps/pocketpad/gamepad-tester.html",
 ];
 for (const htmlRel of htmlFiles) {
   const html = readText(htmlRel);

@@ -68,6 +68,7 @@ export function buildPocketPadTop(c, active) {
     { key: "details", href: c.paths.pocketpadDetailsPage, label: c.chrome.detailsNavLabel },
     { key: "howto", href: c.paths.pocketpadHowToPage, label: c.chrome.howToNavLabel },
     { key: "faq", href: c.paths.pocketpadFaqPage, label: c.chrome.faqNavLabel },
+    { key: "tester", href: c.paths.pocketpadGameTesterPage, label: c.chrome.gameTesterNavLabel },
     { key: "privacy", href: c.paths.pocketpadPrivacyPage, label: c.chrome.privacyNavLabel },
   ];
 

@@ -27,6 +27,7 @@ export const PocketPadLicenseContent = {
     pocketpadFaqPage: "./faq.html",
     pocketpadPrivacyPage: "./privacy.html",
     pocketpadLicensePage: "./license.html",
+    pocketpadGameTesterPage: "./gamepad-tester.html",
     eulaTextHref: pocketpadEulaTextUrl,
     thirdPartyNoticesHref: pocketpadThirdPartyNoticesUrl,
   },
@@ -40,6 +41,7 @@ export const PocketPadLicenseContent = {
     faqNavLabel: "FAQ",
     privacyNavLabel: "Privacy",
     licenseNavLabel: "License",
+    gameTesterNavLabel: "Gamepad tester",
     pocketpadNavAriaLabel: "PocketPad",
   },
 

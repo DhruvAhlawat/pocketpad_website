@@ -26,6 +26,7 @@ export const PocketPadInfoContent = {
     pocketpadHowToPage: "./how-to.html",
     pocketpadFaqPage: "./faq.html",
     pocketpadPrivacyPage: "./privacy.html",
+    pocketpadGameTesterPage: "./gamepad-tester.html",
     thirdPartyNoticesHref: pocketpadThirdPartyNoticesUrl,
   },
 
@@ -37,6 +38,7 @@ export const PocketPadInfoContent = {
     howToNavLabel: "How-to",
     faqNavLabel: "FAQ",
     privacyNavLabel: "Privacy",
+    gameTesterNavLabel: "Gamepad tester",
     pocketpadNavAriaLabel: "PocketPad",
   },
 

@@ -21,6 +21,7 @@ export const PocketPadPrivacyContent = {
     pocketpadHowToPage: "./how-to.html",
     pocketpadFaqPage: "./faq.html",
     pocketpadPrivacyPage: "./privacy.html",
+    pocketpadGameTesterPage: "./gamepad-tester.html",
   },
 
   chrome: {
@@ -31,6 +32,7 @@ export const PocketPadPrivacyContent = {
     howToNavLabel: "How-to",
     faqNavLabel: "FAQ",
     privacyNavLabel: "Privacy",
+    gameTesterNavLabel: "Gamepad tester",
     pocketpadNavAriaLabel: "PocketPad",
   },
 
@@ -158,8 +160,22 @@ export const PocketPadPrivacyContent = {
         "If you believe a child has provided personal information through voluntary feedback or email, contact us at <a href=\"mailto:support@datronapps.com\">support@datronapps.com</a> with <strong>Privacy:</strong> in the subject line and we will delete it where reasonably possible.",
       ],
     },
+{
+      title: "Third-party services",
+      paragraphs_html: [
+        "PocketPad relies on Google services for optional analytics (Firebase Analytics / Google Analytics), crash reporting (Firebase Crashlytics), voluntary feedback storage (Firebase Firestore), ads (AdMob), and purchases (Google Play). Each operates under Google\u2019s policies.",
+        "If you install PocketPad from Google Play or another store, that marketplace may collect installation or billing metadata under its own privacy terms. Those services are independent of PocketPad\u2019s on-device and peer-to-peer controller behavior.",
+      ],
+    },
     {
-      title: "Changes to this policy",
+      title: "Website analytics",
+      paragraphs_html: [
+        "This website (pocketpad.datronapps.com) uses <strong>Google Analytics</strong> to measure aggregate visitor traffic: pages visited, approximate geographic region, device and browser type, referrer URL, and link/download clicks.",
+        "Google Analytics assigns a pseudonymous session identifier and uses cookies to group activity; no controller inputs, accounts, or personal information are collected by Datron through this website. You can block GA scripts using a browser extension or tracker blocker at any time.",
+      ],
+    },
+    {
+      title: "Children\u2019s privacy",
       paragraphs_html: [
         "We may update this page when the product changes. The effective date at the top will change when we do. " +
           "Continued use of PocketPad after an update means you accept the revised policy.",

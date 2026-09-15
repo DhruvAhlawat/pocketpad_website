@@ -26,6 +26,7 @@ export const PocketPadHowToContent = {
     pocketpadHowToPage: "./how-to.html",
     pocketpadFaqPage: "./faq.html",
     pocketpadPrivacyPage: "./privacy.html",
+    pocketpadGameTesterPage: "./gamepad-tester.html",
   },
 
   chrome: {
@@ -36,6 +37,7 @@ export const PocketPadHowToContent = {
     howToNavLabel: "How-to",
     faqNavLabel: "FAQ",
     privacyNavLabel: "Privacy",
+    gameTesterNavLabel: "Gamepad tester",
     pocketpadNavAriaLabel: "PocketPad",
   },
 

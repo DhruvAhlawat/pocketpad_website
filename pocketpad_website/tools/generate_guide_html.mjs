@@ -95,6 +95,17 @@ const headCommon = (title, desc, canonical, ogTitle) => `
     <title>${title}</title>
     <meta name="description" content="${desc}" />
     <link rel="canonical" href="${canonical}" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHYGFNHM91"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XHYGFNHM91");
+    </script>
+    <script src="../../site_content/analytics_events.js" defer></script>
     <link rel="icon" type="image/png" sizes="512x512" href="../../assets/icons/gamepad_512.png" />
     <link rel="apple-touch-icon" href="../../assets/icons/gamepad_512.png" />
     <link rel="manifest" href="../../manifest.json" />

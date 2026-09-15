@@ -43,6 +43,7 @@ export const PocketPadSiteContent = {
     pocketpadHowToPage: "./how-to.html",
     pocketpadFaqPage: "./faq.html",
     pocketpadPrivacyPage: "./privacy.html",
+    pocketpadGameTesterPage: "./gamepad-tester.html",
     checksumReadmeHref: pocketpadDownloadsReadmeUrl,
     thirdPartyNoticesHref: pocketpadThirdPartyNoticesUrl,
     eulaHref: "./license.html",
@@ -58,6 +59,7 @@ export const PocketPadSiteContent = {
     howToNavLabel: "How-to",
     faqNavLabel: "FAQ",
     privacyNavLabel: "Privacy",
+    gameTesterNavLabel: "Gamepad tester",
     /** `aria-label` for the mini-nav */
     pocketpadNavAriaLabel: "PocketPad",
   },
@@ -74,6 +76,7 @@ export const PocketPadSiteContent = {
       "Gamepad + keyboard/mouse",
       "Media & slideshow",
       "Layouts & profiles",
+      "Online gamepad tester",
     ],
   },
 
@@ -165,6 +168,19 @@ export const PocketPadSiteContent = {
     faqPromptPrefix: "More questions?",
     faqLinkLabel: "Browse the FAQ →",
     faqLinkHref: "./faq.html",
+  },
+
+  testerSection: {
+    title: "Test your gamepad online",
+    lead_html:
+      "Free and instant — no install, no upload. Connect any USB or Bluetooth controller and this page checks every <strong>button</strong>, <strong>stick</strong>, <strong>trigger</strong>, and <strong>D‑pad</strong> live. It lists <strong>every connected gamepad at once</strong>, unlike Windows' built-in test dialog — handy for verifying PocketPad over Bluetooth HID or Wi‑Fi + Companion.",
+    bullets_html: [
+      "Works in your browser on Windows, Mac, Linux, and ChromeOS.",
+      "Great for confirming PocketPad phones show up as working virtual controllers.",
+      "Useful for any guest who wants to quickly test their controller on your PC.",
+    ],
+    ctaLabel: "Open the online gamepad tester →",
+    ctaHref: "./gamepad-tester.html",
   },
 
   gallerySection: {
@@ -582,6 +598,48 @@ function buildThirdParty(c) {
   return section;
 }
 
+function buildTesterCta(c) {
+  const t = c.testerSection;
+  if (!t) {
+    return document.createDocumentFragment();
+  }
+
+  const section = document.createElement("section");
+  section.className = "section-block tester-cta-card";
+  section.setAttribute("aria-labelledby", "tester-cta-heading");
+
+  const h2 = document.createElement("h2");
+  h2.id = "tester-cta-heading";
+  h2.className = "h-section";
+  h2.textContent = t.title;
+
+  const lead = document.createElement("p");
+  lead.className = "muted";
+  lead.appendChild(htmlToNodes(t.lead_html));
+
+  const ul = document.createElement("ul");
+  ul.className = "feature-bullets";
+  for (const b of t.bullets_html || []) {
+    const li = document.createElement("li");
+    li.appendChild(htmlToNodes(b));
+    ul.appendChild(li);
+  }
+
+  const p = document.createElement("p");
+  p.style.marginTop = "14px";
+  const a = document.createElement("a");
+  a.href = t.ctaHref || "./gamepad-tester.html";
+  a.className = "btn btn-primary";
+  a.textContent = t.ctaLabel || "Open the online gamepad tester →";
+  p.appendChild(a);
+
+  section.appendChild(h2);
+  section.appendChild(lead);
+  section.appendChild(ul);
+  section.appendChild(p);
+  return section;
+}
+
 function buildGallerySlide(slide) {
   const wrap = document.createElement("figure");
   wrap.className = "pp-scrolling-gallery__slide";
@@ -780,6 +838,7 @@ function renderPocketPadOverview(c = PocketPadSiteContent) {
     buildFeatures(c),
     buildThirdParty(c),
     buildQuickStart(c),
+    buildTesterCta(c),
     buildGallery(c),
   );
   footer.replaceChildren(...buildFooter(c));

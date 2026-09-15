@@ -22,6 +22,8 @@ export const pocketpadHowToUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}
 
 export const pocketpadFaqUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/apps/pocketpad/faq.html`;
 
+export const pocketpadGameTesterUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/apps/pocketpad/gamepad-tester.html`;
+
 /** Windows installers served from the site (not GitHub Releases). */
 export const pocketpadDownloadsBaseUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/downloads`;
 
