@@ -437,6 +437,16 @@ function buildCardFor(pad, now) {
   const padEl = document.createElement("div");
   padEl.className = "gpt-pad";
 
+  const hull = document.createElement("div");
+  hull.className = "gpt-pad__hull";
+  hull.setAttribute("aria-hidden", "true");
+  for (const cls of ["gpt-pad__base", "gpt-pad__grip gpt-pad__grip--l", "gpt-pad__grip gpt-pad__grip--r", "gpt-pad__wedge"]) {
+    const s = document.createElement("span");
+    s.className = cls;
+    hull.appendChild(s);
+  }
+  padEl.appendChild(hull);
+
   const makeBtn = (cls, dataBtn, text, label) => {
     const b = document.createElement("button");
     b.type = "button";

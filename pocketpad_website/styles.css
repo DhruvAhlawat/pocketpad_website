@@ -1499,30 +1499,87 @@ code {
 
 .gpt-pad {
   position: relative;
-  aspect-ratio: 2 / 1;
-  border-radius: 46% / 48%;
-  background: linear-gradient(165deg, #17261d 0%, #0a1610 100%);
-  border: 1px solid var(--stroke);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 10px 26px rgba(0, 0, 0, 0.35);
+  aspect-ratio: 2 / 1.42;
+}
+
+.gpt-pad__hull {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  filter:
+    drop-shadow(0 0 1px var(--stroke))
+    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+
+.gpt-pad__hull span {
+  position: absolute;
+  display: block;
+  background: linear-gradient(168deg, #1e3025 0%, #0a1610 78%);
+}
+
+.gpt-pad__base {
+  left: 8%;
+  width: 84%;
+  top: 0;
+  height: 50%;
+  border-radius: 30px 30px 14px 14px;
+}
+
+.gpt-pad__grip {
+  top: 25%;
+  height: 76%;
+  width: 42%;
+  border-radius: 46% 46% 22px 22px / 40% 40% 22px 22px;
+}
+
+.gpt-pad__grip--l {
+  left: -2%;
+  transform: rotate(17deg);
+  transform-origin: 50% 22%;
+}
+
+.gpt-pad__grip--r {
+  right: -2%;
+  transform: rotate(-17deg);
+  transform-origin: 50% 22%;
+}
+
+.gpt-pad__wedge {
+  left: 50%;
+  bottom: 0;
+  width: 46%;
+  height: 44%;
+  transform: translateX(-50%);
+  border-radius: 18px 18px 14px 14px;
+}
+
+.gpt-pad__hull::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 34%;
+  border-radius: 30px 30px 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0));
+  pointer-events: none;
 }
 
 .gpt-stick {
   position: absolute;
-  width: 26%;
+  width: 23%;
   aspect-ratio: 1 / 1;
   z-index: 1;
 }
 
 .gpt-stick--l {
-  left: 10%;
-  bottom: 8%;
+  left: 20%;
+  bottom: 22%;
 }
 
 .gpt-stick--r {
-  right: 10%;
-  bottom: 8%;
+  right: 20%;
+  bottom: 22%;
 }
 
 .gpt-stick__well {
@@ -1551,9 +1608,9 @@ code {
 
 .gpt-dpad {
   position: absolute;
-  left: 8%;
-  top: 8%;
-  width: 22%;
+  left: 13%;
+  top: 12%;
+  width: 18%;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-rows: 1.2fr 1fr 1.2fr;
@@ -1593,9 +1650,9 @@ code {
 
 .gpt-face {
   position: absolute;
-  right: 8%;
-  top: 8%;
-  width: 26%;
+  right: 13%;
+  top: 12%;
+  width: 21%;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
@@ -1640,7 +1697,7 @@ code {
 
 .gpt-bumper {
   position: absolute;
-  top: -2px;
+  top: 4px;
   width: 24%;
   height: 12%;
   border-radius: 8px;
@@ -1657,17 +1714,17 @@ code {
 }
 
 .gpt-bumper--l {
-  left: 20%;
+  left: 21%;
 }
 
 .gpt-bumper--r {
-  right: 20%;
+  right: 21%;
 }
 
 .gpt-center {
   position: absolute;
   left: 50%;
-  top: 58%;
+  top: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
