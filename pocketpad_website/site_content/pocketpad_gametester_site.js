@@ -437,16 +437,6 @@ function buildCardFor(pad, now) {
   const padEl = document.createElement("div");
   padEl.className = "gpt-pad";
 
-  const hull = document.createElement("div");
-  hull.className = "gpt-pad__hull";
-  hull.setAttribute("aria-hidden", "true");
-  for (const cls of ["gpt-pad__base", "gpt-pad__grip gpt-pad__grip--l", "gpt-pad__grip gpt-pad__grip--r", "gpt-pad__wedge"]) {
-    const s = document.createElement("span");
-    s.className = cls;
-    hull.appendChild(s);
-  }
-  padEl.appendChild(hull);
-
   const makeBtn = (cls, dataBtn, text, label) => {
     const b = document.createElement("button");
     b.type = "button";
@@ -460,6 +450,8 @@ function buildCardFor(pad, now) {
 
   const lb = makeBtn("gpt-bumper gpt-bumper--l", 4, "LB", "Left bumper");
   const rb = makeBtn("gpt-bumper gpt-bumper--r", 5, "RB", "Right bumper");
+  const lt = makeBtn("gpt-trigger gpt-trigger--l", 6, "LT", "Left trigger");
+  const rt = makeBtn("gpt-trigger gpt-trigger--r", 7, "RT", "Right trigger");
 
   const center = document.createElement("div");
   center.className = "gpt-center";
@@ -503,6 +495,8 @@ function buildCardFor(pad, now) {
   wellR.appendChild(knobR);
   stickR.appendChild(wellR);
 
+  padEl.appendChild(lt);
+  padEl.appendChild(rt);
   padEl.appendChild(lb);
   padEl.appendChild(rb);
   padEl.appendChild(dpad);
@@ -616,6 +610,8 @@ function buildCardFor(pad, now) {
   rec.trRfill = trRfill;
   rec.trLnum = trLnum;
   rec.trRnum = trRnum;
+  rec.trFillL = lt;
+  rec.trFillR = rt;
   rec.chips = chipMap;
   rec.layout = layout;
   rec.badge = badge;
@@ -747,8 +743,11 @@ function updateCard(rec, now) {
   rec.trRfill.style.width = `${cap(rt, 0, 1) * 100}%`;
   rec.trLnum.textContent = lt.toFixed(2);
   rec.trRnum.textContent = rt.toFixed(2);
+  rec.trFillL.classList.toggle("is-pressed", lt > 0.25);
+  rec.trFillR.classList.toggle("is-pressed", rt > 0.25);
 
   for (const [i, el] of rec.padBtns) {
+    if (el.classList.contains("gpt-trigger")) continue;
     const b = buttonAt(pad, i, L);
     const pressed = Boolean(b && b.pressed);
     el.classList.toggle("is-pressed", pressed);
