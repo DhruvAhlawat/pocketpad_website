@@ -619,6 +619,8 @@ function buildCardFor(pad, now) {
   rec.rumble = rumble;
   rec.pad = pad;
   rec.lastKey = stateKey(pad);
+  rec.lastActivity = now;
+  rec.removeAt = null;
 
   rumble.addEventListener("click", () => onRumble(rec));
 
@@ -797,6 +799,9 @@ let resetEl = null;
 let rafId = 0;
 let idleStatusText = "No gamepad detected. Press any button on your controller.";
 
+const REMOVE_GRACE_MS = 1500;
+const STALE_DISCONNECT_MS = 10000;
+
 function updatePresence() {
   const count = cards.size;
   if (emptyEl) emptyEl.hidden = count > 0;
@@ -814,10 +819,10 @@ function updatePads(now) {
   } catch {
     pads = [];
   }
-  const connected = pads.filter((p) => p && p.connected);
-  const active = new Set();
-  for (const pad of connected) {
-    active.add(pad.index);
+  const alive = new Map();
+  for (const pad of pads) {
+    if (!pad || !pad.connected) continue;
+    alive.set(pad.index, pad);
     let rec = cards.get(pad.index);
     if (!rec) {
       rec = buildCardFor(pad, now);
@@ -828,7 +833,18 @@ function updatePads(now) {
     updateCard(rec, now);
   }
   for (const [index, rec] of Array.from(cards)) {
-    if (!active.has(index)) {
+    const pad = alive.get(index);
+    if (pad && rec.removeAt != null && now - rec.lastActivity < STALE_DISCONNECT_MS) {
+      rec.removeAt = null;
+    }
+    if (rec.removeAt == null) {
+      if (!pad) {
+        rec.removeAt = now + REMOVE_GRACE_MS;
+      } else if (now - rec.lastActivity > STALE_DISCONNECT_MS) {
+        rec.removeAt = now;
+      }
+    }
+    if (rec.removeAt != null && now >= rec.removeAt) {
       rec.card.remove();
       cards.delete(index);
     }
@@ -861,7 +877,10 @@ function startEngine() {
   const ping = () => updatePresence();
 
   window.addEventListener("gamepadconnected", ping);
-  window.addEventListener("gamepaddisconnected", ping);
+  window.addEventListener("gamepaddisconnected", (e) => {
+    const rec = e.gamepad && cards.get(e.gamepad.index);
+    if (rec && rec.removeAt == null) rec.removeAt = performance.now() + REMOVE_GRACE_MS;
+  });
   if (resetEl) resetEl.addEventListener("click", resetChecks);
   rafId = requestAnimationFrame(poll);
 }
