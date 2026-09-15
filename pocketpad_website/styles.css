@@ -1499,24 +1499,24 @@ code {
 
 .gpt-pad {
   position: relative;
-  aspect-ratio: 2 / 1.05;
+  aspect-ratio: 2 / 1.25;
 }
 
 .gpt-stick {
   position: absolute;
-  width: 24%;
+  width: 21%;
   aspect-ratio: 1 / 1;
   z-index: 1;
 }
 
 .gpt-stick--l {
-  left: 16%;
-  bottom: 12%;
+  left: 22%;
+  bottom: 1%;
 }
 
 .gpt-stick--r {
-  right: 16%;
-  bottom: 12%;
+  right: 22%;
+  bottom: 1%;
 }
 
 .gpt-stick__well {
@@ -1545,9 +1545,9 @@ code {
 
 .gpt-dpad {
   position: absolute;
-  left: 14%;
-  top: 18%;
-  width: 18%;
+  left: 13%;
+  top: 26%;
+  width: 16%;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
@@ -1591,8 +1591,8 @@ code {
 .gpt-face {
   position: absolute;
   right: 13%;
-  top: 12%;
-  width: 21%;
+  top: 26%;
+  width: 17%;
   aspect-ratio: 1 / 1;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
@@ -1651,25 +1651,25 @@ code {
 }
 
 .gpt-trigger {
-  top: 0;
-  width: 17%;
-  height: 14%;
+  top: 1%;
+  width: 16%;
+  height: 11%;
   border-radius: 12px;
   font-size: 0.68rem;
 }
 
 .gpt-trigger--l {
-  left: 2%;
+  left: 3%;
 }
 
 .gpt-trigger--r {
-  right: 2%;
+  right: 3%;
 }
 
 .gpt-bumper {
-  top: 8%;
-  width: 19%;
-  height: 12%;
+  top: 1%;
+  width: 15%;
+  height: 11%;
   font-size: 0.68rem;
 }
 

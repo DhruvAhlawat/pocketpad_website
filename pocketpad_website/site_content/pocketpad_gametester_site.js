@@ -849,7 +849,16 @@ function updatePads(now) {
       cards.delete(index);
     }
   }
+  sortGrid();
   updatePresence();
+}
+
+function sortGrid() {
+  if (!gridEl) return;
+  const order = Array.from(cards.keys()).sort((a, b) => a - b);
+  for (const index of order) {
+    gridEl.appendChild(cards.get(index).card);
+  }
 }
 
 function poll(now) {
