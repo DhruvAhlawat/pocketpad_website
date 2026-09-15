@@ -419,6 +419,19 @@ function buildCardFor(pad, now) {
   head.appendChild(idx);
   head.appendChild(badge);
 
+  const isXInput = pad.mapping === "standard";
+  const mode = document.createElement("div");
+  mode.className = isXInput ? "gpt-mode gpt-mode--xinput" : "gpt-mode gpt-mode--dinput";
+  const modeNote = document.createElement("p");
+  modeNote.className = "gpt-mode__note";
+  modeNote.hidden = isXInput;
+  modeNote.textContent = "DirectInput instead of X-Input — sometimes requires button remapping in games, but works on most. Apps like Steam handle the remapping automatically.";
+  const modeTitle = document.createElement("h3");
+  modeTitle.className = "gpt-mode__title";
+  modeTitle.textContent = isXInput ? "X-Input" : "D-Input";
+  mode.appendChild(modeNote);
+  mode.appendChild(modeTitle);
+
   const meta = document.createElement("p");
   meta.className = "gpt-card__meta";
   meta.textContent = pid;
@@ -625,6 +638,7 @@ function buildCardFor(pad, now) {
   rumble.addEventListener("click", () => onRumble(rec));
 
   card.appendChild(head);
+  card.appendChild(mode);
   card.appendChild(meta);
   card.appendChild(visual);
   card.appendChild(values);
