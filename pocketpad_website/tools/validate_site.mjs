@@ -149,6 +149,7 @@ const htmlFiles = [
   "apps/pocketpad/privacy.html",
   "apps/pocketpad/license.html",
   "apps/pocketpad/gamepad-tester.html",
+  "apps/pocketpad/whats-new.html",
 ];
 for (const htmlRel of htmlFiles) {
   const html = readText(htmlRel);
@@ -160,6 +161,23 @@ for (const htmlRel of htmlFiles) {
   const moduleRel = scriptMatch[1].replace(/^\.\.\/\.\.\//, "");
   if (!fileExists(moduleRel)) {
     fail(`${htmlRel} references missing module ${moduleRel}`);
+  }
+}
+
+// ——— What's new: entries well-formed and static HTML regenerated ———
+const whatsNew = await import(
+  pathToFileURL(path.join(contentDir, "pocketpad_whats_new_entries.js")).href
+);
+const whatsNewHtml = fileExists("apps/pocketpad/whats-new.html")
+  ? readText("apps/pocketpad/whats-new.html")
+  : "";
+for (const entry of whatsNew.PocketPadWhatsNewEntries || []) {
+  if (!entry.version) fail("pocketpad_whats_new_entries.js: entry missing version");
+  if (!entry.upcoming && !/^\d{4}-\d{2}-\d{2}$/.test(String(entry.date || ""))) {
+    fail(`pocketpad_whats_new_entries.js: v${entry.version} needs a YYYY-MM-DD date (or upcoming: true)`);
+  }
+  if (!whatsNewHtml.includes(`Version ${entry.version}<`)) {
+    fail(`whats-new.html is stale (no v${entry.version}) — run tools/generate_guide_html.mjs`);
   }
 }
 

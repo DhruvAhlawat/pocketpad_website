@@ -24,6 +24,9 @@ export const pocketpadFaqUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/a
 
 export const pocketpadGameTesterUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/apps/pocketpad/gamepad-tester.html`;
 
+/** Companion (Windows) release notes — the phone app links here. */
+export const pocketpadWhatsNewUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/apps/pocketpad/whats-new.html`;
+
 /** Windows installers served from the site (not GitHub Releases). */
 export const pocketpadDownloadsBaseUrl = `${pocketpadPagesSiteOrigin.replace(/\/$/, "")}/downloads`;
 

@@ -44,6 +44,7 @@ export const PocketPadSiteContent = {
     pocketpadFaqPage: "./faq.html",
     pocketpadPrivacyPage: "./privacy.html",
     pocketpadGameTesterPage: "./gamepad-tester.html",
+    pocketpadWhatsNewPage: "./whats-new.html",
     checksumReadmeHref: pocketpadDownloadsReadmeUrl,
     thirdPartyNoticesHref: pocketpadThirdPartyNoticesUrl,
     eulaHref: "./license.html",
@@ -147,6 +148,8 @@ export const PocketPadSiteContent = {
       footnote_html:
         "Want to double-check the file? Compare its SHA-256 with the value in README.txt below.",
     },
+    whatsNewLinePrefix: "Release notes:",
+    whatsNewLinkLabel: "What's new in Companion",
     checksumLinePrefix: "Checksums & notes:",
     checksumLinkLabel: "README.txt",
     thirdPartyLinePrefix: "Third-party licenses (ViGEmClient / ViGEmBus):",
@@ -534,6 +537,20 @@ function buildDownload(c) {
 
   section.appendChild(checksumP);
 
+  if (d.whatsNewLinkLabel && c.paths.pocketpadWhatsNewPage) {
+    const wnP = document.createElement("p");
+    wnP.className = "muted small";
+    wnP.style.marginTop = "8px";
+    wnP.appendChild(document.createTextNode(d.whatsNewLinePrefix || ""));
+    wnP.appendChild(document.createTextNode(" "));
+    const wnA = document.createElement("a");
+    wnA.href = c.paths.pocketpadWhatsNewPage;
+    wnA.textContent = d.whatsNewLinkLabel;
+    wnA.appendChild(document.createTextNode(" →"));
+    wnP.appendChild(wnA);
+    section.appendChild(wnP);
+  }
+
   if (d.thirdPartyLinePrefix && c.paths.thirdPartyNoticesHref) {
     const thirdP = document.createElement("p");
     thirdP.className = "muted small";
@@ -885,6 +902,12 @@ function renderPocketPadOverview(c = PocketPadSiteContent) {
     buildGallery(c),
   );
   footer.replaceChildren(...buildFooter(c));
+
+  // Sections render after parse, so honour deep links (e.g. #downloads-heading from What's new).
+  if (location.hash) {
+    const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target) target.scrollIntoView();
+  }
 }
 
 renderPocketPadOverview();

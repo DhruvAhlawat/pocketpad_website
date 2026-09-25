@@ -22,7 +22,7 @@ export function pill(href, label, active) {
 
 /**
  * @param {object} c Content object with paths, chrome, hero, optional media
- * @param {string} active One of: overview | details | howto | faq | privacy | license
+ * @param {string} active One of: overview | details | howto | faq | tester | whatsnew | privacy | license
  */
 export function buildPocketPadTop(c, active) {
   const row = document.createElement("div");
@@ -69,6 +69,12 @@ export function buildPocketPadTop(c, active) {
     { key: "howto", href: c.paths.pocketpadHowToPage, label: c.chrome.howToNavLabel },
     { key: "faq", href: c.paths.pocketpadFaqPage, label: c.chrome.faqNavLabel },
     { key: "tester", href: c.paths.pocketpadGameTesterPage, label: c.chrome.gameTesterNavLabel },
+    // Defaults keep every page's nav in sync without each content object repeating them.
+    {
+      key: "whatsnew",
+      href: c.paths.pocketpadWhatsNewPage || "./whats-new.html",
+      label: c.chrome.whatsNewNavLabel || "What's new",
+    },
     { key: "privacy", href: c.paths.pocketpadPrivacyPage, label: c.chrome.privacyNavLabel },
   ];
 

@@ -1,12 +1,17 @@
 /**
- * Generates how-to.html and faq.html with static SEO content.
+ * Generates how-to.html, faq.html and whats-new.html with static SEO content.
  * Run: node pocketpad_website/tools/generate_guide_html.mjs
  */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { PocketPadFaqEntries } from "../site_content/pocketpad_faq_entries.js";
-import { pocketpadPlayStoreUrl } from "../site_content/public_site_urls.js";
+import { pocketpadPlayStoreUrl, pocketpadWhatsNewUrl } from "../site_content/public_site_urls.js";
+import {
+  PocketPadWhatsNewEntries,
+  PocketPadWhatsNewGroups,
+  formatWhatsNewDate,
+} from "../site_content/pocketpad_whats_new_entries.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, "..");
@@ -178,6 +183,76 @@ const howToHtml = `<!DOCTYPE html>
 </html>
 `;
 
+// ——— What's new (Companion release notes) ———
+const escHtml = (t) =>
+  String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+const whatsNewDesc =
+  "Release notes for PocketPad Companion on Windows: new features, improvements, and fixes in each version, including up to 16 phones as controllers at once.";
+
+function seoWhatsNew() {
+  return PocketPadWhatsNewEntries.map((e) => {
+    const when = e.upcoming
+      ? "Coming soon"
+      : e.date
+        ? `Released <time datetime="${e.date}">${formatWhatsNewDate(e.date)}</time>`
+        : "";
+    const id = "v" + String(e.version).replace(/[^0-9a-z]+/gi, "-");
+    const groups = PocketPadWhatsNewGroups.filter((g) => (e[g.key] || []).length)
+      .map(
+        (g) =>
+          `<h3>${g.label}</h3><ul>${e[g.key].map((t) => `<li>${escHtml(t)}</li>`).join("")}</ul>`,
+      )
+      .join("");
+    const summary = e.summary ? `<p>${escHtml(e.summary)}</p>` : "";
+    return `<section id="${id}"><h2>Version ${escHtml(e.version)}</h2><p>${when}</p>${summary}${groups}</section>`;
+  }).join("\n        ");
+}
+
+const latestReleased = PocketPadWhatsNewEntries.find((e) => !e.upcoming);
+const whatsNewSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "PocketPad Companion",
+  operatingSystem: "Windows 10, Windows 11",
+  applicationCategory: "UtilitiesApplication",
+  softwareVersion: latestReleased ? latestReleased.version : undefined,
+  releaseNotes: pocketpadWhatsNewUrl,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+};
+
+const whatsNewHtml = `<!DOCTYPE html>
+<html lang="en" class="page-pocketpad">
+  <head>${headCommon(
+    "What's New in PocketPad Companion for Windows — Release Notes",
+    whatsNewDesc,
+    pocketpadWhatsNewUrl,
+    "What's New in PocketPad Companion",
+  )}
+    <script type="application/ld+json">${JSON.stringify(whatsNewSchema)}</script>
+  </head>
+  <body class="page-pocketpad">
+    <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+    <div class="container pocket-top" id="wn-top"></div>
+    <main class="container main-wide" id="wn-main">
+      <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->
+      <!-- Generated from site_content/pocketpad_whats_new_entries.js — run tools/generate_guide_html.mjs after editing. -->
+      <article class="seo-static">
+        <h1>What's new in PocketPad Companion for Windows</h1>
+        <p>Release notes for PocketPad Companion, the optional Windows app for Wi‑Fi connections, the live dashboard, and multiplayer. Newest version first.</p>
+        <p><strong>Using an older Companion?</strong> Your phone keeps working, but update to get these fixes. <a href="./index.html#downloads-heading">Download the latest Companion</a>.</p>
+        ${seoWhatsNew()}
+        <p><a href="./index.html#downloads-heading">Download Companion</a> · <a href="./how-to.html">How-to guide</a> · <a href="./faq.html">FAQ</a> · <a href="./index.html">Overview</a></p>
+      </article>
+    </main>
+    <footer class="container footer" id="wn-footer"></footer>
+    <script type="module" src="../../site_content/pocketpad_whats_new_site.js"></script>
+  </body>
+</html>
+`;
+
 fs.writeFileSync(path.join(appsDir, "faq.html"), faqHtml);
 fs.writeFileSync(path.join(appsDir, "how-to.html"), howToHtml);
-console.log("Generated faq.html and how-to.html");
+fs.writeFileSync(path.join(appsDir, "whats-new.html"), whatsNewHtml);
+console.log("Generated faq.html, how-to.html and whats-new.html");
