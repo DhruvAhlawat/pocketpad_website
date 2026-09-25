@@ -82,6 +82,7 @@ const howToSeo = `
         <h2 id="wifi">Wi‑Fi + PocketPad Companion (Windows)</h2>
         <ol>
           <li>Install Companion from the <a href="./index.html">overview page</a> (EXE installer).</li>
+          <li>If the browser warns about the download, choose <strong>Keep</strong>; if Windows says “Windows protected your PC”, click <strong>More info → Run anyway</strong>.</li>
           <li>Allow private network access in Windows Firewall.</li>
           <li>Same Wi‑Fi for phone and PC.</li>
           <li>Open Companion; in PocketPad tap Connect → Wi‑Fi → your PC.</li>

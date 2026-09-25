@@ -158,6 +158,14 @@ export const PocketPadFaqEntries = [
       "ViGEmBus lets Windows see virtual Xbox controllers. The installer adds it only when missing.",
   },
   {
+    id: "windows-warning",
+    question: "Windows or my browser warns about the Companion installer — is it safe?",
+    answer_html:
+      "PocketPad Companion is new software, so Windows SmartScreen and browsers don’t have a download history for it yet and may show a warning. In Chrome or Edge, open Downloads (<strong>Ctrl + J</strong>), click <strong>⋯</strong> next to the file and choose <strong>Keep</strong> (then <strong>Keep anyway</strong> if asked). If Windows shows <strong>“Windows protected your PC”</strong>, click <strong>More info</strong> and then <strong>Run anyway</strong>. You can verify the file against the SHA-256 checksum in README.txt on the downloads page.",
+    answer:
+      "Companion is new, so browsers and Windows SmartScreen may warn about it. In your browser's downloads choose Keep (or Keep anyway). On the 'Windows protected your PC' screen click More info, then Run anyway. You can verify the SHA-256 checksum in README.txt.",
+  },
+  {
     id: "firewall",
     question: "PocketPad won't connect over Wi‑Fi — firewall help?",
     answer_html:

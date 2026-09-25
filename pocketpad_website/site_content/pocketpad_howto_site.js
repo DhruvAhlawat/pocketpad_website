@@ -135,7 +135,7 @@ export const PocketPadHowToContent = {
       {
         title: "Run setup and approve prompts",
         body_html:
-          "Approve UAC / SmartScreen. The installer adds <strong>ViGEmBus</strong> when missing (needed for virtual gamepads). Allow PocketPad Companion on <strong>private networks</strong> in Windows Firewall.",
+          "Companion is new, so Windows may not recognise it yet. If your browser flags the download, open Downloads (<strong>Ctrl + J</strong>) and choose <strong>Keep</strong> (Chrome: <strong>Keep anyway</strong>). If you see <strong>“Windows protected your PC”</strong>, click <strong>More info → Run anyway</strong>. Then approve UAC. The installer adds <strong>ViGEmBus</strong> when missing (needed for virtual gamepads). Allow PocketPad Companion on <strong>private networks</strong> in Windows Firewall.",
       },
       {
         title: "Same Wi‑Fi network",

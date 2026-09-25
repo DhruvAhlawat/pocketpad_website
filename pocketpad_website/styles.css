@@ -1894,3 +1894,27 @@ code {
     0 14px 42px rgba(0, 0, 0, 0.32);
 }
 
+
+/* "Unrecognised app" help under the Companion download buttons */
+.install-warning {
+  margin: 16px 0 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--stroke);
+  border-left: 3px solid #f2c14e;
+  border-radius: 10px;
+  background: color-mix(in srgb, #f2c14e 6%, var(--surface));
+}
+
+.install-warning__title {
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.install-warning .short-steps {
+  margin-bottom: 8px;
+}
+
+.install-warning > p:last-child {
+  margin-bottom: 0;
+}

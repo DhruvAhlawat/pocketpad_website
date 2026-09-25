@@ -135,6 +135,18 @@ export const PocketPadSiteContent = {
       "The installer (EXE) sets up Program Files / Start menu and adds the <strong>ViGEmBus</strong> driver when it is missing (so games see your phone as an Xbox controller; skipped if ViGEmBus is already installed). " +
       "Allow Companion on <strong>private</strong> networks in Windows Firewall when using Wi‑Fi.",
     rows: PocketPadDownloadRows,
+    installWarning: {
+      title: "Seeing a warning when you download or run it?",
+      lead_html:
+        "PocketPad Companion is new, so Windows and your browser don’t recognise it yet and may show a warning. That’s normal for new software. Here’s how to get past it:",
+      steps_html: [
+        "<strong>Browser warning</strong> (e.g. Chrome/Edge says the file “isn’t commonly downloaded”): open your downloads (<strong>Ctrl + J</strong>), click the <strong>⋯</strong> menu next to the file (or the ⚠ icon) and choose <strong>Keep</strong>. In Chrome you may also need to click <strong>Keep anyway</strong>.",
+        "<strong>“Windows protected your PC”</strong> (blue SmartScreen window) when you open the installer: click <strong>More info</strong>, then <strong>Run anyway</strong>.",
+        "Approve the <strong>User Account Control</strong> prompt so setup can install the ViGEmBus driver.",
+      ],
+      footnote_html:
+        "Want to double-check the file? Compare its SHA-256 with the value in README.txt below.",
+    },
     checksumLinePrefix: "Checksums & notes:",
     checksumLinkLabel: "README.txt",
     thirdPartyLinePrefix: "Third-party licenses (ViGEmClient / ViGEmBus):",
@@ -489,6 +501,37 @@ function buildDownload(c) {
   section.appendChild(h2);
   section.appendChild(intro);
   section.appendChild(list);
+
+  const w = d.installWarning;
+  if (w) {
+    const box = document.createElement("div");
+    box.className = "install-warning";
+    box.setAttribute("role", "note");
+    const wTitle = document.createElement("p");
+    wTitle.className = "install-warning__title";
+    wTitle.textContent = w.title;
+    const wLead = document.createElement("p");
+    wLead.className = "p-tight";
+    wLead.appendChild(htmlToNodes(w.lead_html));
+    const wSteps = document.createElement("ol");
+    wSteps.className = "short-steps";
+    for (const step of w.steps_html) {
+      const li = document.createElement("li");
+      li.appendChild(htmlToNodes(step));
+      wSteps.appendChild(li);
+    }
+    box.appendChild(wTitle);
+    box.appendChild(wLead);
+    box.appendChild(wSteps);
+    if (w.footnote_html) {
+      const wFoot = document.createElement("p");
+      wFoot.className = "muted small";
+      wFoot.appendChild(htmlToNodes(w.footnote_html));
+      box.appendChild(wFoot);
+    }
+    section.appendChild(box);
+  }
+
   section.appendChild(checksumP);
 
   if (d.thirdPartyLinePrefix && c.paths.thirdPartyNoticesHref) {
