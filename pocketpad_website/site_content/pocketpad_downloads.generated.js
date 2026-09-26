@@ -7,17 +7,17 @@
  * Download hrefs use https://pocketpad.datronapps.com/downloads/latest/ stable names (also resolved at render time from public_site_urls.js). Versioned copies stay under /downloads/ for checksums. Commit downloads/ when you push.
  */
 export const PocketPadDownloadArtifacts = {
-  version: "2.3.1",
-  exeFileName: "PocketPad-PC-2.3.1-Setup.exe",
-  zipFileName: "PocketPad-PC-2.3.1-Windows-x64.zip",
+  version: "2.4.1",
+  exeFileName: "PocketPad-PC-2.4.1-Setup.exe",
+  zipFileName: "PocketPad-PC-2.4.1-Windows-x64.zip",
   msiFileName: null,
   latestExeFileName: "PocketPad-PC-Setup.exe",
   latestZipFileName: "PocketPad-PC-Windows-x64.zip",
   latestMsiFileName: null,
-  exeSha256: "6ae273985ddbb3fa814721c29ad44820421948470ed7f08af43fde52587ca853",
-  zipSha256: "ad548a3c1319bb16350b76790ac6127f6dfb9f83e35798f713694f4ba52be4a5",
+  exeSha256: "d40422111c2b39bbf5c1115672323be45a54910ebca9fcd5e3241e137e60ff61",
+  zipSha256: "dc538732ae934d3bb8775b0f98e17436396cba7ac8a0e01da546755a52748972",
   msiSha256: null,
-  generatedAtUtc: "2026-09-15T16:25:28Z",
+  generatedAtUtc: "2026-09-26T12:52:01Z",
 };
 
 /** Rows injected into downloadSection on the PocketPad overview page */
@@ -25,7 +25,7 @@ export const PocketPadDownloadRows = [
   {
     href: "https://pocketpad.datronapps.com/downloads/latest/PocketPad-PC-Setup.exe",
     downloadName: "PocketPad-PC-Setup.exe",
-    rowTitle: "Windows installer · v2.3.1 (x64)",
+    rowTitle: "Windows installer · v2.4.1 (x64)",
     rowDescription:
       "Recommended. Windows 10 / 11, x64. Installs the app and, if needed, the third-party ViGEmBus driver (disclosed during setup). Approve UAC when prompted.",
     rowCtaLabel: "Download",

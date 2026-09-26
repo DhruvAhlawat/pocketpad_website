@@ -16,17 +16,16 @@
  */
 export const PocketPadWhatsNewEntries = [
   {
-    version: "2.4.0",
-    date: "",
-    upcoming: true,
+    version: "2.4.1",
+    date: "2026-09-26",
     summary: "Bigger game nights and far more reliable connections.",
     new: [
       "Connect up to 16 phones or controllers at once (up from 4). Games that use the older Xbox controller system only see the first 4, but most modern games and Steam can see them all.",
     ],
     improved: [
-      "Companion starts listening for phones as soon as you open it — no need to press Start.",
+      "Companion starts listening for phones as soon as you open it. No need to press Start.",
       "Clearer warnings when the ViGEmBus controller driver is missing or another app is already using the port phones use to find your PC.",
-      "Shows this PC’s IP address on the dashboard, so you can connect manually if your phone can’t find the PC automatically.",
+      "Shows this PC’s IP address on the dashboard, so you can connect manually if your phone can’t find the PC automatically. The address your phone needs (Wi‑Fi or Ethernet) is shown first; VPN and virtual adapters such as Tailscale or WSL are tucked under “Show other addresses”.",
       "PCs with several network adapters (for example Wi‑Fi plus Ethernet or a VPN) no longer show up twice in the phone’s list.",
       "More reliable connecting on busy Wi‑Fi: messages that get lost along the way are sent again automatically.",
       "Phones that reconnect keep their Gamepad number, so player 2 stays player 2.",
@@ -34,7 +33,7 @@ export const PocketPadWhatsNewEntries = [
     fixed: [
       "Two or more phones on the same hotspot or sharing one network address could end up sharing a single controller, or fail to connect. Each phone now always gets its own controller.",
       "After a brief Wi‑Fi drop, a phone could still look “connected” while its buttons did nothing. It now recovers on its own (older versions of the phone app show “connection lost” instead, so you can simply reconnect).",
-      "Changing or regenerating the pairing code no longer disconnects phones using gamepad layouts — only keyboard & mouse phones need the new code.",
+      "Changing or regenerating the pairing code no longer disconnects phones using gamepad layouts. Only keyboard & mouse phones need the new code.",
     ],
   },
   {
