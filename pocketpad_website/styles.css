@@ -19,23 +19,25 @@
   --glow-b: rgba(60, 80, 140, 0.12);
 }
 
-/* PocketPad subsite — full green/jungle palette (inherits site-wide component rules). */
+/* PocketPad subsite: dark palette matching the app and pocketpad_home.css. */
 html.page-pocketpad {
-  --bg: #05140c;
-  --bg-radial: #0a2414;
-  --surface: #0c1a12;
-  --card: #0c1a12;
-  --text: #e8f0e9;
-  --muted: #8aa896;
-  --stroke: #153822;
-  --accent: #1cd760;
-  --accent-dim: #12a64a;
-  --accent-soft: #7be899;
-  --btn-fg: #031208;
-  --link: #7dd69a;
-  --code-fg: #9dd9b0;
-  --glow-a: rgba(28, 90, 55, 0.28);
-  --glow-b: rgba(28, 215, 96, 0.09);
+  --bg: #111215;
+  --bg-radial: #111215;
+  --surface: #1c1e23;
+  --card: #1c1e23;
+  --text: #eceef3;
+  --muted: #a0a6b2;
+  --stroke: #2b2e35;
+  --border: #2b2e35;
+  --accent: #b4c2ff;
+  --accent-dim: #8c9be0;
+  --accent-soft: #eceef3;
+  --btn-fg: #151a33;
+  --link: #b4c2ff;
+  --code-fg: #c8cdd8;
+  --glow-a: transparent;
+  --glow-b: transparent;
+  --font-main: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 * {
@@ -2045,4 +2047,181 @@ code {
   .wn-release {
     padding: 16px 14px 6px;
   }
+}
+
+/* ---- PocketPad light theme: chrome and type (overrides the shared dark defaults) ---- */
+html.page-pocketpad,
+html.page-pocketpad body {
+  font-family: var(--font-main);
+  background: var(--bg);
+}
+
+html.page-pocketpad .bg-glow {
+  display: none;
+}
+
+html.page-pocketpad a {
+  color: var(--link);
+}
+
+html.page-pocketpad .pocket-top {
+  width: min(1200px, 100% - 40px);
+  max-width: none;
+  padding: 14px 0;
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--stroke);
+}
+
+html.page-pocketpad .pocket-back {
+  order: 3;
+  min-height: 0;
+  padding: 8px 14px;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+html.page-pocketpad .pocket-back:hover {
+  color: var(--text);
+}
+
+html.page-pocketpad .pocket-mini-nav {
+  flex: 1;
+  align-items: center;
+  gap: 2px;
+}
+
+html.page-pocketpad .pocket-mini-brand {
+  margin-right: auto;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+html.page-pocketpad .nav-pill {
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  color: var(--muted);
+}
+
+html.page-pocketpad .nav-pill:hover {
+  background: var(--surface);
+  border-color: transparent;
+}
+
+html.page-pocketpad .nav-pill--active,
+html.page-pocketpad .nav-pill[aria-current="page"] {
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: none;
+}
+
+html.page-pocketpad .h-section {
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-stretch: 72%;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+html.page-pocketpad main h1,
+html.page-pocketpad .page-title {
+  font-weight: 800;
+  font-stretch: 72%;
+  font-size: clamp(2.4rem, 1.6rem + 2.6vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+html.page-pocketpad .chip {
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+html.page-pocketpad .btn-primary {
+  background: var(--accent);
+  color: var(--btn-fg);
+  box-shadow: none;
+  border-radius: 999px;
+}
+
+@media (max-width: 720px) {
+  html.page-pocketpad .pocket-top__row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+  html.page-pocketpad .pocket-mini-nav {
+    justify-content: flex-start;
+    margin: 0 -10px;
+  }
+  html.page-pocketpad .pocket-mini-brand {
+    width: 100%;
+    margin: 0 10px 6px;
+  }
+  html.page-pocketpad .nav-pill {
+    padding: 6px 10px;
+  }
+  html.page-pocketpad .pocket-back {
+    order: 3;
+    align-self: flex-start;
+    padding: 6px 0;
+  }
+}
+
+/* Gamepad tester cards render as the dark app UI (same charcoal + periwinkle as the phone app). */
+html.page-pocketpad .gpt-panel {
+  background: var(--surface);
+}
+
+html.page-pocketpad .gpt-card {
+  --text: #eceef3;
+  --muted: #a9adb8;
+  --stroke: #454a57;
+  --border: #454a57;
+  --surface: #27292f;
+  --card: #27292f;
+  --accent: #b4c2ff;
+  --accent-dim: #8c9be0;
+  --accent-soft: #b4c2ff;
+  --btn-fg: #1b1c20;
+  --link: #b4c2ff;
+  background: #1c1e23;
+  border-color: #2b2e35;
+  color: var(--text);
+  box-shadow: none;
+}
+
+html.page-pocketpad .gpt-card--active {
+  border-color: #b4c2ff;
+}
+
+html.page-pocketpad .gpt-card .gpt-dbtn,
+html.page-pocketpad .gpt-card .gpt-fbtn,
+html.page-pocketpad .gpt-card .gpt-trigger,
+html.page-pocketpad .gpt-card .gpt-centerbtn {
+  background: #2b2d33;
+}
+
+html.page-pocketpad .gpt-card .gpt-stick__well {
+  background: radial-gradient(circle at 35% 30%, #2f3239, #15161a);
+}
+
+html.page-pocketpad .gpt-card .gpt-stick__knob {
+  background: radial-gradient(circle at 32% 28%, #f2f3f6, #aeb3bd 60%, #6b707a);
+}
+
+html.page-pocketpad .gpt-card .gpt-centerbtn.is-pressed,
+html.page-pocketpad .gpt-card .gpt-badge {
+  box-shadow: none;
+}
+
+html.page-pocketpad .wn-release--upcoming {
+  border-color: var(--accent);
+  background: var(--surface);
+  box-shadow: none;
 }
