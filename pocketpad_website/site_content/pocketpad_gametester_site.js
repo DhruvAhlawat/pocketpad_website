@@ -419,7 +419,7 @@ function buildCardFor(pad, now) {
   head.appendChild(idx);
   head.appendChild(badge);
 
-  const isXInput = pad.mapping === "standard";
+  const isXInput = isStandardOrder(pad);
   const mode = document.createElement("div");
   mode.className = isXInput ? "gpt-mode gpt-mode--xinput" : "gpt-mode gpt-mode--dinput";
   const modeNote = document.createElement("p");
@@ -440,7 +440,9 @@ function buildCardFor(pad, now) {
   mapping.textContent =
     pad.mapping === "standard"
       ? " · standard layout"
-      : " · DirectInput layout (auto-remapped)";
+      : isXInput
+        ? " · standard order (mapped by Android)"
+        : " · raw DirectInput order";
   meta.appendChild(mapping);
 
   const visual = document.createElement("div");
@@ -575,20 +577,15 @@ function buildCardFor(pad, now) {
   chips.className = "gpt-chips";
   const chipMap = new Map();
   const nButtons = pad.buttons ? pad.buttons.length : 0;
-  const layout = pad.mapping === "standard" ? null : buildRawLayout();
-  home.style.display = layout || nButtons > 16 ? "" : "none";
+  const layout = isXInput ? null : buildRawLayout(pad);
+  home.style.display = nButtons > 16 ? "" : "none";
   for (let i = 0; i < nButtons; i++) {
     const li = document.createElement("li");
     li.className = "gpt-chip";
     li.dataset.btn = String(i);
     const label = document.createElement("span");
     label.className = "gpt-chip__label";
-    const stdIdx = layout ? layout.btnRaw[i] : i;
-    const lbName =
-      (stdIdx !== undefined && BUTTON_LABELS[stdIdx]) ||
-      BUTTON_LABELS[i] ||
-      String(i);
-    label.textContent = `${i} · ${lbName}`;
+    label.textContent = `${i} · ${BUTTON_LABELS[i] || String(i)}`;
     const val = document.createElement("span");
     val.className = "gpt-chip__val";
     val.textContent = "–";
@@ -671,43 +668,53 @@ function stateKey(pad) {
   return ax.join(",") + "|" + bt.join(",");
 }
 
-function axisAt(pad, i, layout) {
-  const raw = layout && layout.axis[i] !== undefined ? layout.axis[i] : i;
-  if (!pad.axes || raw >= pad.axes.length) return 0;
-  const v = pad.axes[raw];
+const IS_ANDROID = typeof navigator !== "undefined" && /Android/i.test(navigator.userAgent || "");
+
+/* Chrome on Android maps every pad into the standard order (buttons 0..16,
+   axes 0..3, analog LT/RT on buttons 6/7) but reports mapping "" for pads it
+   has no profile for, so those read as standard too. */
+function isStandardOrder(pad) {
+  return pad.mapping === "standard" || IS_ANDROID;
+}
+
+function axisAt(pad, i) {
+  if (!pad.axes || i >= pad.axes.length) return 0;
+  const v = pad.axes[i];
   return typeof v === "number" && isFinite(v) ? v : 0;
 }
 
-function buttonAt(pad, i, layout) {
-  let raw = i;
-  if (layout && layout.btn[i] !== undefined) raw = layout.btn[i];
-  if (raw < 0) return null;
-  if (!pad.buttons || raw >= pad.buttons.length) return null;
-  return pad.buttons[raw];
+function buttonAt(pad, i) {
+  if (!pad.buttons || i >= pad.buttons.length) return null;
+  return pad.buttons[i];
 }
 
-/* Remap for DirectInput-mode pads (mapping !== "standard").
-   Raw browser order for DInput pads follows the classic 360/DInput
-   convention: A B X Y LB RB Back Start L3 R3 Guide D-up D-down D-left D-right
-   (raw 0..14) and axes X Y Z Rx Ry Rz (raw 0..5) where Z/Rz are the analog
-   triggers. Maps standard indexes backward to those raw indexes. */
-function buildRawLayout() {
+/* Desktop pads without a browser mapping (DirectInput / generic HID). Buttons
+   and axes are shown in the order the browser reports them, as on other
+   testers: HID button N is buttons[N - 1] and axis usage X, Y, Z, Rx, Ry, Rz
+   are axes 0..5. PocketPad sends that in standard order (sticks on axes 0..3,
+   analog LT/RT on axes 4/5 resting at -1), so its triggers read those axes.
+   Other pads often report the d-pad as a hat on axes[9]: -1 (up) stepping
+   clockwise by 2/7, anything past 1 is centred. */
+function buildRawLayout(pad) {
+  const pocketPad = /pocketpad/i.test(String(pad.id || ""));
   return {
-    btn: {
-      0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5,
-      6: -1, 7: -1,
-      8: 6, 9: 7, 10: 8, 11: 9,
-      12: 11, 13: 12, 14: 13, 15: 14,
-      16: 10,
-    },
-    btnRaw: {
-      0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 8, 7: 9,
-      8: 10, 9: 11, 10: 16, 11: 12, 12: 13, 13: 14, 14: 15,
-    },
-    axis: { 0: 0, 1: 1, 2: 3, 3: 4 },
-    trigL: 2,
-    trigR: 5,
+    trigAxes: pocketPad && pad.axes && pad.axes.length >= 6 ? [4, 5] : null,
+    hatAxis: pad.axes && pad.axes.length > 9 ? 9 : -1,
   };
+}
+
+/* Standard d-pad buttons (12 up, 13 down, 14 left, 15 right) held on a hat axis. */
+function hatDirections(pad, L) {
+  const held = new Set();
+  if (!L || L.hatAxis < 0) return held;
+  const v = axisAt(pad, L.hatAxis);
+  if (v < -1.05 || v > 1.05) return held;
+  const pos = Math.round(((v + 1) * 7) / 2);
+  if (pos === 7 || pos === 0 || pos === 1) held.add(12);
+  if (pos >= 1 && pos <= 3) held.add(15);
+  if (pos >= 3 && pos <= 5) held.add(13);
+  if (pos >= 5 && pos <= 7) held.add(14);
+  return held;
 }
 
 function setKnob(knob, x, y) {
@@ -741,19 +748,16 @@ function updateCard(rec, now) {
   rec.idle.classList.toggle("gpt-idle--warn", rec.seen && idle > 4000);
 
   const L = rec.layout;
-  setKnob(rec.knobL, axisAt(pad, 0, L), axisAt(pad, 1, L));
-  setKnob(rec.knobR, axisAt(pad, 2, L), axisAt(pad, 3, L));
-  rec.axisL.textContent = `${axisAt(pad, 0, L).toFixed(2)}, ${axisAt(pad, 1, L).toFixed(2)}`;
-  rec.axisR.textContent = `${axisAt(pad, 2, L).toFixed(2)}, ${axisAt(pad, 3, L).toFixed(2)}`;
+  setKnob(rec.knobL, axisAt(pad, 0), axisAt(pad, 1));
+  setKnob(rec.knobR, axisAt(pad, 2), axisAt(pad, 3));
+  rec.axisL.textContent = `${axisAt(pad, 0).toFixed(2)}, ${axisAt(pad, 1).toFixed(2)}`;
+  rec.axisR.textContent = `${axisAt(pad, 2).toFixed(2)}, ${axisAt(pad, 3).toFixed(2)}`;
 
-  let lt = 0;
-  let rt = 0;
-  if (L) {
-    lt = cap((axisAt(pad, L.trigL) + 1) / 2, 0, 1);
-    rt = cap((axisAt(pad, L.trigR) + 1) / 2, 0, 1);
-  } else {
-    lt = ((buttonAt(pad, 6) || {}).value) || 0;
-    rt = ((buttonAt(pad, 7) || {}).value) || 0;
+  let lt = ((buttonAt(pad, 6) || {}).value) || 0;
+  let rt = ((buttonAt(pad, 7) || {}).value) || 0;
+  if (L && L.trigAxes) {
+    lt = Math.max(lt, cap((axisAt(pad, L.trigAxes[0]) + 1) / 2, 0, 1));
+    rt = Math.max(rt, cap((axisAt(pad, L.trigAxes[1]) + 1) / 2, 0, 1));
   }
   rec.trLfill.style.width = `${cap(lt, 0, 1) * 100}%`;
   rec.trRfill.style.width = `${cap(rt, 0, 1) * 100}%`;
@@ -762,10 +766,11 @@ function updateCard(rec, now) {
   rec.trFillL.classList.toggle("is-pressed", lt > 0.25);
   rec.trFillR.classList.toggle("is-pressed", rt > 0.25);
 
+  const hat = hatDirections(pad, L);
   for (const [i, el] of rec.padBtns) {
     if (el.classList.contains("gpt-trigger")) continue;
-    const b = buttonAt(pad, i, L);
-    const pressed = Boolean(b && b.pressed);
+    const b = buttonAt(pad, i);
+    const pressed = Boolean(b && b.pressed) || hat.has(i);
     el.classList.toggle("is-pressed", pressed);
   }
 
