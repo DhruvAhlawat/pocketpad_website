@@ -39,7 +39,7 @@ export const PocketPadPrivacyContent = {
   hero: {
     headline: "PocketPad",
     pageTitle: "Privacy Policy",
-    effectiveDate: "June 29, 2026",
+    effectiveDate: "September 28, 2026",
     lead_html:
       "PocketPad lets you control your devices without creating an account or sending your layouts and live inputs to Datron-operated servers. " +
       "The only information we may receive remotely is <strong>anonymous usage data</strong>—and only if you choose to allow it. " +
@@ -142,7 +142,9 @@ export const PocketPadPrivacyContent = {
         "When you use Bluetooth HID or connect to PocketPad Companion on your local network, control signals travel directly between your phone and the device you are controlling. " +
           "Those sessions are peer-to-peer on your LAN or Bluetooth link; they are not routed through Datron-operated servers.",
         "Your Wi‑Fi router, operating system, and any security software on your PC may log network activity according to their own policies—that is outside PocketPad’s control.",
-        "The optional Windows Companion is distributed from this site; it likewise does not phone home to Datron for usage analytics as part of PocketPad’s design.",
+        "The optional Windows app, <strong>PocketPad Companion</strong>, is available from the Microsoft Store and as a direct download from this site. It works only on your local network: there is no account, it does not collect usage analytics, and it sends nothing to Datron Apps servers.",
+        "The Companion listens on UDP port 37373 so phones on the same Wi‑Fi can find and connect to your PC. An optional 6-digit pairing code, shown in the Companion, protects keyboard and mouse control from other phones on your network. Its settings are stored only on your PC.",
+        "Gamepad mode in the Companion uses <strong>ViGEmBus</strong>, a free, open-source controller driver made by a third party, which you download and install separately. PocketPad does not send any data through or to the ViGEmBus project.",
       ],
     },
     {
@@ -150,6 +152,7 @@ export const PocketPadPrivacyContent = {
       paragraphs_html: [
         "PocketPad relies on Google services for optional analytics (Firebase Analytics / Google Analytics), crash reporting (Firebase Crashlytics), voluntary feedback storage (Firebase Firestore), ads (AdMob), and purchases (Google Play). Each operates under Google’s policies.",
         "If you install PocketPad from Google Play or another store, that marketplace may collect installation or billing metadata under its own privacy terms. Those services are independent of PocketPad’s on-device and peer-to-peer controller behavior.",
+        "If you install PocketPad Companion from the Microsoft Store, Microsoft may collect its own data, such as download, installation and crash information that it shares with publishers in aggregate, under the <a href=\"https://privacy.microsoft.com/privacystatement\" rel=\"noopener noreferrer\">Microsoft Privacy Statement</a>.",
       ],
     },
     {
@@ -160,13 +163,6 @@ export const PocketPadPrivacyContent = {
         "If you believe a child has provided personal information through voluntary feedback or email, contact us at <a href=\"mailto:support@datronapps.com\">support@datronapps.com</a> with <strong>Privacy:</strong> in the subject line and we will delete it where reasonably possible.",
       ],
     },
-{
-      title: "Third-party services",
-      paragraphs_html: [
-        "PocketPad relies on Google services for optional analytics (Firebase Analytics / Google Analytics), crash reporting (Firebase Crashlytics), voluntary feedback storage (Firebase Firestore), ads (AdMob), and purchases (Google Play). Each operates under Google\u2019s policies.",
-        "If you install PocketPad from Google Play or another store, that marketplace may collect installation or billing metadata under its own privacy terms. Those services are independent of PocketPad\u2019s on-device and peer-to-peer controller behavior.",
-      ],
-    },
     {
       title: "Website analytics",
       paragraphs_html: [
@@ -175,7 +171,7 @@ export const PocketPadPrivacyContent = {
       ],
     },
     {
-      title: "Children\u2019s privacy",
+      title: "Changes to this policy",
       paragraphs_html: [
         "We may update this page when the product changes. The effective date at the top will change when we do. " +
           "Continued use of PocketPad after an update means you accept the revised policy.",
