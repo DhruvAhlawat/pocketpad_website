@@ -193,6 +193,72 @@
         </div>
       </section>
 
+      <!-- Connect + Companion download -->
+      <section class="band band--panel" id="connect" aria-labelledby="connect-title">
+        <div class="wrap">
+          <div class="band__head">
+            <h2 id="connect-title">Connect your way</h2>
+          </div>
+          <div class="ways">
+            <div class="way">
+              <div class="way__head">
+                <h3>Bluetooth</h3>
+                <span class="tag">Nothing to install</span>
+              </div>
+              <p>Pair once from the Bluetooth settings on your PC, Mac, TV or tablet. It shows up as a real gamepad, keyboard and mouse.</p>
+              <a class="textlink" href="./how-to.html">Bluetooth setup guide</a>
+            </div>
+
+            <div class="way way--pc">
+              <div class="way__head">
+                <h3 id="downloads-heading">Wi‑Fi with Companion</h3>
+                <span class="tag tag--peri">Windows, optional</span>
+              </div>
+              <p>The lowest delay, finds your PC by itself, and lets up to 16 phones play at once.</p>
+              <div class="way__actions">
+                <a class="pill" id="dl-exe" href="https://pocketpad.datronapps.com/downloads/latest/PocketPad-PC-Setup.exe" download="PocketPad-PC-Setup.exe">
+                  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 4.3 14.1 2.3v12.1H2V4.3zm0 15.1h12.1V31.2L2 29.1V19.4zm15.1-17.1L30 0v12.1H17.1V2.3zm0 16.1H30V32l-12.9-2.1V18.4z"/></svg>
+                  Download for Windows
+                </a>
+              </div>
+              <p class="note"><span id="dl-version">Version 2.4.1</span> for Windows 10 and 11 (x64)</p>
+
+              <div class="store">
+                <div class="way__head">
+                  <span class="tag tag--peri">Microsoft Store</span>
+                  <span class="store__label">Prefer the Store? Companion is there too.</span>
+                </div>
+                <a class="pill pill--line" id="dl-store" href="https://apps.microsoft.com/detail/9NTN3S200HR0" rel="noopener noreferrer" target="_blank">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 2h9.5v9.5H2zm10.5 0H22v9.5h-9.5zM2 12.5h9.5V22H2zm10.5 0H22V22h-9.5z"/></svg>
+                  Get it from the Microsoft Store
+                </a>
+                <p class="note">For gamepad mode, the Store version needs one extra install: the free <a class="textlink" href="https://github.com/nefarius/ViGEmBus/releases/latest" rel="noopener noreferrer" target="_blank">ViGEmBus driver</a>, so games see your phone as an Xbox controller. The download above adds it for you.</p>
+              </div>
+
+              <details class="warn">
+                <summary>Seeing a browser or SmartScreen warning?</summary>
+                <div class="warn__body">
+                  <p>Companion is new, so Windows and your browser don't recognise it yet. That's normal for new software.</p>
+                  <ol>
+                    <li><b>Browser says the file isn't commonly downloaded:</b> open your downloads (Ctrl + J), open the file's menu and choose Keep, then Keep anyway if asked.</li>
+                    <li><b>"Windows protected your PC":</b> click More info, then Run anyway.</li>
+                    <li>Approve the User Account Control prompt so setup can add the ViGEmBus driver.</li>
+                  </ol>
+                  <p>Setup adds the open-source ViGEmBus driver only if it's missing, so games see your phone as an Xbox controller. For Wi‑Fi, allow Companion on private networks in Windows Firewall.</p>
+                </div>
+              </details>
+
+              <ul class="links">
+                <li><a href="./whats-new.html">What's new</a></li>
+                <li><a href="https://pocketpad.datronapps.com/downloads/README.txt">Checksums</a></li>
+                <li><a href="https://pocketpad.datronapps.com/downloads/THIRD_PARTY_NOTICES.txt">Third-party notices</a></li>
+                <li><a href="./license.html">License</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Gamepad -->
       <section class="band" id="gamepad" aria-labelledby="gamepad-title">
         <div class="wrap">
@@ -254,62 +320,8 @@
         </div>
       </section>
 
-      <!-- Connect + Companion download -->
-      <section class="band" id="connect" aria-labelledby="connect-title">
-        <div class="wrap">
-          <div class="band__head">
-            <h2 id="connect-title">Connect your way</h2>
-          </div>
-          <div class="ways">
-            <div class="way">
-              <div class="way__head">
-                <h3>Bluetooth</h3>
-                <span class="tag">Nothing to install</span>
-              </div>
-              <p>Pair once from the Bluetooth settings on your PC, Mac, TV or tablet. It shows up as a real gamepad, keyboard and mouse.</p>
-              <a class="textlink" href="./how-to.html">Bluetooth setup guide</a>
-            </div>
-
-            <div class="way way--pc">
-              <div class="way__head">
-                <h3 id="downloads-heading">Wi‑Fi with Companion</h3>
-                <span class="tag tag--peri">Windows, optional</span>
-              </div>
-              <p>The lowest delay, finds your PC by itself, and lets up to 16 phones play at once.</p>
-              <div class="way__actions">
-                <a class="pill" id="dl-exe" href="https://pocketpad.datronapps.com/downloads/latest/PocketPad-PC-Setup.exe" download="PocketPad-PC-Setup.exe">
-                  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 4.3 14.1 2.3v12.1H2V4.3zm0 15.1h12.1V31.2L2 29.1V19.4zm15.1-17.1L30 0v12.1H17.1V2.3zm0 16.1H30V32l-12.9-2.1V18.4z"/></svg>
-                  Download for Windows
-                </a>
-              </div>
-              <p class="note"><span id="dl-version">Version 2.4.1</span> for Windows 10 and 11 (x64)</p>
-
-              <details class="warn">
-                <summary>Seeing a browser or SmartScreen warning?</summary>
-                <div class="warn__body">
-                  <p>Companion is new, so Windows and your browser don't recognise it yet. That's normal for new software.</p>
-                  <ol>
-                    <li><b>Browser says the file isn't commonly downloaded:</b> open your downloads (Ctrl + J), open the file's menu and choose Keep, then Keep anyway if asked.</li>
-                    <li><b>"Windows protected your PC":</b> click More info, then Run anyway.</li>
-                    <li>Approve the User Account Control prompt so setup can add the ViGEmBus driver.</li>
-                  </ol>
-                  <p>Setup adds the open-source ViGEmBus driver only if it's missing, so games see your phone as an Xbox controller. For Wi‑Fi, allow Companion on private networks in Windows Firewall.</p>
-                </div>
-              </details>
-
-              <ul class="links">
-                <li><a href="./whats-new.html">What's new</a></li>
-                <li><a href="https://pocketpad.datronapps.com/downloads/README.txt">Checksums</a></li>
-                <li><a href="https://pocketpad.datronapps.com/downloads/THIRD_PARTY_NOTICES.txt">Third-party notices</a></li>
-                <li><a href="./license.html">License</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Also in the app -->
-      <section class="band band--panel" aria-labelledby="more-title">
+      <section class="band" aria-labelledby="more-title">
         <div class="wrap">
           <div class="band__head">
             <h2 id="more-title">Also in the app</h2>

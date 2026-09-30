@@ -368,6 +368,21 @@ a {
   align-items: center;
   gap: 14px 24px;
 }
+.store {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.store .way__head {
+  align-items: center;
+}
+.store__label {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.store .note {
+  max-width: 34em;
+}
 .warn {
   margin: 24px 0 20px;
   border-top: 1px solid var(--line);
