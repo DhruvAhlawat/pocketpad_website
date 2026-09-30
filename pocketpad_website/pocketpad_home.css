@@ -368,20 +368,23 @@ a {
   align-items: center;
   gap: 14px 24px;
 }
-.store {
-  margin-top: 24px;
-  padding-top: 22px;
-  border-top: 1px solid var(--line);
+.dl-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px 24px;
 }
-.store .way__head {
-  align-items: center;
+.dl-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
-.store__label {
-  color: var(--muted);
-  font-size: 0.95rem;
+.dl-option .pill {
+  width: 100%;
+  justify-content: center;
 }
-.store .note {
-  max-width: 34em;
+.dl-option .note {
+  margin: 0;
 }
 .warn {
   margin: 24px 0 20px;
