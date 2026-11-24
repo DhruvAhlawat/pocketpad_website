@@ -1,0 +1,70 @@
+# PocketPad store listing: Turkish
+
+Play Console language: tr-TR
+
+Target search keywords: telefonu gamepad yap, PC oyun kolu, telefon joystick, kablosuz mouse, TV kumandası, sunum kumandası
+
+## App name (30/30)
+
+PocketPad Telefonu Gamepad Yap
+
+## Short description (72/80)
+
+Telefonun PC için gamepad, mouse, klavye ve TV kumandası olsun. Ücretsiz
+
+## Full description (2678/4000)
+
+PocketPad, Android telefonunu kablosuz PC gamepad'ine, bilgisayar için klavye ve mouse'a, TV kumandasına ve sunum kumandasına dönüştürür; hepsi tek bir ücretsiz uygulamada. Telefonu gamepad yap, PC'de oyun oynamak için ayrı bir kol almana gerek kalmasın.
+
+PC (Windows / Mac / Linux), Smart TV ve Android ile çalışır; kontrol edilen cihaza hiçbir şey kurman gerekmez.
+
+★ TELEFONUN GAMEPAD OLSUN
+Analog çubuklar, tetikler, yön tuşları, LB/RB ve ABXY tuşlarıyla Xbox ve PlayStation tarzı düzenler. PC oyunlarını telefonunu oyun kolu olarak kullanarak oyna.
+• Yüzen joystickler: çubuk, başparmağını koyduğun yerde belirir
+• Çubuğa basmak için çift dokun (L3/R3)
+• Yarış oyunları için eğerek sürüş
+• Her tuş taşınabilir ve yeniden boyutlandırılabilir
+
+★ PC İÇİN KLAVYE VE MOUSE
+Mouse için geniş touchpad, iki parmakla kaydırma, FPS oyunları için WASD tuşları, yazı paneli ve klavye kısayolları (Ctrl+C, Alt+Tab…). Bilgisayarını koltuktan kontrol et.
+
+★ TV KUMANDASI
+Ses, oynat/duraklat, ileri sarma ve gezinme. Smart TV, Android TV, Fire TV veya PC'de Netflix, YouTube, Plex, VLC, Kodi ve diğer uygulamaları kontrol et.
+
+★ SUNUM KUMANDASI
+PowerPoint, Google Slides, Keynote ve Canva. İleri veya geri gitmek için kaydır; tam ekran, siyah ekran ve beyaz ekran tuşları. Dongle gerekmez.
+
+★ BLUETOOTH HID: CİHAZA HİÇBİR ŞEY KURMA
+PC, Mac, Linux, Android veya Smart TV ile Bluetooth üzerinden bir kez eşleştir, hazırsın. Sürücü veya ek yazılım gerekmez.
+
+★ WINDOWS UYGULAMASIYLA WI-FI
+Windows için ücretsiz PocketPad Companion uygulamasını kur: telefonun Wi-Fi üzerinden Xbox kolu olarak tanınır. Neredeyse tüm oyunlarda anında çalışır, en düşük gecikmeyle.
+
+★ BİRDEN FAZLA TELEFONLA ÇOK OYUNCULU
+Aynı PC'ye birden fazla telefon bağla: her biri ayrı bir gamepad olur (oyuncu 1, 2, 3…). Ekstra kol almadan yerel co-op oyna.
+
+★ NASIL ÇALIŞIR
+1. PocketPad'i telefonuna kur
+2. Bluetooth (kurulum yok) veya Wi-Fi (Windows'ta Companion ile) seç
+3. Bir düzen seç: gamepad, klavye ve mouse, medya kumandası veya slayt kumandası
+4. Bağlan ve oyna
+
+★ UYUMLU CİHAZLAR
+• Windows 10/11 PC: Bluetooth ve Wi-Fi (Companion)
+• Mac: Bluetooth
+• Linux: Bluetooth
+• Android: Bluetooth
+• Smart TV, Android TV, Google TV, Fire TV: Bluetooth
+
+★ ÖZELLİKLER
+• Bluetooth ve Wi-Fi'de düşük gecikme
+• Xbox ve PlayStation tarzı gamepad şablonları
+• Hassasiyeti ayarlanabilir yüzen joystickler
+• Kısayollu tam klavye, iki parmakla kaydırmalı touchpad
+• Medya tuşları (oynat, duraklat, ses, sonraki parça)
+• Kaydırma hareketli slayt kumandası
+• Sürükle bırak düzen düzenleyici
+• Hesap gerekmez
+• Gizlilik: gamepad girişlerin toplanmaz
+
+PocketPad'i ücretsiz indir ve telefonunu bugün kablosuz PC gamepad'i olarak kullan.
