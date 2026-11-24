@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="hi" class="page-pocketpad" data-site-lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PocketPad कैसे जोड़ें: फ़ोन को Bluetooth या Wi‑Fi से PC का गेम कंट्रोलर बनाएं</title>
+    <meta name="description" content="फ़ोन को PC कंट्रोलर बनाने का स्टेप-बाय-स्टेप तरीका: Bluetooth HID से PC पर बिना कुछ इंस्टॉल किए कुछ सेकंड में जुड़ें, या सबसे कम लेटेंसी और मल्टीप्लेयर के लिए Windows पर PocketPad Companion के साथ Wi‑Fi इस्तेमाल करें।" />
+    <link rel="canonical" href="https://pocketpad.datronapps.com/hi/how-to.html" />
+    <!-- i18n:alternates -->
+    <link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/how-to.html" />
+    <link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/how-to.html" />
+    <link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/how-to.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/how-to.html" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/how-to.html" />
+    <link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/how-to.html" />
+    <link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/how-to.html" />
+    <link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/how-to.html" />
+    <link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/how-to.html" />
+    <link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/how-to.html" />
+    <link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/how-to.html" />
+    <link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/how-to.html" />
+    <link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/how-to.html" />
+    <link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/how-to.html" />
+    <link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/how-to.html" />
+    <link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/how-to.html" />
+    <link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/how-to.html" />
+    <!-- /i18n:alternates -->
+    <!-- i18n:script -->
+    <script src="../site_content/pocketpad_lang.js"></script>
+    <!-- /i18n:script -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHYGFNHM91"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-XHYGFNHM91");
+    </script>
+    <script src="../site_content/analytics_events.js" defer></script>
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/icons/gamepad_512.png" />
+    <link rel="apple-touch-icon" href="../assets/icons/gamepad_512.png" />
+    <link rel="manifest" href="../manifest.json" />
+    <meta name="theme-color" content="#111215" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pocketpad.datronapps.com/hi/how-to.html" />
+    <meta property="og:title" content="PocketPad कैसे जोड़ें" />
+    <meta property="og:description" content="फ़ोन को PC कंट्रोलर बनाने का स्टेप-बाय-स्टेप तरीका: Bluetooth HID से PC पर बिना कुछ इंस्टॉल किए कुछ सेकंड में जुड़ें, या सबसे कम लेटेंसी और मल्टीप्लेयर के लिए Windows पर PocketPad Companion के साथ Wi‑Fi इस्तेमाल करें।" />
+    <meta property="og:image" content="https://pocketpad.datronapps.com/assets/banners/banner_final_2.png" />
+    <meta property="og:site_name" content="PocketPad" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HowTo",
+          "name": "PocketPad को Bluetooth HID से जोड़ें (PC पर इंस्टॉल की ज़रूरत नहीं)",
+          "description": "अपने Android फ़ोन को Bluetooth गेमपैड, कीबोर्ड या माउस की तरह पेयर करें, दूसरे डिवाइस पर कोई सॉफ़्टवेयर नहीं चाहिए।",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "PocketPad इंस्टॉल करें",
+              "text": "Google Play से अपने Android फ़ोन पर PocketPad इंस्टॉल करें।"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Bluetooth चुनें",
+              "text": "कनेक्ट खोलें और कनेक्शन के तरीके में Bluetooth चुनें।"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "पेयरिंग की तैयारी",
+              "text": "ऐप में पेयरिंग के लिए तैयार करें पर टैप करें।"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "दूसरे डिवाइस से पेयर करें",
+              "text": "PC, Mac या टीवी पर Bluetooth सेटिंग खोलें, डिवाइस जोड़ें और अपना फ़ोन चुनें।"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 5,
+              "name": "लेआउट चुनें",
+              "text": "गेमपैड, यूनिवर्सल, मीडिया रिमोट या स्लाइड कंट्रोलर चुनें और कंट्रोल करना शुरू करें।"
+            }
+          ]
+        },
+        {
+          "@type": "HowTo",
+          "name": "Windows पर Companion के साथ PocketPad को Wi‑Fi से जोड़ें",
+          "description": "PocketPad Companion से Windows पर लोकल नेटवर्क में अपने आप डिवाइस ढूंढना, वर्चुअल Xbox कंट्रोलर और मल्टीप्लेयर मिलता है।",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Companion इंस्टॉल करें",
+              "text": "Windows पर PocketPad Companion का इंस्टॉलर (EXE) डाउनलोड करके चलाएं।"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "फ़ायरवॉल",
+              "text": "Windows Firewall में प्राइवेट नेटवर्क पर PocketPad Companion को अनुमति दें।"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "एक ही Wi‑Fi",
+              "text": "फ़ोन और PC को एक ही लोकल नेटवर्क से जोड़ें।"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "कनेक्ट",
+              "text": "Companion खोलें, फिर PocketPad में कनेक्ट पर टैप करें और अपना PC चुनें।"
+            },
+            {
+              "@type": "HowToStep",
+              "position": 5,
+              "name": "पेयरिंग कोड",
+              "text": "यूनिवर्सल (कीबोर्ड/माउस) लेआउट के लिए Companion सेटिंग में दिखा 6 अंकों का कोड डालें।"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="page-pocketpad">
+    <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+    <div class="container lang-row">
+      <!-- i18n:switcher -->
+      <details class="lang" translate="no">
+        <summary aria-label="Language: हिन्दी"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4zM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3zm.8 2h3a15.7 15.7 0 0 0 1.4 3.6A8 8 0 0 1 5.1 16zm3-8h-3a8 8 0 0 1 4.4-3.6C8.9 5.5 8.4 6.7 8.1 8zM12 20c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4zm.2 5.6c.6-1.1 1.1-2.3 1.4-3.6h3a8 8 0 0 1-4.4 3.6zm1.8-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4h-3.4z"/></svg><span>हिन्दी</span></summary>
+        <ul class="lang__menu">
+          <li><a href="../apps/pocketpad/how-to.html" hreflang="en" lang="en" data-lang="en">English</a></li>
+          <li><a href="../ja/how-to.html" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li>
+          <li><a href="../ko/how-to.html" hreflang="ko" lang="ko" data-lang="ko">한국어</a></li>
+          <li><a href="../zh-hans/how-to.html" hreflang="zh-Hans" lang="zh-Hans" data-lang="zh-hans">简体中文</a></li>
+          <li><a href="../zh-hant/how-to.html" hreflang="zh-Hant" lang="zh-Hant" data-lang="zh-hant">繁體中文</a></li>
+          <li><a href="../ru/how-to.html" hreflang="ru" lang="ru" data-lang="ru">Русский</a></li>
+          <li><a href="../fr/how-to.html" hreflang="fr" lang="fr" data-lang="fr">Français</a></li>
+          <li><a href="../es/how-to.html" hreflang="es" lang="es-419" data-lang="es">Español</a></li>
+          <li><a href="../pt-br/how-to.html" hreflang="pt" lang="pt-BR" data-lang="pt-br">Português (Brasil)</a></li>
+          <li><a href="../id/how-to.html" hreflang="id" lang="id" data-lang="id">Bahasa Indonesia</a></li>
+          <li><a href="../vi/how-to.html" hreflang="vi" lang="vi" data-lang="vi">Tiếng Việt</a></li>
+          <li><a href="../th/how-to.html" hreflang="th" lang="th" data-lang="th">ไทย</a></li>
+          <li><a href="../de/how-to.html" hreflang="de" lang="de" data-lang="de">Deutsch</a></li>
+          <li><a href="../tr/how-to.html" hreflang="tr" lang="tr" data-lang="tr">Türkçe</a></li>
+          <li><a href="./how-to.html" hreflang="hi" lang="hi" data-lang="hi" aria-current="true">हिन्दी</a></li>
+          <li><a href="../ar/how-to.html" hreflang="ar" lang="ar" dir="rtl" data-lang="ar">العربية</a></li>
+        </ul>
+      </details>
+      <!-- /i18n:switcher -->
+    </div>
+    <div class="container pocket-top" id="ht-top"></div>
+    <main class="container main-wide" id="ht-main">
+      <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->
+      <article class="seo-static">
+        <h1>PocketPad कैसे जोड़ें: Bluetooth और Wi‑Fi</h1>
+        <p><strong>Bluetooth HID</strong> (PC पर इंस्टॉल नहीं) या Windows पर <strong>Wi‑Fi + Companion</strong> से एक मिनट से कम में जुड़ें।</p>
+        <h2 id="bluetooth">Bluetooth HID: तुरंत पेयरिंग</h2>
+        <ol>
+          <li><a href="https://play.google.com/store/apps/details?id=com.datron.pocketpad&hl=hi">Google Play</a> से Android पर PocketPad इंस्टॉल करें।</li>
+          <li>कनेक्ट खोलें → <strong>Bluetooth</strong> चुनें।</li>
+          <li><strong>पेयरिंग के लिए तैयार करें</strong> पर टैप करें।</li>
+          <li>अपने PC, Mac या टीवी पर: Bluetooth सेटिंग → डिवाइस जोड़ें → अपना फ़ोन चुनें।</li>
+          <li>लेआउट चुनें (गेमपैड, यूनिवर्सल, मीडिया रिमोट या स्लाइड कंट्रोलर)।</li>
+        </ol>
+        <h2 id="wifi">Wi‑Fi + PocketPad Companion (Windows)</h2>
+        <ol>
+          <li><a href="./">ओवरव्यू पेज</a> से Companion इंस्टॉल करें (EXE इंस्टॉलर)।</li>
+          <li>अगर ब्राउज़र डाउनलोड पर चेतावनी दे, तो <strong>Keep</strong> चुनें; अगर Windows कहे "Windows ने आपके PC को सुरक्षित किया", तो <strong>More info → Run anyway</strong> पर क्लिक करें।</li>
+          <li>Windows Firewall में प्राइवेट नेटवर्क की अनुमति दें।</li>
+          <li>फ़ोन और PC एक ही Wi‑Fi पर।</li>
+          <li>Companion खोलें; PocketPad में कनेक्ट → Wi‑Fi → अपना PC टैप करें।</li>
+          <li>यूनिवर्सल लेआउट के लिए Companion सेटिंग का 6 अंकों का कोड डालें।</li>
+        </ol>
+        <p><a href="faq.html">अक्सर पूछे जाने वाले सवाल</a> · <a href="./">ओवरव्यू</a> · <a href="https://play.google.com/store/apps/details?id=com.datron.pocketpad&hl=hi">Google Play</a></p>
+      </article>
+    </main>
+    <footer class="container footer" id="ht-footer"></footer>
+    <script type="module" src="../site_content/pocketpad_howto_site.js"></script>
+  </body>
+</html>

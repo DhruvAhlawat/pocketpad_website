@@ -101,6 +101,10 @@ const headCommon = (title, desc, canonical, ogTitle) => `
     <title>${title}</title>
     <meta name="description" content="${desc}" />
     <link rel="canonical" href="${canonical}" />
+    <!-- i18n:alternates -->
+    <!-- /i18n:alternates -->
+    <!-- i18n:script -->
+    <!-- /i18n:script -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHYGFNHM91"></script>
     <script>
@@ -115,7 +119,7 @@ const headCommon = (title, desc, canonical, ogTitle) => `
     <link rel="icon" type="image/png" sizes="512x512" href="../../assets/icons/gamepad_512.png" />
     <link rel="apple-touch-icon" href="../../assets/icons/gamepad_512.png" />
     <link rel="manifest" href="../../manifest.json" />
-    <meta name="theme-color" content="#1db954" />
+    <meta name="theme-color" content="#111215" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="${canonical}" />
@@ -126,7 +130,7 @@ const headCommon = (title, desc, canonical, ogTitle) => `
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../styles.css" />`;
 
 const faqHtml = `<!DOCTYPE html>
@@ -142,6 +146,10 @@ const faqHtml = `<!DOCTYPE html>
   <body class="page-pocketpad">
     <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+    <div class="container lang-row">
+      <!-- i18n:switcher -->
+      <!-- /i18n:switcher -->
+    </div>
     <div class="container pocket-top" id="fq-top"></div>
     <main class="container main-wide" id="fq-main">
       <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->
@@ -171,6 +179,10 @@ const howToHtml = `<!DOCTYPE html>
   <body class="page-pocketpad">
     <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+    <div class="container lang-row">
+      <!-- i18n:switcher -->
+      <!-- /i18n:switcher -->
+    </div>
     <div class="container pocket-top" id="ht-top"></div>
     <main class="container main-wide" id="ht-main">
       <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->
@@ -234,6 +246,10 @@ const whatsNewHtml = `<!DOCTYPE html>
   <body class="page-pocketpad">
     <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
     <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+    <div class="container lang-row">
+      <!-- i18n:switcher -->
+      <!-- /i18n:switcher -->
+    </div>
     <div class="container pocket-top" id="wn-top"></div>
     <main class="container main-wide" id="wn-main">
       <!-- Crawlable HTML (JS replaces this after load). Avoid empty-body soft 404s. -->

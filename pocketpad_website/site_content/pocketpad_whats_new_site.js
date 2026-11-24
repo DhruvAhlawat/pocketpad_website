@@ -10,6 +10,7 @@ import {
 } from "./pocketpad_whats_new_entries.js";
 import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
+import { loadDict, translateDom } from "./pocketpad_i18n.js";
 export const PocketPadWhatsNewContent = {
   meta: {
     title: "What's New in PocketPad Companion for Windows — Release Notes",
@@ -253,4 +254,7 @@ function renderPocketPadWhatsNew(content = PocketPadWhatsNewContent) {
   }
 }
 
+// Translated pages (/<lang>/): load the strings first so nothing shows in English.
+await loadDict("whatsnew");
 renderPocketPadWhatsNew();
+translateDom();

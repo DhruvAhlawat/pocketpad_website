@@ -5,6 +5,7 @@ import { datronHubPublicUrl, pocketpadAppIconAsset } from "./public_site_urls.js
 import { resolveAssetHref } from "./site_assets.js";
 import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
+import { loadDict, translateDom } from "./pocketpad_i18n.js";
 export const PocketPadPrivacyContent = {
   meta: {
     title: "PocketPad — Privacy Policy",
@@ -389,4 +390,7 @@ function renderPocketPadPrivacy(content = PocketPadPrivacyContent) {
   footer.replaceChildren(...buildFooter(content));
 }
 
+// Translated pages (/<lang>/): load the strings first so nothing shows in English.
+await loadDict("privacy");
 renderPocketPadPrivacy();
+translateDom();

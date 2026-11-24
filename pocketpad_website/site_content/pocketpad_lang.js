@@ -56,6 +56,6 @@
     for (var i = 0; i < prefs.length && !choice; i++) choice = match(prefs[i]);
   }
   if (!choice || choice === "en" || SUPPORTED.indexOf(choice) < 0) return;
-  var target = script.getAttribute("data-target-" + choice) || new URL("../" + choice + "/", script.src).href;
+  var target = new URL("../" + choice + "/" + (script.getAttribute("data-page") || ""), script.src).href;
   location.replace(target + location.hash);
 })();
