@@ -18,7 +18,8 @@ function hydrateDownloads() {
 
   const ver = document.getElementById("dl-version");
   if (ver && PocketPadDownloadArtifacts.version) {
-    ver.textContent = `Version ${PocketPadDownloadArtifacts.version}`;
+    // The span holds only the number; the word "Version" is part of the (translated) sentence.
+    ver.textContent = PocketPadDownloadArtifacts.version;
   }
 }
 
