@@ -61,8 +61,10 @@ a {
 
 .skip {
   position: absolute;
-  left: -999px;
+  inset-inline-start: 8px;
   top: 8px;
+  /* Hidden above the page until focused (no sideways offset, which would overflow in RTL). */
+  transform: translateY(-200%);
   z-index: 50;
   background: var(--peri);
   color: var(--peri-ink);
@@ -70,7 +72,7 @@ a {
   border-radius: 8px;
 }
 .skip:focus {
-  left: 8px;
+  transform: none;
 }
 
 /* Condensed, heavy display type */
@@ -192,7 +194,7 @@ a {
 .nav {
   display: flex;
   gap: 2px;
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 .nav a {
   padding: 8px 14px;
@@ -208,6 +210,75 @@ a {
 .nav a[aria-current="page"] {
   color: var(--text);
   background: var(--panel);
+}
+
+/* ---------- Language menu ---------- */
+.lang {
+  position: relative;
+  flex: none;
+}
+.lang summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  cursor: pointer;
+  list-style: none;
+}
+.lang summary::-webkit-details-marker {
+  display: none;
+}
+.lang summary:hover,
+.lang[open] summary {
+  color: var(--text);
+  background: var(--panel);
+}
+.lang summary svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+.lang__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-end: 0;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.7);
+}
+.lang__menu a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.lang__menu a:hover {
+  color: var(--text);
+  background: var(--line);
+}
+.lang__menu a[aria-current] {
+  color: var(--peri-ink);
+  background: var(--peri);
+  font-weight: 600;
 }
 
 /* ---------- Device frames around real screenshots ---------- */
@@ -423,7 +494,7 @@ a {
 }
 .warn__body ol {
   margin: 0 0 12px;
-  padding-left: 20px;
+  padding-inline-start: 20px;
   display: grid;
   gap: 8px;
 }
@@ -565,7 +636,13 @@ a {
     padding: 12px 0 8px;
   }
   .head__cta {
-    margin-left: auto;
+    margin-inline-start: auto;
+  }
+  .lang {
+    margin-inline-start: auto;
+  }
+  .lang + .head__cta {
+    margin-inline-start: 0;
   }
   .nav {
     order: 3;
@@ -611,6 +688,69 @@ a {
   .pill {
     padding: 0 20px;
   }
+}
+
+@media (max-width: 480px) {
+  .lang summary span {
+    display: none;
+  }
+  .lang summary {
+    padding: 0 12px;
+  }
+}
+
+/* ---------- Translated pages ---------- */
+/* Long words (German, Russian) may break instead of overflowing the big headings. */
+.display,
+.band__head h2,
+.way h3 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+/* Archivo has no glyphs for these scripts: keep it for Latin words, then use a native font. */
+:lang(ja) {
+  --display: "Archivo", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", "Noto Sans JP", sans-serif;
+}
+:lang(ko) {
+  --display: "Archivo", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+}
+:lang(zh-Hans) {
+  --display: "Archivo", "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+}
+:lang(zh-Hant) {
+  --display: "Archivo", "PingFang TC", "Microsoft JhengHei UI", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+}
+:lang(th) {
+  --display: "Archivo", "Leelawadee UI", "Thonburi", "Noto Sans Thai", sans-serif;
+}
+:lang(hi) {
+  --display: "Archivo", "Nirmala UI", "Kohinoor Devanagari", "Noto Sans Devanagari", sans-serif;
+}
+:lang(ar) {
+  --display: "Archivo", "Segoe UI", "Geeza Pro", "Noto Sans Arabic", Tahoma, sans-serif;
+}
+html:is(:lang(ja), :lang(ko), :lang(zh), :lang(th), :lang(hi), :lang(ar)) body {
+  font-family: var(--display);
+}
+/* Scripts with tall glyphs or no capitals need more room than the tight Latin display type. */
+html:is(:lang(ja), :lang(ko), :lang(zh), :lang(th), :lang(hi), :lang(ar)) :is(.display, .band__head h2, .way h3) {
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+html:is(:lang(th), :lang(hi)) :is(.display, .band__head h2, .way h3) {
+  line-height: 1.35;
+}
+html:is(:lang(ja), :lang(zh)) :is(h1, h2, h3, b) {
+  word-break: auto-phrase;
+}
+html:lang(ko) {
+  word-break: keep-all;
+}
+html:is(:lang(ja), :lang(ko), :lang(zh)) .hero .display {
+  font-size: clamp(2.5rem, 1.4rem + 3.8vw, 4.6rem);
+}
+html:is(:lang(ja), :lang(ko), :lang(zh)) .closing .display {
+  font-size: clamp(2.2rem, 1.4rem + 3vw, 3.8rem);
 }
 
 @media (prefers-reduced-motion: reduce) {

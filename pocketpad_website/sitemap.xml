@@ -1,11 +1,375 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- i18n:overview -->
   <url>
     <loc>https://pocketpad.datronapps.com/apps/pocketpad/index.html</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
   </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/ja/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/ko/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/zh-hans/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/zh-hant/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/ru/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/fr/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/es/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/pt-br/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/id/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/vi/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/th/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/de/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/tr/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/hi/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <url>
+    <loc>https://pocketpad.datronapps.com/ar/</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+      <xhtml:link rel="alternate" hreflang="ja" href="https://pocketpad.datronapps.com/ja/" />
+      <xhtml:link rel="alternate" hreflang="ko" href="https://pocketpad.datronapps.com/ko/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pocketpad.datronapps.com/zh-hans/" />
+      <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pocketpad.datronapps.com/zh-hant/" />
+      <xhtml:link rel="alternate" hreflang="ru" href="https://pocketpad.datronapps.com/ru/" />
+      <xhtml:link rel="alternate" hreflang="fr" href="https://pocketpad.datronapps.com/fr/" />
+      <xhtml:link rel="alternate" hreflang="es" href="https://pocketpad.datronapps.com/es/" />
+      <xhtml:link rel="alternate" hreflang="pt" href="https://pocketpad.datronapps.com/pt-br/" />
+      <xhtml:link rel="alternate" hreflang="id" href="https://pocketpad.datronapps.com/id/" />
+      <xhtml:link rel="alternate" hreflang="vi" href="https://pocketpad.datronapps.com/vi/" />
+      <xhtml:link rel="alternate" hreflang="th" href="https://pocketpad.datronapps.com/th/" />
+      <xhtml:link rel="alternate" hreflang="de" href="https://pocketpad.datronapps.com/de/" />
+      <xhtml:link rel="alternate" hreflang="tr" href="https://pocketpad.datronapps.com/tr/" />
+      <xhtml:link rel="alternate" hreflang="hi" href="https://pocketpad.datronapps.com/hi/" />
+      <xhtml:link rel="alternate" hreflang="ar" href="https://pocketpad.datronapps.com/ar/" />
+      <xhtml:link rel="alternate" hreflang="x-default" href="https://pocketpad.datronapps.com/apps/pocketpad/index.html" />
+  </url>
+  <!-- /i18n:overview -->
   <url>
     <loc>https://pocketpad.datronapps.com/apps/pocketpad/how-to.html</loc>
     <lastmod>2026-08-02</lastmod>
