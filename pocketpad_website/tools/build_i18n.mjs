@@ -28,19 +28,31 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(__dirname, "..");
 const origin = "https://pocketpad.datronapps.com";
 const checkOnly = process.argv.includes("--check");
+const verbose = process.argv.includes("--verbose");
 
-/** Pages that are translated. `out` is the file inside each language folder. */
-const pages = [
-  {
-    id: "overview",
-    source: "apps/pocketpad/index.html",
-    out: "index.html",
-    englishHref: "./index.html",
-    englishUrl: `${origin}/apps/pocketpad/index.html`,
-    localizedUrl: (code) => `${origin}/${code}/`,
-    sitemap: { changefreq: "weekly", priority: "1.0" },
-  },
+/**
+ * Pages that are translated. `out` is the file inside each language folder.
+ * Pages other than the home page are built in the browser by site_content/*_site.js; their
+ * rendered strings are listed in i18n/_source/<id>.runtime.json by tools/extract_i18n_strings.py.
+ */
+const pageDefs = [
+  ["overview", "index.html", "weekly", "1.0"],
+  ["howto", "how-to.html", "monthly", "0.9"],
+  ["faq", "faq.html", "monthly", "0.9"],
+  ["info", "info.html", "monthly", "0.8"],
+  ["tester", "gamepad-tester.html", "monthly", "0.8"],
+  ["whatsnew", "whats-new.html", "weekly", "0.7"],
+  ["privacy", "privacy.html", "yearly", "0.5"],
+  ["license", "license.html", "yearly", "0.4"],
 ];
+const pages = pageDefs.map(([id, file, changefreq, priority]) => ({
+  id,
+  source: `apps/pocketpad/${file}`,
+  out: file,
+  englishUrl: `${origin}/apps/pocketpad/${file}`,
+  localizedUrl: (code) => `${origin}/${code}/${file === "index.html" ? "" : file}`,
+  sitemap: { changefreq, priority },
+}));
 
 /** English page file names (relative to apps/pocketpad/) that have translations. */
 const translatedPageFiles = new Map(pages.map((p) => [path.basename(p.source), p.out]));
@@ -186,6 +198,10 @@ const onlyInline = (n) =>
   (n.type === "el" && (noTranslate(n) || (INLINE.has(n.tag) && n.children.every(onlyInline))));
 
 const normalize = (s) => s.replace(/\s+/g, " ").trim();
+/** "<a>FAQ</a> · <a>Overview</a>": a row of links is translated link by link, not as one string. */
+const isLinkList = (kids) =>
+  kids.filter((c) => c.type === "el" && c.tag === "a").length >= 2 &&
+  kids.every((c) => c.type !== "text" || /^[\s·|•,/]*$/.test(c.text));
 
 /** The key for a run of nodes: their HTML with translate="no" elements swapped for {0}, {1}... */
 function keyFor(nodes) {
@@ -227,7 +243,7 @@ function collectStrings(root) {
 
   function visit(el, parent) {
     if (el.type !== "el") return;
-    if (noTranslate(el)) return;
+    if (noTranslate(el) || el.tag === "pre" || el.tag === "svg") return;
     collectAttrs(el);
     if (RAW.has(el.tag)) {
       if (el.tag === "script" && getAttr(el, "type") === "application/ld+json") collectJsonLd(el);
@@ -236,7 +252,8 @@ function collectStrings(root) {
     const unit =
       (BLOCK_UNITS.has(el.tag) || (INLINE.has(el.tag) && !(parent && BLOCK_UNITS.has(parent.tag)))) &&
       el.children.every(onlyInline) &&
-      el.children.some(hasText);
+      el.children.some(hasText) &&
+      !isLinkList(el.children);
     if (unit) {
       for (const n of walk(el)) if (n !== el && n.type === "el") collectAttrs(n);
       // <li><a href="...">Text</a></li>: the string is just "Text", without the link markup.
@@ -294,7 +311,8 @@ function collectStrings(root) {
       } else if (obj && typeof obj === "object") {
         for (const [k, v] of Object.entries(obj)) {
           if (typeof v === "string") {
-            if (k === "description" || k === "text" || (k === "name" && obj["@type"] === "Question")) fields.push([obj, k]);
+            const named = ["Question", "HowTo", "HowToStep", "WebApplication", "WebPage", "Article"].includes(obj["@type"]);
+            if (k === "description" || k === "text" || (named && (k === "name" || k === "alternateName"))) fields.push([obj, k]);
           } else visitJson(v, k);
         }
       }
@@ -376,7 +394,10 @@ function switcherBlock(page, current, indent) {
 
 function scriptBlock(page, lang, indent) {
   const src = relFrom(pageDir(page, lang), "site_content/pocketpad_lang.js");
-  const auto = lang.code === sourceLanguage.code ? ' data-autodetect="1"' : "";
+  const auto =
+    lang.code === sourceLanguage.code
+      ? ` data-autodetect="1" data-page="${page.out === "index.html" ? "" : page.out}"`
+      : "";
   return `${indent}<script src="${src}"${auto}></script>`;
 }
 
@@ -449,7 +470,7 @@ function langScript() {
     for (var i = 0; i < prefs.length && !choice; i++) choice = match(prefs[i]);
   }
   if (!choice || choice === "en" || SUPPORTED.indexOf(choice) < 0) return;
-  var target = script.getAttribute("data-target-" + choice) || new URL("../" + choice + "/", script.src).href;
+  var target = new URL("../" + choice + "/" + (script.getAttribute("data-page") || ""), script.src).href;
   location.replace(target + location.hash);
 })();
 `;
@@ -502,16 +523,16 @@ function localize(englishHtml, page, lang, dict, report) {
       used.add(s.key);
     } else report.missing.add(s.key);
   }
-  for (const k of Object.keys(dict)) if (!used.has(k) && !k.startsWith("//")) report.unused.add(k);
   writeBackJsonLd(root, (data) => {
     if (data.url === page.englishUrl) data.url = urlFor(page, lang);
-    if (data["@type"] === "SoftwareApplication" || data["@type"] === "FAQPage") data.inLanguage = lang.htmlLang;
+    if (data["@type"] && data["@type"] !== "Organization") data.inLanguage = lang.htmlLang;
   });
 
   // Parse the translated page again so links inside translated strings get rewritten too.
   root = parse(serialize(root));
   const html = root.children.find((n) => n.tag === "html");
   setAttr(html, "lang", lang.htmlLang);
+  setAttr(html, "data-site-lang", lang.code);
   if (lang.dir === "rtl") setAttr(html, "dir", "rtl");
 
   for (const n of walk(root)) {
@@ -577,6 +598,11 @@ function updateSitemap() {
 let problems = 0;
 const writes = [];
 
+const readJson = (file, fallback) => (fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, "utf8")) : fallback);
+
+// English: fill the generated blocks, then list every string of every page.
+const englishHtml = new Map();
+const pageKeys = new Map();
 for (const page of pages) {
   const sourceFile = path.join(siteRoot, page.source);
   let english = fs.readFileSync(sourceFile, "utf8");
@@ -584,24 +610,46 @@ for (const page of pages) {
   english = fillMarker(english, "switcher", (indent) => switcherBlock(page, sourceLanguage, indent));
   english = fillMarker(english, "script", (indent) => scriptBlock(page, sourceLanguage, indent));
   writes.push([sourceFile, english]);
+  englishHtml.set(page.id, english);
+  const runtime = readJson(path.join(siteRoot, "i18n", "_source", `${page.id}.runtime.json`), []);
+  const keys = [...new Set([...collectStrings(parse(english)).map((s) => s.key), ...runtime])].filter(Boolean);
+  pageKeys.set(page.id, keys);
+}
 
-  const sourceStrings = [...new Set(collectStrings(parse(english)).map((s) => s.key))];
-  writes.push([
-    path.join(siteRoot, "i18n", "_source", `${page.id}.json`),
-    JSON.stringify(Object.fromEntries(sourceStrings.map((k) => [k, k])), null, 2) + "\n",
-  ]);
+// Strings used on two or more pages (nav, footer) go to common.json, translated once.
+// The home page keeps its own complete file.
+const seen = new Map();
+for (const page of pages) {
+  if (page.id === "overview") continue;
+  for (const k of pageKeys.get(page.id)) seen.set(k, (seen.get(k) || 0) + 1);
+}
+const commonKeys = [...seen].filter(([, n]) => n > 1).map(([k]) => k);
+const commonSet = new Set(commonKeys);
+const asObj = (keys) => JSON.stringify(Object.fromEntries(keys.map((k) => [k, k])), null, 2) + "\n";
+writes.push([path.join(siteRoot, "i18n", "_source", "common.json"), asObj(commonKeys)]);
+for (const page of pages) {
+  const own = page.id === "overview" ? pageKeys.get(page.id) : pageKeys.get(page.id).filter((k) => !commonSet.has(k));
+  writes.push([path.join(siteRoot, "i18n", "_source", `${page.id}.json`), asObj(own)]);
+}
 
-  for (const lang of languages) {
-    const dictFile = path.join(siteRoot, "i18n", lang.code, `${page.id}.json`);
-    const dict = fs.existsSync(dictFile) ? JSON.parse(fs.readFileSync(dictFile, "utf8")) : {};
+for (const lang of languages) {
+  const common = readJson(path.join(siteRoot, "i18n", lang.code, "common.json"), {});
+  for (const page of pages) {
+    const own = readJson(path.join(siteRoot, "i18n", lang.code, `${page.id}.json`), {});
+    const dict = page.id === "overview" ? own : { ...common, ...own };
     const report = { missing: new Set(), unused: new Set() };
-    const html = localize(english, page, lang, dict, report);
+    const html = localize(englishHtml.get(page.id), page, lang, dict, report);
+    for (const k of pageKeys.get(page.id)) if (!(typeof dict[k] === "string" && dict[k].trim())) report.missing.add(k);
+    const keys = new Set(pageKeys.get(page.id));
+    for (const k of Object.keys(own)) if (!keys.has(k)) report.unused.add(k);
     writes.push([path.join(siteRoot, lang.code, page.out), html]);
     if (report.missing.size || report.unused.size) {
       problems++;
       console.log(`\n${lang.code}/${page.out}: ${report.missing.size} missing, ${report.unused.size} unused`);
-      for (const k of report.missing) console.log(`  missing: ${k.slice(0, 110)}`);
-      for (const k of report.unused) console.log(`  unused:  ${k.slice(0, 110)}`);
+      if (verbose) {
+        for (const k of report.missing) console.log(`  missing: ${k.slice(0, 110)}`);
+        for (const k of report.unused) console.log(`  unused:  ${k.slice(0, 110)}`);
+      }
     }
   }
 }

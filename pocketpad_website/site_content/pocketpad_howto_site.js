@@ -10,6 +10,7 @@ import {
 } from "./public_site_urls.js";
 import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
+import { loadDict, translateDom } from "./pocketpad_i18n.js";
 export const PocketPadHowToContent = {
   meta: {
     title: "How to Connect PocketPad — Instant Bluetooth & Wi‑Fi Setup Guide",
@@ -381,4 +382,7 @@ function renderPocketPadHowTo(content = PocketPadHowToContent) {
   footer.replaceChildren(buildFooter(content));
 }
 
+// Translated pages (/<lang>/): load the strings first so nothing shows in English.
+await loadDict("howto");
 renderPocketPadHowTo();
+translateDom();

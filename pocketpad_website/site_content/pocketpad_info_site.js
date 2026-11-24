@@ -11,6 +11,7 @@ import {
 import { resolveAssetHref } from "./site_assets.js";
 import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
+import { loadDict, translateDom } from "./pocketpad_i18n.js";
 export const PocketPadInfoContent = {
   meta: {
     title: "PocketPad — Features & setup",
@@ -301,4 +302,7 @@ function renderPocketPadInfo(content = PocketPadInfoContent) {
   footer.replaceChildren(...buildFooter(content));
 }
 
+// Translated pages (/<lang>/): load the strings first so nothing shows in English.
+await loadDict("info");
 renderPocketPadInfo();
+translateDom();

@@ -5,6 +5,7 @@ import { datronHubPublicUrl, pocketpadAppIconAsset, pocketpadPlayStoreUrl } from
 import { PocketPadFaqEntries } from "./pocketpad_faq_entries.js";
 import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
+import { loadDict, translateDom } from "./pocketpad_i18n.js";
 export const PocketPadFaqContent = {
   meta: {
     title: "PocketPad FAQ — Phone as Gamepad, Keyboard, Mouse, TV Remote & More",
@@ -222,4 +223,7 @@ function renderPocketPadFaq(content = PocketPadFaqContent) {
   footer.replaceChildren(buildFooter(content));
 }
 
+// Translated pages (/<lang>/): load the strings first so nothing shows in English.
+await loadDict("faq");
 renderPocketPadFaq();
+translateDom();

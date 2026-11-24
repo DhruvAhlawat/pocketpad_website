@@ -10,6 +10,7 @@ import {
 import { resolveAssetHref } from "./site_assets.js";
 import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
+import { loadDict, translateDom } from "./pocketpad_i18n.js";
 export const PocketPadLicenseContent = {
   meta: {
     title: "PocketPad — License Agreement",
@@ -226,4 +227,7 @@ async function renderPocketPadLicense(content = PocketPadLicenseContent) {
   footer.replaceChildren(...buildFooter(content));
 }
 
-renderPocketPadLicense();
+// Translated pages (/<lang>/): load the strings first so nothing shows in English.
+await loadDict("license");
+await renderPocketPadLicense();
+translateDom();

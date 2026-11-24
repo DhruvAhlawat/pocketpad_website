@@ -10,6 +10,7 @@ import {
 } from "./public_site_urls.js";
 import { buildPocketPadTop, htmlToNodes } from "./pocketpad_chrome_shared.js";
 
+import { loadDict, t as tr, translateDom } from "./pocketpad_i18n.js";
 export const PocketPadGameTesterContent = {
   meta: {
     title: "Test Your Gamepad Online — Free Gamepad & Controller Tester",
@@ -409,11 +410,11 @@ function buildCardFor(pad, now) {
 
   const idx = document.createElement("span");
   idx.className = "gpt-card__index";
-  idx.textContent = `Gamepad ${pad.index + 1}`;
+  idx.textContent = tr("Gamepad {n}").replace("{n}", String(pad.index + 1));
 
   const badge = document.createElement("span");
   badge.className = "gpt-badge gpt-badge--idle";
-  badge.textContent = "No input yet";
+  badge.textContent = tr("No input yet");
 
   head.appendChild(name);
   head.appendChild(idx);
@@ -425,7 +426,7 @@ function buildCardFor(pad, now) {
   const modeNote = document.createElement("p");
   modeNote.className = "gpt-mode__note";
   modeNote.hidden = isXInput;
-  modeNote.textContent = "DirectInput instead of X-Input — sometimes requires button remapping in games, but works on most. Apps like Steam handle the remapping automatically.";
+  modeNote.textContent = tr("DirectInput instead of X-Input: some games need the buttons remapped, but most work. Apps like Steam handle the remapping automatically.");
   const modeTitle = document.createElement("h3");
   modeTitle.className = "gpt-mode__title";
   modeTitle.textContent = isXInput ? "X-Input" : "D-Input";
@@ -439,10 +440,10 @@ function buildCardFor(pad, now) {
   mapping.className = "gpt-card__mapping";
   mapping.textContent =
     pad.mapping === "standard"
-      ? " · standard layout"
+      ? " · " + tr("standard layout")
       : isXInput
-        ? " · standard order (mapped by Android)"
-        : " · raw DirectInput order";
+        ? " · " + tr("standard order (mapped by Android)")
+        : " · " + tr("raw DirectInput order");
   meta.appendChild(mapping);
 
   const visual = document.createElement("div");
@@ -463,17 +464,17 @@ function buildCardFor(pad, now) {
     return b;
   };
 
-  const lb = makeBtn("gpt-bumper gpt-bumper--l", 4, "LB", "Left bumper");
-  const rb = makeBtn("gpt-bumper gpt-bumper--r", 5, "RB", "Right bumper");
-  const lt = makeBtn("gpt-trigger gpt-trigger--l", 6, "LT", "Left trigger");
-  const rt = makeBtn("gpt-trigger gpt-trigger--r", 7, "RT", "Right trigger");
+  const lb = makeBtn("gpt-bumper gpt-bumper--l", 4, "LB", tr("Left bumper"));
+  const rb = makeBtn("gpt-bumper gpt-bumper--r", 5, "RB", tr("Right bumper"));
+  const lt = makeBtn("gpt-trigger gpt-trigger--l", 6, "LT", tr("Left trigger"));
+  const rt = makeBtn("gpt-trigger gpt-trigger--r", 7, "RT", tr("Right trigger"));
 
   const center = document.createElement("div");
   center.className = "gpt-center";
-  const back = makeBtn("gpt-centerbtn gpt-centerbtn--back", 8, "◀", "Back selector button");
-  const home = makeBtn("gpt-centerbtn gpt-centerbtn--home", 16, "◉", "Home button");
+  const back = makeBtn("gpt-centerbtn gpt-centerbtn--back", 8, "◀", tr("Back selector button"));
+  const home = makeBtn("gpt-centerbtn gpt-centerbtn--home", 16, "◉", tr("Home button"));
   home.style.display = "none";
-  const start = makeBtn("gpt-centerbtn gpt-centerbtn--start", 9, "▶", "Start menu button");
+  const start = makeBtn("gpt-centerbtn gpt-centerbtn--start", 9, "▶", tr("Start menu button"));
   center.appendChild(back);
   center.appendChild(home);
   center.appendChild(start);
@@ -489,7 +490,7 @@ function buildCardFor(pad, now) {
   const face = document.createElement("div");
   face.className = "gpt-face";
   for (const [i, letter] of Object.entries(FACE_BTNS)) {
-    face.appendChild(makeBtn("gpt-fbtn gpt-fbtn--" + letter, Number(i), letter.toUpperCase(), "Button " + letter.toUpperCase()));
+    face.appendChild(makeBtn("gpt-fbtn gpt-fbtn--" + letter, Number(i), letter.toUpperCase(), tr("Button {n}").replace("{n}", letter.toUpperCase())));
   }
 
   const stickL = document.createElement("div");
@@ -585,7 +586,7 @@ function buildCardFor(pad, now) {
     li.dataset.btn = String(i);
     const label = document.createElement("span");
     label.className = "gpt-chip__label";
-    label.textContent = `${i} · ${BUTTON_LABELS[i] || String(i)}`;
+    label.textContent = `${i} · ${BUTTON_LABELS[i] ? tr(BUTTON_LABELS[i]) : String(i)}`;
     const val = document.createElement("span");
     val.className = "gpt-chip__val";
     val.textContent = "–";
@@ -599,11 +600,11 @@ function buildCardFor(pad, now) {
   foot.className = "gpt-card__foot";
   const idle = document.createElement("span");
   idle.className = "gpt-idle";
-  idle.textContent = "Waiting for input…";
+  idle.textContent = tr("Waiting for input…");
   const rumble = document.createElement("button");
   rumble.type = "button";
   rumble.className = "gpt-rumble btn";
-  rumble.textContent = "Test vibration";
+  rumble.textContent = tr("Test vibration");
   foot.appendChild(idle);
   foot.appendChild(rumble);
 
@@ -731,7 +732,7 @@ function updateCard(rec, now) {
     rec.lastActivity = now;
     if (!rec.seen) {
       rec.seen = true;
-      rec.badge.textContent = "Works — receiving input";
+      rec.badge.textContent = tr("Works: receiving input");
       rec.badge.className = "gpt-badge gpt-badge--ok";
     }
   }
@@ -741,10 +742,10 @@ function updateCard(rec, now) {
   rec.card.classList.toggle("gpt-card--active", active);
 
   rec.idle.textContent = !rec.seen
-    ? "Waiting for input…"
+    ? tr("Waiting for input…")
     : idle > 4000
-      ? "No recent input"
-      : "Receiving input";
+      ? tr("No recent input")
+      : tr("Receiving input");
   rec.idle.classList.toggle("gpt-idle--warn", rec.seen && idle > 4000);
 
   const L = rec.layout;
@@ -792,7 +793,7 @@ function onRumble(rec) {
   const actuator = pad.vibrationActuator || (pad.hapticActuators && pad.hapticActuators[0]);
   if (!actuator || typeof actuator.playEffect !== "function") {
     rec.rumble.disabled = true;
-    rec.rumble.textContent = "Vibration not supported";
+    rec.rumble.textContent = tr("Vibration not supported");
     return;
   }
   try {
@@ -805,7 +806,7 @@ function onRumble(rec) {
     if (result && typeof result.catch === "function") result.catch(() => {});
   } catch {
     rec.rumble.disabled = true;
-    rec.rumble.textContent = "Vibration not supported";
+    rec.rumble.textContent = tr("Vibration not supported");
   }
 }
 
@@ -832,7 +833,9 @@ function updatePresence() {
   if (emptyEl) emptyEl.hidden = count > 0;
   if (statusEl) {
     statusEl.textContent = count
-      ? `${count} gamepad${count === 1 ? "" : "s"} connected — press any button or move a stick.`
+      ? (count === 1
+          ? tr("1 gamepad connected. Press any button or move a stick.")
+          : tr("{n} gamepads connected. Press any button or move a stick.").replace("{n}", String(count)))
       : idleStatusText;
   }
 }
@@ -909,9 +912,9 @@ function resetChecks() {
     rec.seen = false;
     rec.lastKey = stateKey(rec.pad);
     rec.lastActivity = performance.now();
-    rec.badge.textContent = "No input yet";
+    rec.badge.textContent = tr("No input yet");
     rec.badge.className = "gpt-badge gpt-badge--idle";
-    rec.idle.textContent = "Waiting for input…";
+    rec.idle.textContent = tr("Waiting for input…");
     rec.idle.classList.remove("gpt-idle--warn");
     rec.card.classList.remove("gpt-card--active");
   }
@@ -958,10 +961,10 @@ function renderPocketPadGameTester(content = PocketPadGameTesterContent) {
   emptyEl = tool.empty;
   gridEl = tool.grid;
   resetEl = tool.reset;
-  idleStatusText = content.toolSection.statusIdle;
+  idleStatusText = tr(content.toolSection.statusIdle);
   supportEl.textContent = typeof navigator !== "undefined" && typeof navigator.getGamepads === "function"
-    ? content.toolSection.supportedMsg
-    : content.toolSection.unsupportedMsg;
+    ? tr(content.toolSection.supportedMsg)
+    : tr(content.toolSection.unsupportedMsg);
 
   main.replaceChildren(
     buildIntro(content),
@@ -977,4 +980,7 @@ function renderPocketPadGameTester(content = PocketPadGameTesterContent) {
   startEngine();
 }
 
+// Translated pages (/<lang>/): load the strings first so nothing shows in English.
+await loadDict("tester");
 renderPocketPadGameTester();
+translateDom();
